@@ -1,5 +1,6 @@
 :root {
 	--color-grey-94: hsl(192deg, 15%, 94%);
+	--color-grey-50: hsl(192deg, 15%, 50%);
 	--color-off-black: #222;
 	--color-white: #fff;
 	--color-blue: #2980b9;
@@ -27,6 +28,7 @@
 	--theme-background-primary: var(--color-white);
 	--theme-background-secondary: var(--color-grey-94);
 	--theme-text-primary: var(--color-off-black);
+	--theme-text-secondary: var(--color-grey-50);
 	--theme-shadow: hsl(192deg, 15%, 94%, 0.3);
 
 	color: var(--theme-text-primary);
@@ -102,4 +104,21 @@ a {
 a:hover,
 a:focus {
 	text-decoration: underline;
+}
+
+p a {
+	font-weight: 500;
+}
+
+label,
+label small {
+	display: block;
+}
+
+label {
+	margin-bottom: 0.25rem;
+}
+
+label small {
+	color: var(--theme-text-secondary);
 }

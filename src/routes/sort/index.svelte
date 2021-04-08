@@ -68,6 +68,7 @@
 				<small>Fast to Slow</small></label
 			>
 			<input
+				id="speed"
 				min={fastest}
 				max={slowest}
 				step="10"
@@ -78,7 +79,7 @@
 		</p>
 	</div>
 
-	<div>
+	<div class="graphs">
 		<Graph {speed} name="Bubble" {items} sort={bubbleSort} />
 		<Graph {speed} name="Cocktail" {items} sort={cocktailSort} />
 		<Graph {speed} name="Insertion" {items} sort={insertionSort} />
@@ -89,9 +90,17 @@
 </Page>
 
 <style>
-	div {
+	.controls {
+		border-bottom: 1px solid var(--theme-background-secondary);
+		border-top: 1px solid var(--theme-background-secondary);
 		display: grid;
-		gap: 2rem;
+		gap: var(--space-s);
+		padding: var(--space-s) 0;
+	}
+
+	.graphs {
+		display: grid;
+		gap: var(--space-l);
 		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 	}
 </style>
