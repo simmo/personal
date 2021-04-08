@@ -16,5 +16,9 @@ module.exports = {
 		browser: true,
 		es2017: true,
 		node: true
+	},
+	rules: {
+		'@typescript-eslint/explicit-module-boundary-types': ['off'],
+		'eol-last': ['error', 'always']
 	}
 };
