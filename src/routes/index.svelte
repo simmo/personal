@@ -1,45 +1,56 @@
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+	import Page from '$lib/components/Page.svelte';
 </script>
 
-<main>
-	<h1>Hello world!</h1>
+<Page
+	heading="Hello, I’m Mike."
+	description="A UK based, Lead frontend engineer living in Sussex, working in London and remote."
+>
+	<p slot="intro">
+		Currently @Zone. I’ve spent over 10 years working across marketing and publishing sectors to
+		deliver high-end web apps, sites and products.
+	</p>
 
-	<Counter />
-
-	<p>Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte apps.</p>
-</main>
+	<section>
+		<h2>Projects</h2>
+		<div class="projects">
+			<article>
+				<a href="/sort">
+					<h3>Sort</h3>
+					<p>Using visualisation to explore different sorting algorithms.</p>
+				</a>
+			</article>
+			<article>
+				<a href="/snake">
+					<h3>Snake</h3>
+					<p>
+						A fun project to build a Snake game with CSS grid and a little bit of TypeScript.
+					</p></a
+				>
+			</article>
+		</div>
+	</section>
+</Page>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		margin: 0 auto;
+	section {
+		display: grid;
+		gap: var(--space-s);
 	}
 
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4rem;
-		font-weight: 100;
-		line-height: 1.1;
-		margin: 4rem auto;
-		max-width: 14rem;
+	.projects {
+		display: grid;
+		gap: var(--space-s);
+		grid-template-columns: repeat(2, 1fr);
 	}
 
-	p {
-		max-width: 14rem;
-		margin: 2rem auto;
-		line-height: 1.35;
+	article {
+		background-color: var(--theme-background-secondary);
+		border-radius: var(--space-xxs);
+		padding: var(--space-s);
 	}
 
-	@media (min-width: 480px) {
-		h1 {
-			max-width: none;
-		}
-
-		p {
-			max-width: none;
-		}
+	a {
+		color: inherit;
 	}
 </style>
