@@ -1,39 +1,60 @@
-<script>
+<script lang="ts">
+	import { userPreference } from '$lib/store/darkMode';
+
 	import Logo from './Logo.svelte';
+	import Select from './Select.svelte';
 </script>
 
 <header class="grid full">
-	<div>
+	<div class="inner">
 		<Logo size={25} />
-		<a href="/"><strong>mike.id</strong></a>
+		<a href="/">mike.id</a>
+		<div class="theme">
+			<label for="pref">Theme: </label><Select bind:value={$userPreference} id="pref">
+				<option value={null}>System</option>
+				<option value={true}>Dark</option>
+				<option value={false}>Light</option>
+			</Select>
+		</div>
 	</div>
 </header>
 
 <style>
 	header {
 		background-color: var(--theme-background-primary);
-		border-bottom: 1px solid var(--theme-background-secondary);
 		box-shadow: 0 1px 0 var(--space-xxs) var(--theme-shadow);
 		padding: var(--space-s) 0;
 		position: sticky;
 		top: 0;
+		z-index: 1;
 	}
 
-	div {
+	.inner {
 		align-content: center;
 		align-items: center;
 		display: grid;
 		gap: var(--space-xs);
-		grid-template-columns: auto auto 1fr;
+		grid-template-columns: auto auto 1fr auto;
+		grid-template-areas: 'icon link . theme';
 	}
 
 	a {
 		color: inherit;
+		grid-area: link;
 		line-height: 1;
+		font-weight: bold;
+		text-transform: uppercase;
 	}
 
-	strong {
-		font-size: var(--text-xs);
-		text-transform: uppercase;
+	.theme {
+		align-items: center;
+		display: grid;
+		gap: var(--space-xs);
+		grid-area: theme;
+		grid-template-columns: auto auto;
+	}
+
+	label {
+		margin: 0;
 	}
 </style>

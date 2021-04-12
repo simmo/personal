@@ -1,33 +1,55 @@
-<button {...$$props} on:click>
+<script lang="ts">
+	export let inverted: boolean = false;
+	export let square: boolean = false;
+</script>
+
+<button {...$$props} class:inverted class:square on:click>
 	<slot />
 </button>
 
 <style>
 	button {
 		appearance: none;
-		background-color: #f9f9f9;
-		border-radius: 0.3rem;
-		border: 1px solid #ddd;
+		background-color: var(--theme-accent);
+		border-radius: var(--space-xxs);
+		border: 0;
+		color: var(--color-white);
 		display: inline-grid;
 		line-height: 1;
+		font: inherit;
+		font-weight: bold;
 		margin: 0;
-		padding: 0.5rem;
+		padding: var(--space-xs) var(--space-s);
+		outline: none;
+	}
+
+	button.inverted {
+		background-color: var(--theme-background-primary);
+		color: var(--theme-text-primary);
+	}
+
+	button.square {
+		padding: var(--space-xs);
 	}
 
 	button:not(:disabled) {
 		cursor: pointer;
-		transition: border 0.3s;
+		transition-duration: 0.3s;
+		transition-property: color, border, box-shadow;
 	}
 
 	button:not(:disabled):hover,
 	button:not(:disabled):focus {
-		color: var(--light-green);
-		border-color: var(--light-green);
+		/* box-shadow: 0 0 0 2px var(--theme-accent) inset, 0 0 0 3px currentColor inset; */
+	}
+
+	button.inverted:not(:disabled):hover,
+	button.inverted:not(:disabled):focus {
+		box-shadow: 0 0 0 2px var(--theme-accent);
 	}
 
 	button:disabled {
-		border-color: var(--grey);
 		filter: grayscale(1);
-		opacity: 0.6;
+		opacity: 0.4;
 	}
 </style>

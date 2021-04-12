@@ -4,8 +4,6 @@
 	export let description: string;
 
 	const title = [...pageTitle, 'Mike Simmonds'].join(' - ');
-
-	console.log(title);
 </script>
 
 <svelte:head>
@@ -41,6 +39,7 @@
 
 	p {
 		font-size: var(--text-m);
+		line-height: 1.4;
 	}
 
 	.body {

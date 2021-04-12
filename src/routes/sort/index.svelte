@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Page from '$lib/components/Page.svelte';
+	import Range from '$lib/components/Range.svelte';
 	import debounce from '$lib/utils/debounce';
 	import track from '$lib/utils/track';
 	import Graph from './_project/components/Graph.svelte';
@@ -46,7 +47,7 @@
 
 <Page
 	pageTitle={['Sorting']}
-	heading="Sorting"
+	heading="Sorting Algorithms"
 	description="Using visualisation to explore different sorting algorithms."
 >
 	<p slot="intro">
@@ -67,12 +68,11 @@
 				>Speed
 				<small>Fast to Slow</small></label
 			>
-			<input
+			<Range
 				id="speed"
 				min={fastest}
 				max={slowest}
-				step="10"
-				type="range"
+				step={10}
 				bind:value={speed}
 				on:input={trackSpeed}
 			/>
@@ -101,6 +101,6 @@
 	.graphs {
 		display: grid;
 		gap: var(--space-l);
-		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+		grid-template-columns: var(--grid-two-cols);
 	}
 </style>

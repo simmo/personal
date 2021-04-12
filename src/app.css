@@ -1,6 +1,9 @@
 :root {
-	--color-grey-94: hsl(192deg, 15%, 94%);
-	--color-grey-50: hsl(192deg, 15%, 50%);
+	--color-grey-95: hsl(0deg, 0%, 95%);
+	--color-grey-60: hsl(0deg, 0%, 60%);
+	--color-grey-50: hsl(0deg, 0%, 50%);
+	--color-grey-20: hsl(0deg, 0%, 20%);
+	--color-black: #000;
 	--color-off-black: #222;
 	--color-white: #fff;
 	--color-blue: #2980b9;
@@ -11,7 +14,9 @@
 	--color-teal: #16a085;
 	--color-yellow: #f39c12;
 
-	--space-xxs: 0.25rem;
+	--grid-two-cols: repeat(auto-fit, minmax(20rem, 1fr));
+
+	--space-xxs: 0.3rem;
 	--space-xs: 0.5rem;
 	--space-s: 1rem;
 	--space-m: 1.5rem;
@@ -22,27 +27,39 @@
 	--text-l: 2.6rem;
 	--text-m: 1.4rem;
 	--text-s: 1rem;
-	--text-xs: 0.9rem;
+	--text-xs: 0.85rem;
 
 	--theme-accent: var(--color-green);
 	--theme-background-primary: var(--color-white);
-	--theme-background-secondary: var(--color-grey-94);
+	--theme-background-secondary: var(--color-grey-95);
 	--theme-text-primary: var(--color-off-black);
 	--theme-text-secondary: var(--color-grey-50);
-	--theme-shadow: hsl(192deg, 15%, 94%, 0.3);
+	--theme-shadow: hsl(0deg, 0%, 90%, 30%);
 
-	color: var(--theme-text-primary);
 	font-family: 'Source Code Pro', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
 		'Oxygen Mono', 'Ubuntu Monospace', 'Roboto Mono', 'Fira Mono', 'Droid Sans Mono', 'Courier New',
 		monospace;
-	font-size: 20px;
-	font-size: clamp(14px, 3vw, 16px);
+	font-size: clamp(16px, 2vw, 18px);
 	font-weight: 300;
-	line-height: 1.5;
+	line-height: 1.6;
+}
+
+:root[dark] {
+	--theme-background-primary: var(--color-off-black);
+	--theme-background-secondary: var(--color-grey-20);
+	--theme-text-primary: var(--color-white);
+	--theme-text-secondary: var(--color-grey-60);
+	--theme-shadow: hsla(0deg, 0%, 0%, 10%);
+}
+
+* {
+	box-sizing: border-box;
 }
 
 body {
+	color: var(--theme-text-primary);
 	background-color: var(--theme-background-primary);
+	font-size: 100%;
 	padding: 0;
 }
 
@@ -110,15 +127,24 @@ p a {
 	font-weight: 500;
 }
 
+small {
+	font-size: var(--text-xs);
+}
+
 label,
 label small {
 	display: block;
 }
 
 label {
-	margin-bottom: 0.25rem;
+	margin-bottom: var(--space-xs);
 }
 
 label small {
 	color: var(--theme-text-secondary);
+}
+
+.icon {
+	height: 1em;
+	width: 1em;
 }

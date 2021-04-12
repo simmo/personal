@@ -7,8 +7,8 @@
 	description="A UK based, Lead frontend engineer living in Sussex, working in London and remote."
 >
 	<p slot="intro">
-		Currently @Zone. I’ve spent over 10 years working across marketing and publishing sectors to
-		deliver high-end web apps, sites and products.
+		Currently <a href="https://zonedigital.com">@Zone</a>. I’ve spent over 10 years working across
+		marketing and publishing sectors to deliver high-end web apps, sites and products.
 	</p>
 
 	<section>
@@ -21,12 +21,10 @@
 				</a>
 			</article>
 			<article>
-				<a href="/snake">
+				<a href="https://snake.simmo.codes">
 					<h3>Snake</h3>
-					<p>
-						A fun project to build a Snake game with CSS grid and a little bit of TypeScript.
-					</p></a
-				>
+					<p>A fun project to build a Snake game with CSS grid and a little bit of TypeScript.</p>
+				</a>
 			</article>
 		</div>
 	</section>
@@ -41,16 +39,16 @@
 	.projects {
 		display: grid;
 		gap: var(--space-s);
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: var(--grid-two-cols);
 	}
 
 	article {
 		background-color: var(--theme-background-secondary);
 		border-radius: var(--space-xxs);
-		padding: var(--space-s);
+		padding: var(--space-m);
 	}
 
-	a {
+	article a {
 		color: inherit;
 	}
 </style>

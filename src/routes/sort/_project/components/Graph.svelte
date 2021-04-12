@@ -4,6 +4,12 @@
 	import Button from '$lib/components/Button.svelte';
 	import type { Sorter } from 'src/routes/sort/_project/utils/types';
 	import track from '$lib/utils/track';
+	import Pause from '$lib/icons/Pause.svelte';
+	import Start from '$lib/icons/Start.svelte';
+	import Next from '$lib/icons/Next.svelte';
+	import Reset from '$lib/icons/Reset.svelte';
+	import { isDarkMode } from '$lib/store/darkMode';
+	import getCssVar from '../../../../lib/utils/getCssVar';
 
 	export let items: number[];
 	export let name: string;
@@ -43,6 +49,17 @@
 
 	function draw() {
 		frameId = window.requestAnimationFrame(() => {
+			if (!canvas) return;
+
+			const colors = {
+				operation: getCssVar('--color-green'),
+				comparision: getCssVar('--color-yellow'),
+				sorted: getCssVar('--theme-text-primary'),
+				unsorted: getCssVar('--theme-text-secondary'),
+				pointer: getCssVar('--color-purple'),
+				pivot: getCssVar('--color-red'),
+				bar: getCssVar('--color-grey-95'),
+			};
 			const ctx = canvas.getContext('2d');
 			const gap = 1 * dpr;
 			const indicator = 5 * dpr;
@@ -52,7 +69,7 @@
 
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-			ctx.fillStyle = '#ddd';
+			ctx.fillStyle = colors.bar;
 			ctx.fillRect(0, canvas.height - indicator, canvas.width, indicator);
 
 			sortedItems.forEach((item, index) => {
@@ -61,7 +78,7 @@
 				const isPivot = pivots.includes(index);
 
 				if (isPointer || isPivot) {
-					ctx.fillStyle = isPointer ? '#f39c12' : '#c0392b';
+					ctx.fillStyle = isPointer ? colors.pointer : colors.pivot;
 
 					ctx.fillRect(
 						index * barWidth + index * gap,
@@ -72,13 +89,13 @@
 				}
 
 				if (operations.includes(index)) {
-					ctx.fillStyle = '#27ae60';
+					ctx.fillStyle = colors.operation;
 				} else if (comparisions.includes(index)) {
-					ctx.fillStyle = '#f1c40f';
+					ctx.fillStyle = colors.comparision;
 				} else if (sorted.includes(index)) {
-					ctx.fillStyle = '#34495e';
+					ctx.fillStyle = colors.sorted;
 				} else {
-					ctx.fillStyle = '#bdc3c7';
+					ctx.fillStyle = colors.unsorted;
 				}
 
 				ctx.fillRect(
@@ -181,8 +198,13 @@
 
 		reset();
 
+		const unsubscribe = isDarkMode.subscribe(draw);
+
 		return () => {
+			state = State.Idle;
+			window.clearTimeout(intervalId);
 			window.cancelAnimationFrame(frameId);
+			unsubscribe();
 		};
 	});
 </script>
@@ -192,24 +214,26 @@
 <section>
 	<header>
 		<h2>{name}</h2>
-		<Button disabled={complete} on:click={running ? pause : start}>
+		<Button disabled={complete} inverted on:click={running ? pause : start} square>
 			{#if running}
-				<img alt="Pause" src="pause.svg" />
+				<Pause />
 			{:else}
-				<img alt="Start" src="start.svg" />
+				<Start />
 			{/if}
 		</Button>
-		<Button disabled={complete || running} on:click={next}>
-			<img alt="Next" src="next.svg" />
+		<Button disabled={complete || running} inverted on:click={next} square>
+			<Next />
 		</Button>
 		<Button
 			disabled={!complete && !paused}
+			inverted
 			on:click={() => {
 				track('click', { category: name, label: 'reset' });
 				reset();
 			}}
+			square
 		>
-			<img alt="Reset" src="reset.svg" />
+			<Reset />
 		</Button>
 	</header>
 	<canvas class="canvas" bind:this={canvas} width="1800" height="900" />
@@ -235,26 +259,26 @@
 
 	section {
 		background-color: var(--theme-background-secondary);
-		border-radius: 0.3rem;
+		border-radius: var(--space-xxs);
 		display: grid;
-		gap: 1rem;
-		padding: 1rem;
+		gap: var(--space-s);
+		padding: var(--space-m);
 	}
 
 	header {
 		align-items: center;
 		display: grid;
-		gap: 0.5rem;
+		gap: var(--space-xs);
 		grid-template-columns: 1fr auto auto auto;
 	}
 
 	footer {
-		font-size: 0.9rem;
+		font-size: var(--text-xs);
 	}
 
 	.details {
 		display: grid;
-		gap: 0.25rem 2rem;
+		gap: var(--space-xxs) var(--space-l);
 		grid-template-columns: 1fr 1fr;
 		list-style: none;
 		margin: 0;
@@ -263,16 +287,11 @@
 
 	.details li {
 		display: grid;
-		gap: 0.25rem;
+		gap: var(--space-xxs);
 		grid-template-columns: 1fr auto;
 	}
 
 	h2 {
 		margin: 0;
-	}
-
-	img {
-		height: 1rem;
-		width: 1rem;
 	}
 </style>

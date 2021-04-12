@@ -2,27 +2,27 @@ import type { SorterOptions } from '../utils/types';
 import swap from '../utils/swap';
 
 export default function* insertionSort<T>(
-  items: T[],
-  { onComparison, onOperation, onPointer, onSorted }: SorterOptions
+	items: T[],
+	{ onComparison, onOperation, onPointer, onSorted }: SorterOptions
 ) {
-  yield onSorted(0);
+	yield onSorted(0);
 
-  for (let i = 1; i < items.length; i++) {
-    onPointer();
+	for (let i = 1; i < items.length; i++) {
+		onPointer();
 
-    for (let j = i - 1; j > -1; j--) {
-      onPointer(j);
-      yield onComparison(j, j + 1);
+		for (let j = i - 1; j > -1; j--) {
+			onPointer(j);
+			yield onComparison(j, j + 1);
 
-      if (items[j + 1] < items[j]) {
-        swap(items, j + 1, j);
+			if (items[j + 1] < items[j]) {
+				swap(items, j + 1, j);
 
-        yield onOperation(j, j + 1);
-      }
-    }
+				yield onOperation(j, j + 1);
+			}
+		}
 
-    yield onSorted(i);
-  }
+		yield onSorted(i);
+	}
 
-  return items;
+	return items;
 }
