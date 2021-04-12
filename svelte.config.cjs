@@ -1,5 +1,6 @@
-const sveltePreprocess = require('svelte-preprocess');
+const autoprefixer = require('autoprefixer');
 const pkg = require('./package.json');
+const sveltePreprocess = require('svelte-preprocess');
 const vercel = require('@sveltejs/adapter-vercel');
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -17,6 +18,11 @@ module.exports = {
 		target: '#svelte',
 
 		vite: {
+			css: {
+				postcss: {
+					plugins: [autoprefixer],
+				}
+			},
 			ssr: {
 				noExternal: Object.keys(pkg.dependencies || {})
 			}

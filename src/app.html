@@ -1,9 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-gb">
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-N9SY99BB39"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-N9SY99BB39');
+		</script>
+
 		<meta charset="utf-8" />
+		
+		<meta property="og:type" content="website" />
+
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500;700&display=swap" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+		<script>
+			window._systemPrefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+			
+			const userPrefersDark = window.localStorage.getItem('theme');
+
+			window._toggleTheme = (enable) => {
+				document.documentElement.toggleAttribute('dark', enable);
+			};
+
+			window._toggleTheme(userPrefersDark === null ? window._systemPrefersDarkQuery.matches : JSON.parse(userPrefersDark));
+		</script>
 		%svelte.head%
 	</head>
 	<body>
