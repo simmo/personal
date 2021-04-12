@@ -214,17 +214,24 @@
 <section>
 	<header>
 		<h2>{name}</h2>
-		<Button disabled={complete} inverted on:click={running ? pause : start} square>
+		<Button
+			aria-label={running ? 'Pause' : 'Start'}
+			disabled={complete}
+			inverted
+			on:click={running ? pause : start}
+			square
+		>
 			{#if running}
 				<Pause />
 			{:else}
 				<Start />
 			{/if}
 		</Button>
-		<Button disabled={complete || running} inverted on:click={next} square>
+		<Button aria-label="Next" disabled={complete || running} inverted on:click={next} square>
 			<Next />
 		</Button>
 		<Button
+			aria-label="Reset"
 			disabled={!complete && !paused}
 			inverted
 			on:click={() => {
