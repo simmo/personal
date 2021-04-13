@@ -12,6 +12,6 @@
 
 <style>
 	main {
-		row-gap: var(--space-xxl);
+		row-gap: var(--space-xl);
 	}
 </style>

@@ -39,6 +39,7 @@
 		display: none;
 	}
 
+	select:hover,
 	select:focus {
 		box-shadow: 0 0 0 2px var(--theme-accent) inset;
 		outline: none;

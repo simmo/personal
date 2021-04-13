@@ -1,13 +1,15 @@
 :root {
+	--color-grey-100: hsl(0, 0%, 100%);
 	--color-grey-95: hsl(0, 0%, 95%);
 	--color-grey-60: hsl(0, 0%, 60%);
 	--color-grey-50: hsl(0, 0%, 50%);
 	--color-grey-20: hsl(0, 0%, 20%);
-	--color-black: #000;
-	--color-off-black: #222;
-	--color-white: #fff;
+	--color-grey-13: hsl(0, 0%, 13%);
+	--color-grey-0: hsl(0, 0%, 0%);
+
 	--color-blue: #2980b9;
 	--color-green: #27ae60;
+	--color-green-light: #2ecc71;
 	--color-orange: #d35400;
 	--color-purple: #8e44ad;
 	--color-red: #c0392b;
@@ -22,8 +24,7 @@
 	--space-s: 1rem;
 	--space-m: 1.5rem;
 	--space-l: 2rem;
-	--space-xl: 2.5rem;
-	--space-xxl: 3rem;
+	--space-xl: 3rem;
 
 	--text-l: 2.6rem;
 	--text-m: 1.4rem;
@@ -31,9 +32,9 @@
 	--text-xs: 0.85rem;
 
 	--theme-accent: var(--color-green);
-	--theme-background-primary: var(--color-white);
+	--theme-background-primary: var(--color-grey-100);
 	--theme-background-secondary: var(--color-grey-95);
-	--theme-text-primary: var(--color-off-black);
+	--theme-text-primary: var(--color-grey-13);
 	--theme-text-secondary: var(--color-grey-50);
 	--theme-shadow: hsla(0, 0%, 90%, 30%);
 
@@ -46,9 +47,9 @@
 }
 
 :root[dark] {
-	--theme-background-primary: var(--color-off-black);
+	--theme-background-primary: var(--color-grey-13);
 	--theme-background-secondary: var(--color-grey-20);
-	--theme-text-primary: var(--color-white);
+	--theme-text-primary: var(--color-grey-100);
 	--theme-text-secondary: var(--color-grey-60);
 	--theme-shadow: hsla(0, 0%, 0%, 10%);
 }
@@ -102,7 +103,8 @@ p {
 	}
 }
 
-.grid > * {
+.grid > *,
+.grid > .main {
 	grid-column: main;
 }
 

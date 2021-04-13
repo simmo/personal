@@ -38,12 +38,9 @@
 		cursor: grab;
 		height: var(--space-s);
 		margin-top: calc(var(--space-xxs) * -1);
+		transition-duration: 0.3s;
+		transition-property: background-color, box-shadow;
 		width: var(--space-s);
-	}
-
-	input[type='range']:focus::-webkit-slider-thumb {
-		box-shadow: 0 0 0 5px var(--theme-accent) inset;
-		background-color: var(--color-white);
 	}
 
 	input[type='range']::-moz-range-thumb {
@@ -53,11 +50,31 @@
 		cursor: grab;
 		height: var(--space-s);
 		margin-top: calc(var(--space-xxs) * -1);
+		transition-duration: 0.3s;
+		transition-property: background-color, box-shadow;
 		width: var(--space-s);
+	}
+
+	input[type='range']:active::-webkit-slider-thumb {
+		background-color: hsl(145, 63%, 49%);
+	}
+
+	input[type='range']:active::-moz-range-thumb {
+		background-color: hsl(145, 63%, 49%);
+	}
+
+	input[type='range']:focus::-webkit-slider-thumb,
+	input[type='range']:hover::-webkit-slider-thumb {
+		box-shadow: 0 0 0 var(--space-xxs) hsla(0, 100%, 100%, 15%);
+	}
+
+	input[type='range']:focus::-moz-range-thumb,
+	input[type='range']:hover::-moz-range-thumb {
+		box-shadow: 0 0 0 var(--space-xs) hsla(0, 100%, 100%, 10%);
 	}
 
 	input[type='range']:focus::-moz-range-thumb {
 		box-shadow: 0 0 0 5px var(--theme-accent) inset;
-		background-color: var(--color-white);
+		background-color: var(--color-grey-100);
 	}
 </style>
