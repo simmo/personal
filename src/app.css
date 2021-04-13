@@ -1,8 +1,8 @@
 :root {
-	--color-grey-95: hsl(0deg, 0%, 95%);
-	--color-grey-60: hsl(0deg, 0%, 60%);
-	--color-grey-50: hsl(0deg, 0%, 50%);
-	--color-grey-20: hsl(0deg, 0%, 20%);
+	--color-grey-95: hsl(0, 0%, 95%);
+	--color-grey-60: hsl(0, 0%, 60%);
+	--color-grey-50: hsl(0, 0%, 50%);
+	--color-grey-20: hsl(0, 0%, 20%);
 	--color-black: #000;
 	--color-off-black: #222;
 	--color-white: #fff;
@@ -14,6 +14,7 @@
 	--color-teal: #16a085;
 	--color-yellow: #f39c12;
 
+	--grid-gutter: minmax(clamp(var(--space-s), 2vmax, var(--space-l)), 1fr);
 	--grid-two-cols: repeat(auto-fit, minmax(20rem, 1fr));
 
 	--space-xxs: 0.3rem;
@@ -34,12 +35,12 @@
 	--theme-background-secondary: var(--color-grey-95);
 	--theme-text-primary: var(--color-off-black);
 	--theme-text-secondary: var(--color-grey-50);
-	--theme-shadow: hsl(0deg, 0%, 90%, 30%);
+	--theme-shadow: hsla(0, 0%, 90%, 30%);
 
 	font-family: 'Source Code Pro', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
 		'Oxygen Mono', 'Ubuntu Monospace', 'Roboto Mono', 'Fira Mono', 'Droid Sans Mono', 'Courier New',
 		monospace;
-	font-size: clamp(16px, 2vw, 18px);
+	font-size: 16px;
 	font-weight: 300;
 	line-height: 1.6;
 }
@@ -49,7 +50,7 @@
 	--theme-background-secondary: var(--color-grey-20);
 	--theme-text-primary: var(--color-white);
 	--theme-text-secondary: var(--color-grey-60);
-	--theme-shadow: hsla(0deg, 0%, 0%, 10%);
+	--theme-shadow: hsla(0, 0%, 0%, 10%);
 }
 
 * {
@@ -76,11 +77,11 @@ p {
 	display: grid;
 	grid-template-columns:
 		[full-start]
-		minmax(clamp(var(--space-s), 5vmax, var(--space-l)), 1fr)
+		var(--grid-gutter)
 		[main-start content-start]
 		minmax(0, 45rem)
 		[content-end main-end]
-		minmax(clamp(var(--space-s), 5vmax, var(--space-l)), 1fr)
+		var(--grid-gutter)
 		[full-end];
 }
 
@@ -88,7 +89,7 @@ p {
 	.grid {
 		grid-template-columns:
 			[full-start]
-			minmax(clamp(var(--space-s), 5vmax, var(--space-l)), 1fr)
+			var(--grid-gutter)
 			[main-start]
 			minmax(0, 7.5rem)
 			[content-start]
@@ -96,7 +97,7 @@ p {
 			[content-end]
 			minmax(0, 7.5rem)
 			[main-end]
-			minmax(clamp(var(--space-s), 5vmax, var(--space-l)), 1fr)
+			var(--grid-gutter)
 			[full-end];
 	}
 }
