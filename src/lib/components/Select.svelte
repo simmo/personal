@@ -25,6 +25,7 @@
 		background-color: var(--theme-background-secondary);
 		border: 0;
 		border-radius: var(--space-xxs);
+		box-shadow: 0 0 0 0 transparent inset;
 		color: inherit;
 		cursor: pointer;
 		font: inherit;
@@ -32,6 +33,8 @@
 		line-height: 1.2;
 		margin: 0;
 		padding: var(--space-xxs) var(--space-m) var(--space-xxs) var(--space-xs);
+		transition-duration: 0.3s;
+		transition-property: box-shadow;
 		width: 100%;
 	}
 
