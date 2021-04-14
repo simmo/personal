@@ -27,7 +27,7 @@
 <style>
 	header {
 		display: grid;
-		gap: var(--space-s);
+		row-gap: var(--space-s);
 		padding-top: 5vmax;
 	}
 
