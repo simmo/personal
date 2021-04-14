@@ -58,6 +58,11 @@
 	box-sizing: border-box;
 }
 
+html,
+body {
+	height: 100%;
+}
+
 body {
 	color: var(--theme-text-primary);
 	background-color: var(--theme-background-primary);
