@@ -14,7 +14,7 @@
 		border-radius: var(--space-xxs);
 		border: 0;
 		box-shadow: 0 0 0 0 transparent;
-		color: var(--color-grey-100);
+		color: var(--color-white);
 		display: inline-grid;
 		line-height: 1;
 		font: inherit;

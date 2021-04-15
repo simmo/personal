@@ -51,6 +51,10 @@
 		frameId = window.requestAnimationFrame(() => {
 			if (!canvas) return;
 
+			const ctx = canvas.getContext('2d');
+
+			if (!ctx) return;
+
 			const colors = {
 				operation: getCssVar('--color-green'),
 				comparision: getCssVar('--color-yellow'),
@@ -58,9 +62,9 @@
 				unsorted: getCssVar('--theme-text-secondary'),
 				pointer: getCssVar('--color-purple'),
 				pivot: getCssVar('--color-red'),
-				bar: getCssVar('--color-grey-95'),
+				bar: getCssVar('--theme-highlight'),
 			};
-			const ctx = canvas.getContext('2d');
+
 			const gap = 1 * dpr;
 			const indicator = 5 * dpr;
 			const barWidth = (canvas.width - (sortedItems.length - 1) * gap) / sortedItems.length;

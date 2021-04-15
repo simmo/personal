@@ -15,8 +15,10 @@
 </svelte:head>
 
 <header class="content">
-	<h1>{heading}</h1>
-	<p>{description}</p>
+	<div class="inner">
+		<h1>{heading}</h1>
+		<p>{description}</p>
+	</div>
 	<slot name="intro" />
 </header>
 
@@ -29,6 +31,11 @@
 		display: grid;
 		row-gap: var(--space-s);
 		padding-top: 5vmax;
+	}
+
+	.inner {
+		display: grid;
+		row-gap: var(--space-xs);
 	}
 
 	h1 {

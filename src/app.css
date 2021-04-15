@@ -1,12 +1,4 @@
 :root {
-	--color-grey-100: hsl(0, 0%, 100%);
-	--color-grey-95: hsl(0, 0%, 95%);
-	--color-grey-60: hsl(0, 0%, 60%);
-	--color-grey-50: hsl(0, 0%, 50%);
-	--color-grey-20: hsl(0, 0%, 20%);
-	--color-grey-13: hsl(0, 0%, 13%);
-	--color-grey-0: hsl(0, 0%, 0%);
-
 	--color-blue: #2980b9;
 	--color-green: #27ae60;
 	--color-green-light: #2ecc71;
@@ -15,6 +7,7 @@
 	--color-red: #c0392b;
 	--color-teal: #16a085;
 	--color-yellow: #f39c12;
+	--color-white: hsl(0, 0%, 100%);
 
 	--grid-gutter: minmax(clamp(var(--space-s), 2vmax, var(--space-l)), 1fr);
 	--grid-two-cols: repeat(auto-fit, minmax(20rem, 1fr));
@@ -31,12 +24,14 @@
 	--text-s: 1rem;
 	--text-xs: 0.85rem;
 
-	--theme-accent: var(--color-green);
-	--theme-background-primary: var(--color-grey-100);
-	--theme-background-secondary: var(--color-grey-95);
-	--theme-text-primary: var(--color-grey-13);
-	--theme-text-secondary: var(--color-grey-50);
+	--theme-accent: #27ae60;
+	--theme-accent-light: #2ecc71;
+	--theme-background-primary: hsl(0, 0%, 100%);
+	--theme-background-secondary: hsl(0, 0%, 95%);
+	--theme-text-primary: hsl(0, 0%, 13%);
+	--theme-text-secondary: hsl(0, 0%, 60%);
 	--theme-shadow: hsla(0, 0%, 90%, 30%);
+	--theme-highlight: hsla(0, 0%, 0%, 10%);
 
 	font-family: 'Source Code Pro', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
 		'Oxygen Mono', 'Ubuntu Monospace', 'Roboto Mono', 'Fira Mono', 'Droid Sans Mono', 'Courier New',
@@ -47,11 +42,12 @@
 }
 
 :root[dark] {
-	--theme-background-primary: var(--color-grey-13);
-	--theme-background-secondary: var(--color-grey-20);
-	--theme-text-primary: var(--color-grey-100);
-	--theme-text-secondary: var(--color-grey-60);
-	--theme-shadow: hsla(0, 0%, 0%, 10%);
+	--theme-background-primary: hsl(0, 0%, 8%);
+	--theme-background-secondary: hsl(240, 3%, 13%);
+	--theme-text-primary: hsl(0, 0%, 100%);
+	--theme-text-secondary: hsl(0, 0%, 47%);
+	--theme-shadow: hsla(0, 0%, 5%, 60%);
+	--theme-highlight: hsla(0, 100%, 100%, 10%);
 }
 
 * {
