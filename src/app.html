@@ -22,13 +22,20 @@
 		<script>
 			window._systemPrefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 			
-			const userPrefersDark = window.localStorage.getItem('theme');
+			let userPrefersDark = window.localStorage.getItem('theme');
+
+			try {
+				userPrefersDark = JSON.parse(userPrefersDark)
+			} catch (error) {
+				window.localStorage.removeItem('theme');
+				userPrefersDark = null;
+			}
 
 			window._toggleTheme = (enable) => {
 				document.documentElement.toggleAttribute('dark', enable);
 			};
 
-			window._toggleTheme(userPrefersDark === null ? window._systemPrefersDarkQuery.matches : JSON.parse(userPrefersDark));
+			window._toggleTheme(userPrefersDark === null ? window._systemPrefersDarkQuery.matches : userPrefersDark);
 		</script>
 		%svelte.head%
 	</head>
