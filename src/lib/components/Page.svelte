@@ -8,13 +8,12 @@
 
 <svelte:head>
 	<title>{title}</title>
-
 	<meta name="description" content={description} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 </svelte:head>
 
-<header class="content">
+<header>
 	<div class="inner">
 		<h1>{heading}</h1>
 		<p>{description}</p>
@@ -30,7 +29,6 @@
 	header {
 		display: grid;
 		row-gap: var(--space-s);
-		padding-top: 5vmax;
 	}
 
 	.inner {
@@ -51,6 +49,5 @@
 	.body {
 		display: grid;
 		row-gap: var(--space-l);
-		padding-bottom: max(var(--space-l), env(safe-area-inset-bottom));
 	}
 </style>

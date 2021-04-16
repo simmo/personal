@@ -7,7 +7,7 @@
 
 <header class="grid full">
 	<div class="inner">
-		<Logo size={25} />
+		<Logo size={30} />
 		<a href="/">mike.id</a>
 		<div class="theme">
 			<label for="pref">Theme: </label><Select bind:value={$userPreference} id="pref">
@@ -22,7 +22,7 @@
 <style>
 	header {
 		background-color: var(--theme-background-primary);
-		box-shadow: 0 1px 0 var(--space-xxs) var(--theme-shadow);
+		box-shadow: 0 1px var(--space-xs) var(--theme-shadow);
 		padding: var(--space-s) 0;
 		position: sticky;
 		top: 0;

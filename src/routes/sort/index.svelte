@@ -17,7 +17,7 @@
 		Reversed = 'REVERSED',
 	}
 
-	let initialItems: number[] = Array.from({ length: 50 }, (_, x) => x + 1);
+	let initialItems: number[] = Array.from({ length: 100 }, (_, x) => x + 1);
 	let dataset: Dataset = Dataset.Random;
 	let items = initialItems;
 
@@ -79,7 +79,7 @@
 		</p>
 	</div>
 
-	<div class="graphs">
+	<div class="main graphs">
 		<Graph {speed} name="Bubble" {items} sort={bubbleSort} />
 		<Graph {speed} name="Cocktail" {items} sort={cocktailSort} />
 		<Graph {speed} name="Insertion" {items} sort={insertionSort} />
@@ -100,7 +100,7 @@
 
 	.graphs {
 		display: grid;
-		gap: var(--space-l);
+		gap: var(--space-m);
 		grid-template-columns: var(--grid-two-cols);
 	}
 </style>

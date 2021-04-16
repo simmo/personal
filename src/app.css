@@ -30,7 +30,7 @@
 	--theme-background-secondary: hsl(0, 0%, 95%);
 	--theme-text-primary: hsl(0, 0%, 13%);
 	--theme-text-secondary: hsl(0, 0%, 60%);
-	--theme-shadow: hsla(0, 0%, 90%, 30%);
+	--theme-shadow: hsla(0, 0%, 90%, 50%);
 	--theme-highlight: hsla(0, 0%, 0%, 10%);
 
 	font-family: 'Source Code Pro', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
@@ -46,7 +46,7 @@
 	--theme-background-secondary: hsl(240, 3%, 13%);
 	--theme-text-primary: hsl(0, 0%, 100%);
 	--theme-text-secondary: hsl(0, 0%, 47%);
-	--theme-shadow: hsla(0, 0%, 5%, 60%);
+	--theme-shadow: hsla(0, 0%, 5%, 50%);
 	--theme-highlight: hsla(0, 100%, 100%, 15%);
 }
 
@@ -105,12 +105,12 @@ p {
 }
 
 .grid > *,
-.grid > .main {
-	grid-column: main;
-}
-
 .grid > .content {
 	grid-column: content;
+}
+
+.grid > .main {
+	grid-column: main;
 }
 
 .grid > .full {
