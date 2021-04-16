@@ -29,7 +29,6 @@
 	header {
 		display: grid;
 		row-gap: var(--space-s);
-		padding-top: 5vmax;
 	}
 
 	.inner {
@@ -50,6 +49,5 @@
 	.body {
 		display: grid;
 		row-gap: var(--space-l);
-		padding-bottom: max(var(--space-l), env(safe-area-inset-bottom));
 	}
 </style>

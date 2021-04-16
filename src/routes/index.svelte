@@ -44,17 +44,19 @@
 
 	.projects {
 		display: grid;
-		gap: var(--space-s);
+		gap: var(--space-m);
 		grid-template-columns: var(--grid-two-cols);
 	}
 
 	article {
-		background-color: var(--theme-background-secondary);
-		border-radius: var(--space-xxs);
-		padding: var(--space-m);
+		display: grid;
 	}
 
-	article a {
+	article > a {
+		background-color: var(--theme-background-secondary);
+		border-radius: var(--space-xxs);
 		color: inherit;
+		display: block;
+		padding: var(--space-m);
 	}
 </style>

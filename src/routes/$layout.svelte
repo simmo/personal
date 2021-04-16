@@ -16,6 +16,7 @@
 <style>
 	.layout {
 		align-items: start;
+		row-gap: max(var(--space-xl), 5vh);
 		grid-template-rows: auto 1fr auto;
 		height: 100%;
 	}
@@ -27,6 +28,7 @@
 		border-top: 1px solid var(--theme-background-secondary);
 		color: var(--theme-text-secondary);
 		font-size: var(--text-xs);
-		padding: var(--space-m) 0;
+		padding-top: var(--space-m);
+		padding-bottom: max(var(--space-m), env(safe-area-inset-bottom));
 	}
 </style>
