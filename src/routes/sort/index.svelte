@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import Range from '$lib/components/Range.svelte';
 	import debounce from '$lib/utils/debounce';
@@ -51,14 +52,15 @@
 	description="Using visualisation to explore different sorting algorithms."
 >
 	<p slot="intro">
-		This project is built with <a href="https://svelte.dev">Svelte</a> and
-		<a href="https://www.typescriptlang.org">TypeScript</a>. The sorting algorithms use nested
-		<a
+		This project is built with <Link href="https://svelte.dev">Svelte</Link> and
+		<Link href="https://www.typescriptlang.org">TypeScript</Link>. The sorting algorithms use nested
+		<Link
 			href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator"
-			>generator functions</a
 		>
+			generator functions
+		</Link>
 		to manage the execution of logic, capture algorithm output and visualise this via
-		<a href="https://developer.mozilla.org/ms/docs/Web/API/Canvas_API">HTML canvas</a>.
+		<Link href="https://developer.mozilla.org/ms/docs/Web/API/Canvas_API">HTML canvas</Link>.
 	</p>
 
 	<div class="controls">

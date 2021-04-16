@@ -1,5 +1,6 @@
 <script>
 	import Copy from '$lib/components/Copy.svelte';
+	import Link from '$lib/components/Link.svelte';
 
 	import Page from '$lib/components/Page.svelte';
 </script>
@@ -27,7 +28,8 @@
 		</p>
 		<p>The report can also be customised.</p>
 		<p>
-			<a href="https://www.npmjs.com/package/gulp-stats">Take a look at the README</a> for more information.
+			<Link href="https://www.npmjs.com/package/gulp-stats">Take a look at the README</Link> for more
+			information.
 		</p>
 	</Copy>
 </Page>
