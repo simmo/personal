@@ -1,5 +1,5 @@
-import type { SorterOptions } from '../utils/types';
-import swap from '../utils/swap';
+import type { SorterOptions } from '$lib/projects/sort/types';
+import swap from '$lib/projects/sort/utils/swap';
 
 export default function* quickSort<T>(
 	rawItems: T[],

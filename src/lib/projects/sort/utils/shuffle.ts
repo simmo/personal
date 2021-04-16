@@ -1,4 +1,4 @@
-import swap from '../utils/swap';
+import swap from './swap';
 
 export default function shuffle<T>(items: T[]): T[] {
 	const shuffledItems = [...items];

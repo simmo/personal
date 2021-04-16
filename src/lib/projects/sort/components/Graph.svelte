@@ -2,14 +2,14 @@
 	import { onMount } from 'svelte';
 
 	import Button from '$lib/components/Button.svelte';
-	import type { Sorter } from 'src/routes/sort/_project/utils/types';
+	import type { Sorter } from '$lib/projects/sort/types';
 	import track from '$lib/utils/track';
 	import Pause from '$lib/icons/Pause.svelte';
 	import Start from '$lib/icons/Start.svelte';
 	import Next from '$lib/icons/Next.svelte';
 	import Reset from '$lib/icons/Reset.svelte';
 	import { isDarkMode } from '$lib/store/darkMode';
-	import getCssVar from '../../../../lib/utils/getCssVar';
+	import getCssVar from '$lib/utils/getCssVar';
 
 	export let items: number[];
 	export let name: string;

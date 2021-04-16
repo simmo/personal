@@ -4,14 +4,14 @@
 	import Range from '$lib/components/Range.svelte';
 	import debounce from '$lib/utils/debounce';
 	import track from '$lib/utils/track';
-	import Graph from './_project/components/Graph.svelte';
-	import bubbleSort from './_project/sorters/bubbleSort';
-	import cocktailSort from './_project/sorters/cocktailSort';
-	import insertionSort from './_project/sorters/insertionSort';
-	import oddEvenSort from './_project/sorters/oddEvenSort';
-	import quickSort from './_project/sorters/quickSort';
-	import selectionSort from './_project/sorters/selectionSort';
-	import shuffle from './_project/utils/shuffle';
+	import Graph from '$lib/projects/sort/components/Graph.svelte';
+	import bubbleSort from '$lib/projects/sort/algorithms/bubbleSort';
+	import cocktailSort from '$lib/projects/sort/algorithms/cocktailSort';
+	import insertionSort from '$lib/projects/sort/algorithms/insertionSort';
+	import oddEvenSort from '$lib/projects/sort/algorithms/oddEvenSort';
+	import quickSort from '$lib/projects/sort/algorithms/quickSort';
+	import selectionSort from '$lib/projects/sort/algorithms/selectionSort';
+	import shuffle from '$lib/projects/sort/utils/shuffle';
 
 	const enum Dataset {
 		Random = 'RANDOM',
