@@ -26,6 +26,12 @@
 					<p>A fun project to build a Snake game with CSS grid and a little bit of TypeScript.</p>
 				</a>
 			</article>
+			<article>
+				<a href="/gulp-stats">
+					<h3>Gulp Stats</h3>
+					<p>A Gulp plugin to display summary of the tasks run.</p>
+				</a>
+			</article>
 		</div>
 	</section>
 </Page>
