@@ -105,12 +105,12 @@ p {
 }
 
 .grid > *,
-.grid > .main {
-	grid-column: main;
-}
-
 .grid > .content {
 	grid-column: content;
+}
+
+.grid > .main {
+	grid-column: main;
 }
 
 .grid > .full {

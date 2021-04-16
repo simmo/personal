@@ -79,7 +79,7 @@
 		</p>
 	</div>
 
-	<div class="graphs">
+	<div class="main graphs">
 		<Graph {speed} name="Bubble" {items} sort={bubbleSort} />
 		<Graph {speed} name="Cocktail" {items} sort={cocktailSort} />
 		<Graph {speed} name="Insertion" {items} sort={insertionSort} />

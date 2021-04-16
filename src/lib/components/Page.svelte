@@ -8,13 +8,12 @@
 
 <svelte:head>
 	<title>{title}</title>
-
 	<meta name="description" content={description} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={description} />
 </svelte:head>
 
-<header class="content">
+<header>
 	<div class="inner">
 		<h1>{heading}</h1>
 		<p>{description}</p>
