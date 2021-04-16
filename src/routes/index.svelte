@@ -1,5 +1,11 @@
 <script lang="ts">
+	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
+	import GitHub from '$lib/icons/GitHub.svelte';
+	import LinkedIn from '$lib/icons/LinkedIn.svelte';
+	import Npm from '$lib/icons/Npm.svelte';
+	import StackOverflow from '$lib/icons/StackOverflow.svelte';
+	import Twitter from '$lib/icons/Twitter.svelte';
 </script>
 
 <Page
@@ -7,8 +13,8 @@
 	description="A UK based, Lead frontend engineer living in Sussex, working in London and remote."
 >
 	<p slot="intro">
-		Currently <a href="https://zonedigital.com">@Zone</a>. I’ve spent over 10 years working across
-		marketing and publishing sectors to deliver high-end web apps, sites and products.
+		Currently <Link href="https://zonedigital.com">@Zone</Link>. I’ve spent over 10 years working
+		across marketing and publishing sectors to deliver high-end web apps, sites and products.
 	</p>
 
 	<section>
@@ -34,6 +40,29 @@
 			</article>
 		</div>
 	</section>
+
+	<section>
+		<h2>Socials</h2>
+		<ul class="socials">
+			<li>
+				<Link href="http://lnkd.in/2T4KbK"><LinkedIn /> LinkedIn</Link>
+			</li>
+			<li>
+				<Link href="http://github.com/simmo"><GitHub /> GitHub</Link>
+			</li>
+			<li>
+				<Link href="https://npmjs.com/~simmo"><Npm /> NPM</Link>
+			</li>
+			<li>
+				<Link href="http://stackoverflow.com/users/547345/mike">
+					<StackOverflow /> StackOverflow
+				</Link>
+			</li>
+			<li>
+				<Link href="http://twitter.com/mikesimmonds"><Twitter /> Twitter</Link>
+			</li>
+		</ul>
+	</section>
 </Page>
 
 <style>
@@ -58,5 +87,25 @@
 		color: inherit;
 		display: block;
 		padding: var(--space-m);
+	}
+
+	.socials {
+		justify-content: start;
+		display: grid;
+		row-gap: var(--space-xs);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.socials :global(a) {
+		align-items: center;
+		display: grid;
+		column-gap: var(--space-xs);
+		grid-template-columns: auto 1fr;
+	}
+
+	.socials :global(svg) {
+		font-size: var(--text-m);
 	}
 </style>
