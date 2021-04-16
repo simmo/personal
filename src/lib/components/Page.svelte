@@ -15,7 +15,7 @@
 </svelte:head>
 
 <header class="content">
-	<div>
+	<div class="inner">
 		<h1>{heading}</h1>
 		<p>{description}</p>
 	</div>
@@ -29,12 +29,18 @@
 <style>
 	header {
 		display: grid;
-		gap: var(--space-xs);
+		row-gap: var(--space-s);
 		padding-top: 5vmax;
+	}
+
+	.inner {
+		display: grid;
+		row-gap: var(--space-xs);
 	}
 
 	h1 {
 		font-size: var(--text-l);
+		line-height: 1.2;
 	}
 
 	p {

@@ -13,34 +13,40 @@
 		background-color: var(--theme-accent);
 		border-radius: var(--space-xxs);
 		border: 0;
+		box-shadow: 0 0 0 0 transparent;
 		color: var(--color-white);
 		display: inline-grid;
 		line-height: 1;
 		font: inherit;
 		font-weight: bold;
 		margin: 0;
-		padding: var(--space-xs) var(--space-s);
+		padding: var(--space-xxs) var(--space-s);
 		outline: none;
+		text-transform: uppercase;
 	}
 
-	button.inverted {
+	.inverted {
 		background-color: var(--theme-background-primary);
 		color: var(--theme-text-primary);
 	}
 
-	button.square {
+	.square {
 		padding: var(--space-xs);
 	}
 
 	button:not(:disabled) {
 		cursor: pointer;
 		transition-duration: 0.3s;
-		transition-property: color, border, box-shadow;
+		transition-property: color, background-color, border, box-shadow;
 	}
 
 	button:not(:disabled):hover,
 	button:not(:disabled):focus {
-		/* box-shadow: 0 0 0 2px var(--theme-accent) inset, 0 0 0 3px currentColor inset; */
+		box-shadow: 0 0 0 var(--space-xxs) hsla(0, 100%, 100%, 15%);
+	}
+
+	button:not(:disabled):active {
+		background-color: hsl(145, 63%, 49%);
 	}
 
 	button.inverted:not(:disabled):hover,

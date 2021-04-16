@@ -33,7 +33,7 @@
 <style>
 	section {
 		display: grid;
-		gap: var(--space-s);
+		row-gap: var(--space-s);
 	}
 
 	.projects {
