@@ -12,7 +12,7 @@
 	--grid-gutter: minmax(clamp(var(--space-s), 2vmax, var(--space-l)), 1fr);
 	--grid-two-cols: repeat(auto-fit, minmax(20rem, 1fr));
 
-	--space-xxs: 0.3rem;
+	--space-xxs: 0.25rem;
 	--space-xs: 0.5rem;
 	--space-s: 1rem;
 	--space-m: 1.5rem;
@@ -47,7 +47,7 @@
 	--theme-text-primary: hsl(0, 0%, 100%);
 	--theme-text-secondary: hsl(0, 0%, 47%);
 	--theme-shadow: hsla(0, 0%, 5%, 60%);
-	--theme-highlight: hsla(0, 100%, 100%, 10%);
+	--theme-highlight: hsla(0, 100%, 100%, 15%);
 }
 
 * {
