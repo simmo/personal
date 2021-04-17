@@ -21,9 +21,7 @@
 	<slot name="intro" />
 </header>
 
-<div class="full grid body">
-	<slot />
-</div>
+<slot />
 
 <style>
 	header {
