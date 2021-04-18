@@ -7,4 +7,32 @@
 		display: grid;
 		row-gap: var(--space-s);
 	}
+
+	div :global(code) {
+		background-color: var(--theme-background-secondary);
+		border-radius: var(--space-xxs);
+		display: inline-block;
+		font-weight: 500;
+		padding: 0 var(--space-xs);
+	}
+
+	div :global(pre) {
+		background-color: var(--theme-background-secondary);
+		border-radius: var(--space-xxs);
+		font-weight: 500;
+		margin: 0;
+		overflow-x: auto;
+		padding: var(--space-s);
+		width: 100%;
+	}
+
+	div :global(pre code) {
+		all: unset;
+		display: block;
+		width: 100%;
+	}
+
+	div :global(h2) {
+		font-size: var(--text-m);
+	}
 </style>
