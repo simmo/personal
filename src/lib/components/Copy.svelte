@@ -34,5 +34,7 @@
 
 	div :global(h2) {
 		font-size: var(--text-m);
+		margin-top: var(--space-s);
+		margin-bottom: calc(var(--space-xs) * -1);
 	}
 </style>

@@ -21,6 +21,12 @@
 		<h2>Projects</h2>
 		<div class="projects">
 			<article>
+				<a href="/matrix">
+					<h3>Matrix</h3>
+					<p>Using canvas to recreate the iconic falling code, as seen in the Matrix films.</p>
+				</a>
+			</article>
+			<article>
 				<a href="/sort">
 					<h3>Sort</h3>
 					<p>Using visualisation to explore different sorting algorithms.</p>
