@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { userPreference } from '$lib/store/darkMode';
-
 	import Logo from './Logo.svelte';
 	import Select from './Select.svelte';
 </script>
