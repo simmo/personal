@@ -6,6 +6,7 @@
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import Stream from '$lib/projects/matrix/Stream.svelte';
+	import getCssVar from '$lib/utils/getCssVar';
 
 	const canvasWidth = 1800;
 	const totalStreams = 50;
@@ -16,7 +17,7 @@
 	let blur = false;
 
 	const drawBackground = ({ ctx, height, width }: Config) => {
-		ctx.fillStyle = '#000';
+		ctx.fillStyle = getCssVar('--color-black');
 		ctx.fillRect(0, 0, width, height);
 	};
 </script>
