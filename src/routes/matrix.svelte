@@ -22,13 +22,6 @@
 	};
 </script>
 
-<svelte:head>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
-		rel="stylesheet"
-	/>
-</svelte:head>
-
 <Page
 	pageTitle={['Matrix digital rain']}
 	heading="Matrix digital rain"
