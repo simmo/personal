@@ -2,17 +2,23 @@
 	import Check from '$lib/icons/Check.svelte';
 
 	export let checked: boolean = false;
+	export let hint: string;
 </script>
 
 <label>
 	<input type="checkbox" bind:checked />
 	<span class="outer" class:checked><Check /></span>
-	<slot />
+	<span>
+		<slot />
+		{#if hint}
+			<span class="hint">{hint}</span>
+		{/if}
+	</span>
 </label>
 
 <style>
 	label {
-		align-items: center;
+		align-items: start;
 		display: inline-grid;
 		column-gap: var(--space-xs);
 		cursor: pointer;
@@ -57,5 +63,11 @@
 	.checked > :global(svg) {
 		opacity: 1;
 		transform: scale(1);
+	}
+
+	.hint {
+		color: var(--theme-text-secondary);
+		display: block;
+		font-size: var(--text-xs);
 	}
 </style>

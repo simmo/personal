@@ -5,6 +5,7 @@
 	export let height: number = 100;
 	export let showFPS: boolean = false;
 	export let width: number = 100;
+	export let alpha: boolean = true;
 
 	let canvas: HTMLCanvasElement;
 
@@ -23,7 +24,7 @@
 	});
 
 	onMount(() => {
-		const ctx = canvas.getContext('2d');
+		const ctx = canvas.getContext('2d', { alpha });
 
 		if (!ctx) {
 			return;
