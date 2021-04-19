@@ -1,9 +1,12 @@
 <script lang="ts">
-	export let pageTitle: string[] = [];
+	export let pageTitle: string | string[] = [];
 	export let heading: string;
 	export let description: string;
 
-	const title = [...pageTitle, 'Mike Simmonds'].join(' - ');
+	const title = [
+		...(typeof pageTitle === 'string' ? [pageTitle] : pageTitle),
+		'Mike Simmonds',
+	].join(' - ');
 </script>
 
 <svelte:head>
@@ -42,10 +45,5 @@
 	p {
 		font-size: var(--text-m);
 		line-height: 1.4;
-	}
-
-	.body {
-		display: grid;
-		row-gap: var(--space-l);
 	}
 </style>

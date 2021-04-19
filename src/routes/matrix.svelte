@@ -23,7 +23,7 @@
 </script>
 
 <Page
-	pageTitle={['Matrix digital rain']}
+	pageTitle="Matrix digital rain"
 	heading="Matrix digital rain"
 	description="Using canvas to recreate the iconic raining code, as seen in the Matrix films."
 >

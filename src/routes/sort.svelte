@@ -47,7 +47,7 @@
 </script>
 
 <Page
-	pageTitle={['Sorting']}
+	pageTitle="Sorting Algorithms"
 	heading="Sorting Algorithms"
 	description="Using visualisation to explore different sorting algorithms."
 >
