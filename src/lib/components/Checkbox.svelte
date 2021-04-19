@@ -6,7 +6,7 @@
 </script>
 
 <label>
-	<input type="checkbox" bind:checked />
+	<input type="checkbox" bind:checked on:change />
 	<span class="outer" class:checked><Check /></span>
 	<span>
 		<slot />

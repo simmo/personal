@@ -1,12 +1,12 @@
-import { dev } from '$app/env';
+import { browser, dev } from '$app/env';
 
 type EventArgs = { category: string; label: string; value?: number };
 
-export default function trackEvent(
+export default function track(
 	action: string,
 	{ category: event_category, label: event_label, value }: EventArgs
 ) {
-	if (!window.gtag) return;
+	if (!(browser && window.gtag)) return;
 
 	const payload = {
 		event_category,

@@ -7,6 +7,7 @@
 	import Page from '$lib/components/Page.svelte';
 	import Stream from '$lib/projects/matrix/Stream.svelte';
 	import getCssVar from '$lib/utils/getCssVar';
+	import track from '$lib/utils/track';
 
 	const canvasWidth = 1800;
 	const totalStreams = 50;
@@ -15,6 +16,22 @@
 
 	let showFPS = false;
 	let blur = false;
+
+	const trackShowFPSChange = () => {
+		track('check', {
+			category: 'matrix',
+			label: 'showFPS',
+			value: showFPS ? 1 : 0,
+		});
+	};
+
+	const trackBlurChange = () => {
+		track('check', {
+			category: 'matrix',
+			label: 'blur',
+			value: blur ? 1 : 0,
+		});
+	};
 
 	const drawBackground = ({ ctx, height, width }: Config) => {
 		ctx.fillStyle = getCssVar('--color-black');
@@ -36,8 +53,12 @@
 		</Canvas>
 	</div>
 	<div class="controls">
-		<Checkbox bind:checked={showFPS}>Show FPS</Checkbox>
-		<Checkbox bind:checked={blur} hint="May not perform well in some browsers!">
+		<Checkbox bind:checked={showFPS} on:change={trackShowFPSChange}>Show FPS</Checkbox>
+		<Checkbox
+			bind:checked={blur}
+			on:change={trackBlurChange}
+			hint="May not perform well in some browsers!"
+		>
 			Use shadow
 		</Checkbox>
 	</div>
