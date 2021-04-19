@@ -1,0 +1,73 @@
+<script lang="ts">
+	import { Canvas } from '$lib/components/Canvas';
+	import Checkbox from '$lib/components/Checkbox.svelte';
+
+	import Copy from '$lib/components/Copy.svelte';
+	import Link from '$lib/components/Link.svelte';
+	import Page from '$lib/components/Page.svelte';
+	import Stream from '$lib/projects/matrix/Stream.svelte';
+
+	const canvasWidth = 1800;
+	const totalStreams = 50;
+	const streamWidth = Math.floor(canvasWidth / totalStreams);
+	const streams = Array.from({ length: totalStreams }, (_, index) => streamWidth * index);
+
+	let showFPS = false;
+</script>
+
+<svelte:head>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>
+
+<Page
+	pageTitle={['Matrix digital rain']}
+	heading="Matrix digital rain"
+	description="Using canvas to recreate the iconic raining code, as seen in the Matrix films."
+>
+	<div class="full wrapper">
+		<Canvas height={900} width={canvasWidth} {showFPS}>
+			{#each streams as x}
+				<Stream {x} size={streamWidth} />
+			{/each}
+		</Canvas>
+	</div>
+	<div>
+		<Checkbox bind:checked={showFPS}>Show FPS</Checkbox>
+	</div>
+	<Copy>
+		<h2>Research</h2>
+		<p>
+			After a little searching, it appeared <Link
+				href="https://en.wikipedia.org/wiki/Katakana_(Unicode_block)">Katakana</Link
+			> characters mixed with some single digit numbers closely matched the characters used in the film.
+		</p>
+		<p>The Katakana characters start in unicode from <code>U+30a0</code> for 96 characters.</p>
+		<h2>Performance</h2>
+		<p>
+			On my MacBook Pro, the 50 columns of characters render at a steady 60fps. When I tried kicking
+			it up to 100 columns, things got a little jumpy, dropping to about 20fps. I'm wondering if
+			some sort of quad-tree type structure could be used to reduce the number of operations/renders
+			needed.
+		</p>
+	</Copy>
+</Page>
+
+<style>
+	.wrapper {
+		background-color: var(--color-black);
+		position: relative;
+	}
+
+	.wrapper::after {
+		bottom: 0;
+		box-shadow: 0 0 var(--space-s) var(--space-xxs) var(--color-black) inset;
+		content: '';
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+</style>
