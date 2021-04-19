@@ -2,7 +2,6 @@
 	import { Canvas, Layer } from '$lib/components/Canvas';
 	import type { Config } from '$lib/components/Canvas';
 	import Checkbox from '$lib/components/Checkbox.svelte';
-
 	import Copy from '$lib/components/Copy.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
@@ -10,13 +9,13 @@
 
 	const canvasWidth = 1800;
 	const totalStreams = 50;
-	const streamWidth = Math.floor(canvasWidth / totalStreams);
-	const streams = Array.from({ length: totalStreams }, (_, index) => streamWidth * index);
+	const size = Math.floor(canvasWidth / totalStreams);
+	const streams = Array.from({ length: totalStreams }, (_, index) => size * index);
 
 	let showFPS = false;
 	let blur = false;
 
-	const background = ({ ctx, height, width }: Config) => {
+	const drawBackground = ({ ctx, height, width }: Config) => {
 		ctx.fillStyle = '#000';
 		ctx.fillRect(0, 0, width, height);
 	};
@@ -29,9 +28,9 @@
 >
 	<div class="full wrapper">
 		<Canvas height={900} width={canvasWidth} {showFPS} alpha={false}>
-			<Layer draw={background} />
+			<Layer draw={drawBackground} />
 			{#each streams as x}
-				<Stream {x} size={streamWidth} bind:blur />
+				<Stream {x} {size} {blur} />
 			{/each}
 		</Canvas>
 	</div>
