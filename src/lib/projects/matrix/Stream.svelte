@@ -5,6 +5,7 @@
 
 	export let x: number;
 	export let size: number;
+	export let blur: boolean = false;
 
 	const { height } = getContext('canvas');
 
@@ -23,5 +24,6 @@
 		y={y - size * bit}
 		{size}
 		{speed}
+		{blur}
 	/>
 {/each}

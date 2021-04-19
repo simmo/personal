@@ -3,7 +3,7 @@ import { readable, Subscriber } from 'svelte/store';
 
 export { default as Canvas } from './Canvas.svelte';
 export { default as Layer } from './Layer.svelte';
-export type { DrawFn } from './types';
+export type { DrawFn, Config } from './types';
 
 let rafId: number;
 

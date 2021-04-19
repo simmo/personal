@@ -1,4 +1,5 @@
 import { browser } from '$app/env';
+import track from '$lib/utils/track';
 import { derived, readable, writable } from 'svelte/store';
 
 export const systemPreference = readable(false, (set) => {
@@ -19,7 +20,7 @@ export const systemPreference = readable(false, (set) => {
 	};
 });
 
-export const userPreference = writable<boolean>(false, (set) => {
+export const userPreference = writable<null | boolean>(false, (set) => {
 	if (!browser) return;
 
 	// Get user preference from local storage
@@ -44,14 +45,29 @@ userPreference.subscribe((value) => {
 	// or save it
 	if (value === null) {
 		window.localStorage.removeItem('theme');
+
+		track('change', {
+			category: 'userTheme',
+			label: 'system',
+		});
 	} else {
 		window.localStorage.setItem('theme', JSON.stringify(value));
+
+		track('change', {
+			category: 'userTheme',
+			label: value ? 'dark' : 'light',
+		});
 	}
 });
 
 // Toggle theme when the derived value changes
 isDarkMode.subscribe((enable) => {
 	if (!browser) return;
+
+	track('change', {
+		category: 'theme',
+		label: enable ? 'dark' : 'light',
+	});
 
 	window._toggleTheme(enable);
 });

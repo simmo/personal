@@ -8,12 +8,13 @@
 	export let y: number;
 	export let first: boolean = false;
 	export let opacity: number = 1;
+	export let blur: boolean = false;
 
 	const generateCharacter = () => {
 		const charType = Math.round(Math.random() * 1);
 
 		if (charType === 0) {
-			return String.fromCharCode(0x30a0 + Math.round(Math.random() * 96));
+			return String.fromCharCode(0x30a0 + Math.round(Math.random() * 95));
 		}
 
 		return Math.round(Math.random() * 9).toString();
@@ -31,8 +32,11 @@
 		const rb = first ? 200 : 0;
 		const fillStyle = `rgba(${rb}, 255, ${rb}, ${opacity})`;
 
-		ctx.shadowColor = fillStyle;
-		ctx.shadowBlur = 20;
+		if (blur) {
+			ctx.shadowColor = fillStyle;
+			ctx.shadowBlur = 20;
+		}
+
 		ctx.font = `${first ? 'bold ' : ''}${size}px monospace`;
 		ctx.textAlign = 'center';
 		ctx.fillStyle = fillStyle;

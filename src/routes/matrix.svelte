@@ -1,41 +1,66 @@
 <script lang="ts">
-	import { Canvas } from '$lib/components/Canvas';
+	import { Canvas, Layer } from '$lib/components/Canvas';
+	import type { Config } from '$lib/components/Canvas';
 	import Checkbox from '$lib/components/Checkbox.svelte';
-
 	import Copy from '$lib/components/Copy.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import Stream from '$lib/projects/matrix/Stream.svelte';
+	import getCssVar from '$lib/utils/getCssVar';
+	import track from '$lib/utils/track';
 
 	const canvasWidth = 1800;
 	const totalStreams = 50;
-	const streamWidth = Math.floor(canvasWidth / totalStreams);
-	const streams = Array.from({ length: totalStreams }, (_, index) => streamWidth * index);
+	const size = Math.floor(canvasWidth / totalStreams);
+	const streams = Array.from({ length: totalStreams }, (_, index) => size * index);
 
 	let showFPS = false;
+	let blur = false;
+
+	const trackShowFPSChange = () => {
+		track('check', {
+			category: 'matrix',
+			label: 'showFPS',
+			value: showFPS ? 1 : 0,
+		});
+	};
+
+	const trackBlurChange = () => {
+		track('check', {
+			category: 'matrix',
+			label: 'blur',
+			value: blur ? 1 : 0,
+		});
+	};
+
+	const drawBackground = ({ ctx, height, width }: Config) => {
+		ctx.fillStyle = getCssVar('--color-black');
+		ctx.fillRect(0, 0, width, height);
+	};
 </script>
 
-<svelte:head>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
-		rel="stylesheet"
-	/>
-</svelte:head>
-
 <Page
-	pageTitle={['Matrix digital rain']}
+	pageTitle="Matrix digital rain"
 	heading="Matrix digital rain"
 	description="Using canvas to recreate the iconic raining code, as seen in the Matrix films."
 >
 	<div class="full wrapper">
-		<Canvas height={900} width={canvasWidth} {showFPS}>
+		<Canvas height={900} width={canvasWidth} {showFPS} alpha={false}>
+			<Layer draw={drawBackground} />
 			{#each streams as x}
-				<Stream {x} size={streamWidth} />
+				<Stream {x} {size} {blur} />
 			{/each}
 		</Canvas>
 	</div>
-	<div>
-		<Checkbox bind:checked={showFPS}>Show FPS</Checkbox>
+	<div class="controls">
+		<Checkbox bind:checked={showFPS} on:change={trackShowFPSChange}>Show FPS</Checkbox>
+		<Checkbox
+			bind:checked={blur}
+			on:change={trackBlurChange}
+			hint="May not perform well in some browsers!"
+		>
+			Use shadow
+		</Checkbox>
 	</div>
 	<Copy>
 		<h2>Research</h2>
@@ -69,5 +94,10 @@
 		position: absolute;
 		right: 0;
 		top: 0;
+	}
+
+	.controls {
+		display: grid;
+		column-gap: var(--space-s);
 	}
 </style>

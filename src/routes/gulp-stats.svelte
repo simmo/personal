@@ -1,12 +1,11 @@
 <script>
 	import Copy from '$lib/components/Copy.svelte';
 	import Link from '$lib/components/Link.svelte';
-
 	import Page from '$lib/components/Page.svelte';
 </script>
 
 <Page
-	pageTitle={['Gulp Stats']}
+	pageTitle="Gulp Stats"
 	heading="Gulp Stats"
 	description="Gulp 4 plugin that displays a task summary."
 >
