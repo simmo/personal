@@ -2,7 +2,7 @@
 	import Check from '$lib/icons/Check.svelte';
 
 	export let checked: boolean = false;
-	export let hint: string;
+	export let hint: undefined | string = undefined;
 </script>
 
 <label>
