@@ -46,6 +46,10 @@
 	}, 100);
 </script>
 
+<svelte:head>
+	<meta property="og:image" content="https://mike.id/preview/sort.jpg" />
+</svelte:head>
+
 <Page
 	pageTitle="Sorting Algorithms"
 	heading="Sorting Algorithms"

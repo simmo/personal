@@ -39,6 +39,10 @@
 	};
 </script>
 
+<svelte:head>
+	<meta property="og:image" content="https://mike.id/preview/matrix.jpg" />
+</svelte:head>
+
 <Page
 	pageTitle="Matrix digital rain"
 	heading="Matrix digital rain"
