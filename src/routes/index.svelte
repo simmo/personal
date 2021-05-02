@@ -21,6 +21,12 @@
 		<h2>Projects</h2>
 		<div class="projects">
 			<article>
+				<a href="/maze">
+					<h3>Maze Generation</h3>
+					<p>Exploring the use of a recursive backtracker algorithm to generate a Maze.</p>
+				</a>
+			</article>
+			<article>
 				<a href="/matrix">
 					<h3>Matrix</h3>
 					<p>Using canvas to recreate the iconic falling code, as seen in the Matrix films.</p>
