@@ -4,7 +4,7 @@
 </script>
 
 <button {...$$props} class:inverted class:square on:click>
-	<slot />
+	<div class="inner"><slot /></div>
 </button>
 
 <style>
@@ -23,6 +23,15 @@
 		padding: var(--space-xxs) var(--space-s);
 		outline: none;
 		text-transform: uppercase;
+	}
+
+	.inner {
+		align-items: center;
+		display: grid;
+		gap: var(--space-xs);
+		grid-auto-flow: column;
+		grid-auto-columns: auto;
+		justify-content: start;
 	}
 
 	.inverted {
