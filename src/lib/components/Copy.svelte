@@ -37,4 +37,21 @@
 		margin-top: var(--space-s);
 		margin-bottom: calc(var(--space-xs) * -1);
 	}
+
+	div :global(h3) {
+		font-size: var(--text-s);
+		margin-bottom: calc(var(--space-s) * -1);
+	}
+
+	div :global(blockquote) {
+		border-left: var(--space-xxs) solid var(--theme-highlight);
+		margin: 0;
+		padding-left: var(--space-s);
+	}
+
+	div :global(ol) {
+		display: grid;
+		row-gap: var(--space-xxs);
+		margin: 0;
+	}
 </style>
