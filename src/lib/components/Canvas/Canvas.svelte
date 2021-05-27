@@ -2,6 +2,7 @@
 	import { onMount, setContext } from 'svelte';
 	import type { DrawFn } from './types';
 
+	export let clear: boolean = true;
 	export let height: number = 100;
 	export let showFPS: boolean = false;
 	export let width: number = 100;
@@ -48,7 +49,7 @@
 				lastTime = time;
 
 				// Reset canvas
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				if (clear) ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 				// Draw each layer
 				layers.forEach((callback) => {
