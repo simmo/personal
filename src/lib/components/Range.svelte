@@ -1,15 +1,16 @@
 <script lang="ts">
-	export let max: number;
-	export let min: number;
+	export let max: number = 100;
+	export let min: number = 0;
 	export let id: string;
-	export let step: number;
+	export let step: number = 1;
 	export let value: number = 0;
 
 	let input: HTMLInputElement;
 
 	$: {
 		if (input) {
-			input.style.setProperty('--value', value.toString());
+			const cssValue = ((value - min) / (max - min)) * 100;
+			input.style.setProperty('--value', cssValue.toString());
 		}
 	}
 </script>
