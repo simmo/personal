@@ -10,6 +10,7 @@
 	$: {
 		if (input) {
 			const cssValue = ((value - min) / (max - min)) * 100;
+
 			input.style.setProperty('--value', cssValue.toString());
 		}
 	}
@@ -20,13 +21,6 @@
 <style>
 	input[type='range'] {
 		appearance: none;
-		background-color: var(--theme-background-secondary);
-		background-image: linear-gradient(
-			90deg,
-			var(--theme-accent),
-			var(--theme-accent) calc(var(--value) * 1%),
-			transparent calc(var(--value) * 1%)
-		);
 		border-radius: 500px;
 		margin: 0;
 		padding: 0;
@@ -37,13 +31,25 @@
 	}
 
 	input[type='range']::-webkit-slider-runnable-track {
-		background-color: inherit;
+		background-color: var(--theme-background-secondary);
+		background-image: linear-gradient(
+			90deg,
+			var(--theme-accent),
+			var(--theme-accent) calc(var(--value) * 1%),
+			transparent calc(var(--value) * 1%)
+		);
 		border-radius: 500px;
 		height: var(--space-xxs);
 	}
 
 	input[type='range']::-moz-range-track {
-		background-color: inherit;
+		background-color: var(--theme-background-secondary);
+		background-image: linear-gradient(
+			90deg,
+			var(--theme-accent),
+			var(--theme-accent) calc(var(--value) * 1%),
+			transparent calc(var(--value) * 1%)
+		);
 		border-radius: 500px;
 		height: var(--space-xxs);
 	}
