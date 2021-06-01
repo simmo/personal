@@ -2,7 +2,6 @@
 	import { Layer } from '$lib/components/Canvas';
 	import type { DrawFn } from '$lib/components/Canvas';
 	import type { RGB } from './types';
-	import { offset } from './store';
 
 	export let x: number;
 	export let y: number;
@@ -21,9 +20,8 @@
 	) => ((value - currentFrom) / (currentTo - currentFrom)) * (targetTo - targetFrom) + targetFrom;
 
 	const draw: DrawFn = ({ ctx, height, width }) => {
-		const offsetX = width / 2 + $offset.x;
-		const offsetY = height / 2 + $offset.y;
-
+		const offsetX = width / 2;
+		const offsetY = height / 2;
 		const sx = mapToRange(x / z, 0, 1, 0, width) + offsetX;
 		const sy = mapToRange(y / z, 0, 1, 0, height) + offsetY;
 		const r = mapToRange(z, 0, width, 5, 0);

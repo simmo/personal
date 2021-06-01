@@ -4,35 +4,11 @@
 	import Range from '$lib/components/Range.svelte';
 	import Checkbox from '$lib/components/Checkbox.svelte';
 	import Copy from '$lib/components/Copy.svelte';
-	import { offset } from '$lib/projects/starfield/store';
-	import { browser } from '$app/env';
 
 	let showFPS: boolean = false;
 	let speed: number = 10;
 	let withPride: boolean = false;
-	let useMouse: boolean = false;
 	let wrapper: HTMLDivElement;
-
-	const handleMouseMove = (event: MouseEvent) => {
-		window.requestAnimationFrame(() => {
-			const x = event.offsetX - Math.round(wrapper.clientWidth / 2);
-			const y = event.offsetY - Math.round(wrapper.clientHeight / 2);
-
-			offset.set({ x, y });
-		});
-	};
-
-	$: {
-		if (browser && wrapper) {
-			if (useMouse) {
-				wrapper.addEventListener('mousemove', handleMouseMove);
-			} else {
-				wrapper.removeEventListener('mousemove', handleMouseMove);
-
-				offset.set({ x: 0, y: 0 });
-			}
-		}
-	}
 </script>
 
 <svelte:head>
@@ -57,10 +33,7 @@ Windows 3.1 as a screen saver!"
 			<label for="speed">Speed</label>
 			<Range id="speed" min={2} max={40} step={0.5} bind:value={speed} />
 		</div>
-		<div>
-			<Checkbox bind:checked={showFPS}>Show FPS</Checkbox>
-			<Checkbox bind:checked={useMouse}>Allow mouse to control offset</Checkbox>
-		</div>
+		<Checkbox bind:checked={showFPS}>Show FPS</Checkbox>
 		<Checkbox bind:checked={withPride} hint="Happy Pride Month!">Show PRIDE</Checkbox>
 	</div>
 	<Copy>
@@ -90,13 +63,12 @@ Windows 3.1 as a screen saver!"
 
 	.controls {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		gap: var(--space-s);
 	}
 
-	.directions {
-		display: grid;
-		gap: var(--space-xxs);
-		grid-template-columns: 1fr 1fr 1fr;
-		grid-template-rows: 1fr 1fr 1fr;
+	@media screen and (min-width: 30rem) {
+		.controls {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
 	}
 </style>
