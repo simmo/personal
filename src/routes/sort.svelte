@@ -39,7 +39,7 @@
 
 	const trackSpeed = debounce(() => {
 		track('change', {
-			category: 'app',
+			category: 'sort',
 			label: 'speed',
 			value: speed,
 		});
