@@ -21,6 +21,15 @@
 		<h2>Projects</h2>
 		<div class="projects">
 			<article>
+				<a href="/starfield">
+					<h3>Starfield</h3>
+					<p>
+						Seen in countless films when spaceships enter 'warp'. The starfield was also made
+						popular in Windows 3.1 as a screen saver!
+					</p>
+				</a>
+			</article>
+			<article>
 				<a href="/maze">
 					<h3>Maze Generation</h3>
 					<p>Exploring the use of a recursive backtracker algorithm to generate a Maze.</p>
