@@ -1,15 +1,17 @@
 <script lang="ts">
-	export let max: number;
-	export let min: number;
+	export let max: number = 100;
+	export let min: number = 0;
 	export let id: string;
-	export let step: number;
+	export let step: number = 1;
 	export let value: number = 0;
 
 	let input: HTMLInputElement;
 
 	$: {
 		if (input) {
-			input.style.setProperty('--value', value.toString());
+			const cssValue = ((value - min) / (max - min)) * 100;
+
+			input.style.setProperty('--value', cssValue.toString());
 		}
 	}
 </script>
@@ -19,13 +21,6 @@
 <style>
 	input[type='range'] {
 		appearance: none;
-		background-color: var(--theme-background-secondary);
-		background-image: linear-gradient(
-			90deg,
-			var(--theme-accent),
-			var(--theme-accent) calc(var(--value) * 1%),
-			transparent calc(var(--value) * 1%)
-		);
 		border-radius: 500px;
 		margin: 0;
 		padding: 0;
@@ -36,13 +31,25 @@
 	}
 
 	input[type='range']::-webkit-slider-runnable-track {
-		background-color: inherit;
+		background-color: var(--theme-background-secondary);
+		background-image: linear-gradient(
+			90deg,
+			var(--theme-accent),
+			var(--theme-accent) calc(var(--value) * 1%),
+			transparent calc(var(--value) * 1%)
+		);
 		border-radius: 500px;
 		height: var(--space-xxs);
 	}
 
 	input[type='range']::-moz-range-track {
-		background-color: inherit;
+		background-color: var(--theme-background-secondary);
+		background-image: linear-gradient(
+			90deg,
+			var(--theme-accent),
+			var(--theme-accent) calc(var(--value) * 1%),
+			transparent calc(var(--value) * 1%)
+		);
 		border-radius: 500px;
 		height: var(--space-xxs);
 	}

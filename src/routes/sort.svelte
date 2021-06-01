@@ -2,7 +2,7 @@
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import Range from '$lib/components/Range.svelte';
-	import debounce from '$lib/utils/debounce';
+	import { throttle } from '$lib/utils/timing';
 	import track from '$lib/utils/track';
 	import Graph from '$lib/projects/sort/components/Graph.svelte';
 	import bubbleSort from '$lib/projects/sort/algorithms/bubbleSort';
@@ -37,9 +37,9 @@
 	const slowest = 100;
 	let speed = 0;
 
-	const trackSpeed = debounce(() => {
+	const trackSpeed = throttle(() => {
 		track('change', {
-			category: 'app',
+			category: 'sort',
 			label: 'speed',
 			value: speed,
 		});
@@ -47,7 +47,7 @@
 </script>
 
 <svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/sort.jpg" />
+	<meta property="og:image" content="/preview/sort.jpg" />
 </svelte:head>
 
 <Page
