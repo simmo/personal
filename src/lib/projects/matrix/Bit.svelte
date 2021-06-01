@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Layer, tick } from '$lib/components/Canvas';
-	import type { Config } from '$lib/components/Canvas/types';
+	import type { Config } from '$lib/components/Canvas';
 
 	export let size: number;
 	export let speed: number = 1;
