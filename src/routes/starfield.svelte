@@ -44,8 +44,7 @@
 <Page
 	pageTitle="Starfield"
 	heading="Starfield"
-	description="Seen in countless films when spaceships enter 'warp'. The starfield was also made popular in
-Windows 3.1 as a screen saver!"
+	description="Seen in countless films when spaceships enter 'warp'. The starfield was also made popular in Windows 3.1 as a screen saver!"
 >
 	<p slot="intro">
 		This demo is rendered in 2D, but, using a little deception, we can give the appearance of 3D
