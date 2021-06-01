@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/maze.jpg" />
+	<meta property="og:image" content="/preview/maze.jpg" />
 </svelte:head>
 
 <Page

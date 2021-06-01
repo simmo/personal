@@ -40,7 +40,7 @@
 </script>
 
 <svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/matrix.jpg" />
+	<meta property="og:image" content="/preview/matrix.jpg" />
 </svelte:head>
 
 <Page

@@ -47,7 +47,7 @@
 </script>
 
 <svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/sort.jpg" />
+	<meta property="og:image" content="/preview/sort.jpg" />
 </svelte:head>
 
 <Page

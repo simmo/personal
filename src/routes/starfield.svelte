@@ -38,7 +38,7 @@
 </script>
 
 <svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/starfield.jpg" />
+	<meta property="og:image" content="/preview/starfield.jpg" />
 </svelte:head>
 
 <Page
