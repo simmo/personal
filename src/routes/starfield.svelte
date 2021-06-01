@@ -4,11 +4,37 @@
 	import Range from '$lib/components/Range.svelte';
 	import Checkbox from '$lib/components/Checkbox.svelte';
 	import Copy from '$lib/components/Copy.svelte';
+	import track from '$lib/utils/track';
+	import { throttle } from '$lib/utils/timing';
 
 	let showFPS: boolean = false;
 	let speed: number = 10;
 	let withPride: boolean = false;
 	let wrapper: HTMLDivElement;
+
+	const trackShowFPSChange = () => {
+		track('check', {
+			category: 'starfield',
+			label: 'showFPS',
+			value: showFPS ? 1 : 0,
+		});
+	};
+
+	const trackShowPrideChange = () => {
+		track('check', {
+			category: 'starfield',
+			label: 'showPride',
+			value: withPride ? 1 : 0,
+		});
+	};
+
+	const trackSpeed = throttle(() => {
+		track('change', {
+			category: 'starfield',
+			label: 'speed',
+			value: speed,
+		});
+	}, 100);
 </script>
 
 <svelte:head>
@@ -31,10 +57,12 @@ Windows 3.1 as a screen saver!"
 	<div class="controls">
 		<div>
 			<label for="speed">Speed</label>
-			<Range id="speed" min={2} max={40} step={0.5} bind:value={speed} />
+			<Range id="speed" min={2} max={40} step={0.5} bind:value={speed} on:input={trackSpeed} />
 		</div>
-		<Checkbox bind:checked={showFPS}>Show FPS</Checkbox>
-		<Checkbox bind:checked={withPride} hint="Happy Pride Month!">Show PRIDE</Checkbox>
+		<Checkbox bind:checked={showFPS} on:change={trackShowFPSChange}>Show FPS</Checkbox>
+		<Checkbox bind:checked={withPride} on:change={trackShowPrideChange} hint="Happy Pride Month!"
+			>Show PRIDE</Checkbox
+		>
 	</div>
 	<Copy>
 		<h2>Pride</h2>
