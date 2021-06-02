@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Layer, tick } from '$lib/components/Canvas';
 	import type { Config } from '$lib/components/Canvas';
+	import { random } from '$lib/utils/maths';
 
 	export let size: number;
 	export let speed: number = 1;
@@ -11,19 +12,19 @@
 	export let blur: boolean = false;
 
 	const generateCharacter = () => {
-		const charType = Math.round(Math.random() * 1);
+		const charType = Math.round(random(1));
 
 		if (charType === 0) {
-			return String.fromCharCode(0x30a0 + Math.round(Math.random() * 95));
+			return String.fromCharCode(0x30a0 + Math.round(random(95)));
 		}
 
-		return Math.round(Math.random() * 9).toString();
+		return Math.round(random(9)).toString();
 	};
 
 	let text = generateCharacter();
 
 	$: {
-		if ($tick % (5 + Math.round(Math.random() * 100)) === 0) {
+		if ($tick % (5 + Math.round(random(100))) === 0) {
 			text = generateCharacter();
 		}
 	}

@@ -6,6 +6,7 @@
 	import Start from '$lib/icons/Start.svelte';
 	import Cell from '$lib/projects/maze/Cell.svelte';
 	import type { Item } from '$lib/projects/maze/types';
+	import { random } from '$lib/utils/maths';
 	import { onMount } from 'svelte';
 
 	export let play: boolean = false;
@@ -71,7 +72,7 @@
 			if (frameRate && neighbours.length) {
 				isBacktracking = false;
 
-				const [nextRow, nextColumn] = neighbours[Math.floor(Math.random() * neighbours.length)];
+				const [nextRow, nextColumn] = neighbours[Math.floor(random(neighbours.length))];
 				const next = grid[nextRow][nextColumn];
 
 				next.visited = true;
