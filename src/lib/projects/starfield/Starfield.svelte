@@ -44,10 +44,8 @@
 	$: $tick && update();
 </script>
 
-<div>
-	<Canvas height={canvasHeight} width={canvasWidth} {showFPS}>
-		{#each stars as star}
-			<StarLayer {...star} {speed} />
-		{/each}
-	</Canvas>
-</div>
+<Canvas height={canvasHeight} width={canvasWidth} {showFPS}>
+	{#each stars as star}
+		<StarLayer {...star} {speed} />
+	{/each}
+</Canvas>
