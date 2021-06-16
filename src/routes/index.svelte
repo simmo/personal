@@ -47,7 +47,7 @@
 	<p slot="intro">
 		Currently working at <Link href="https://zonedigital.com">Zone/Cognizant</Link>. I’ve spent over
 		10 years working across the tech, marketing and publishing sectors to deliver high-end web apps,
-		sites and products. My pronnouns are <Link href="https://pronoun.is/he/him">he/him</Link>.
+		sites and products. My pronouns are <Link href="https://pronoun.is/he/him">he/him</Link>.
 	</p>
 
 	<section>
