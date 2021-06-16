@@ -1,3 +1,18 @@
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Sorting Algorithms',
+		heading: 'Sorting Algorithms',
+		description: 'Using visualisation to explore different sorting algorithms.',
+		og: {
+			image: '/preview/sort.jpg',
+		},
+		isPublished: true,
+		published: new Date('2021-03-26T00:00:00Z'),
+	};
+</script>
+
 <script lang="ts">
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
@@ -46,15 +61,7 @@
 	}, 100);
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="/preview/sort.jpg" />
-</svelte:head>
-
-<Page
-	pageTitle="Sorting Algorithms"
-	heading="Sorting Algorithms"
-	description="Using visualisation to explore different sorting algorithms."
->
+<Page {meta}>
 	<p slot="intro">
 		This project is built with <Link href="https://svelte.dev">Svelte</Link> and
 		<Link href="https://www.typescriptlang.org">TypeScript</Link>. The sorting algorithms use nested

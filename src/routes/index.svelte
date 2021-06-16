@@ -1,3 +1,29 @@
+<script lang="ts" context="module">
+	import type { Load } from '@sveltejs/kit';
+
+	export const load: Load = async ({ page, fetch, session, context }) => {
+		const url = `/projects.json`;
+		const res = await fetch(url);
+		const projects = await res.json();
+
+		if (res.ok) {
+			return {
+				props: {
+					projects: projects.map((project) => ({
+						...project,
+						published: new Date(project.published),
+					})),
+				},
+			};
+		}
+
+		return {
+			status: res.status,
+			error: new Error(`Could not load ${url}`),
+		};
+	};
+</script>
+
 <script lang="ts">
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
@@ -6,59 +32,37 @@
 	import Npm from '$lib/icons/Npm.svelte';
 	import StackOverflow from '$lib/icons/StackOverflow.svelte';
 	import Twitter from '$lib/icons/Twitter.svelte';
+	import type { Post } from '$lib/types';
+	import format from 'date-fns/format';
+
+	export let projects: Post[];
 </script>
 
 <Page
-	heading="Hello, I’m Mike."
-	description="A UK based, Lead frontend engineer living in Sussex, working in London and remote."
+	meta={{
+		heading: 'Hello, I’m Mike.',
+		description:
+			'A UK based, Lead frontend engineer living in Sussex, working in London and remote.',
+	}}
 >
 	<p slot="intro">
-		Currently <Link href="https://zonedigital.com">@Zone</Link>. I’ve spent over 10 years working
-		across marketing and publishing sectors to deliver high-end web apps, sites and products.
+		Currently working at <Link href="https://zonedigital.com">Zone/Cognizant</Link>. I’ve spent over
+		10 years working across the tech, marketing and publishing sectors to deliver high-end web apps,
+		sites and products. My pronnouns are <Link href="https://pronoun.is/he/him">he/him</Link>.
 	</p>
 
 	<section>
 		<h2>Projects</h2>
 		<div class="projects">
-			<article>
-				<a href="/starfield">
-					<h3>Starfield</h3>
-					<p>
-						Seen in countless films when spaceships enter 'warp'. The starfield was also made
-						popular in Windows 3.1 as a screen saver!
-					</p>
-				</a>
-			</article>
-			<article>
-				<a href="/maze">
-					<h3>Maze Generation</h3>
-					<p>Exploring the use of a recursive backtracker algorithm to generate a Maze.</p>
-				</a>
-			</article>
-			<article>
-				<a href="/matrix">
-					<h3>Matrix</h3>
-					<p>Using canvas to recreate the iconic falling code, as seen in the Matrix films.</p>
-				</a>
-			</article>
-			<article>
-				<a href="/sort">
-					<h3>Sort</h3>
-					<p>Using visualisation to explore different sorting algorithms.</p>
-				</a>
-			</article>
-			<article>
-				<a href="https://snake.simmo.codes">
-					<h3>Snake</h3>
-					<p>A fun project to build a Snake game with CSS grid and a little bit of TypeScript.</p>
-				</a>
-			</article>
-			<article>
-				<a href="/gulp-stats">
-					<h3>Gulp Stats</h3>
-					<p>A Gulp plugin to display summary of the tasks run.</p>
-				</a>
-			</article>
+			{#each projects as { slug: href, heading, description, published }}
+				<article>
+					<a {href}>
+						<h3>{heading}</h3>
+						<p>{description}</p>
+						<p>{format(published, 'dd MMMM yyyy')}</p>
+					</a>
+				</article>
+			{/each}
 		</div>
 	</section>
 

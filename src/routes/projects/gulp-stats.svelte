@@ -1,14 +1,22 @@
-<script>
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Gulp Stats',
+		heading: 'Gulp Stats',
+		description: 'Gulp 4 plugin that displays a task summary.',
+		isPublished: true,
+		published: new Date('2015-01-28T09:37:08Z'),
+	};
+</script>
+
+<script lang="ts">
 	import Copy from '$lib/components/Copy.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 </script>
 
-<Page
-	pageTitle="Gulp Stats"
-	heading="Gulp Stats"
-	description="Gulp 4 plugin that displays a task summary."
->
+<Page {meta}>
 	<div class="badges" slot="intro">
 		<img
 			alt="Latest version badge"

@@ -1,3 +1,18 @@
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Maze Generation',
+		heading: 'Maze Generation',
+		description: 'Exploring the use of a recursive backtracker algorithm to generate a Maze.',
+		og: {
+			image: '/preview/maze.jpg',
+		},
+		isPublished: true,
+		published: new Date('2021-05-02T18:00:00Z'),
+	};
+</script>
+
 <script lang="ts">
 	import Copy from '$lib/components/Copy.svelte';
 	import Link from '$lib/components/Link.svelte';
@@ -5,15 +20,7 @@
 	import Maze from '$lib/projects/maze/Maze.svelte';
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="/preview/maze.jpg" />
-</svelte:head>
-
-<Page
-	pageTitle="Maze Generation"
-	heading="Maze Generation"
-	description="Exploring the use of a recursive backtracker algorithm to generate a Maze."
->
+<Page {meta}>
 	<p slot="intro">
 		I'm not sure why or if I'll ever need to create a maze as part of a project but it does make for
 		an interesting code challenge!
