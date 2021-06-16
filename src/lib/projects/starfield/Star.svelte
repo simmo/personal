@@ -2,6 +2,7 @@
 	import { Layer } from '$lib/components/Canvas';
 	import type { DrawFn } from '$lib/components/Canvas';
 	import type { RGB } from './types';
+	import { mapToRange } from '$lib/utils/mapToRange';
 
 	export let x: number;
 	export let y: number;
@@ -10,14 +11,6 @@
 	export let speed: number;
 
 	let zOrigin: number = z;
-
-	const mapToRange = (
-		value: number,
-		currentFrom: number,
-		currentTo: number,
-		targetFrom: number,
-		targetTo: number
-	) => ((value - currentFrom) / (currentTo - currentFrom)) * (targetTo - targetFrom) + targetFrom;
 
 	const draw: DrawFn = ({ ctx, height, width }) => {
 		const offsetX = width / 2;

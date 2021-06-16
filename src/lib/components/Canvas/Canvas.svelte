@@ -80,7 +80,9 @@
 	});
 </script>
 
-<canvas bind:this={canvas} {height} {width} />
+<canvas bind:this={canvas} {height} {width}>
+	<p>You'll need JavaScript enabled to run this 🧑‍💻.</p>
+</canvas>
 
 <slot />
 
@@ -88,5 +90,9 @@
 	canvas {
 		display: block;
 		width: 100%;
+	}
+
+	canvas p {
+		padding: var(--space-s);
 	}
 </style>

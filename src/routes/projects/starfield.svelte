@@ -1,3 +1,19 @@
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Starfield',
+		heading: 'Starfield',
+		description:
+			"Seen in countless films when spaceships enter 'warp'. The starfield was also made popular in Windows 3.1 as a screen saver!",
+		og: {
+			image: '/preview/starfield.jpg',
+		},
+		isPublished: true,
+		published: new Date('2021-06-01T08:00:21Z'),
+	};
+</script>
+
 <script lang="ts">
 	import Starfield from '$lib/projects/starfield/Starfield.svelte';
 	import Page from '$lib/components/Page.svelte';
@@ -37,15 +53,7 @@
 	}, 100);
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="/preview/starfield.jpg" />
-</svelte:head>
-
-<Page
-	pageTitle="Starfield"
-	heading="Starfield"
-	description="Seen in countless films when spaceships enter 'warp'. The starfield was also made popular in Windows 3.1 as a screen saver!"
->
+<Page {meta}>
 	<p slot="intro">
 		This demo is rendered in 2D, but, using a little deception, we can give the appearance of 3D
 		space.

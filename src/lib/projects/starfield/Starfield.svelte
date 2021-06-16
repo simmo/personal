@@ -4,7 +4,7 @@
 	import StarLayer from './Star.svelte';
 	import type { RGB, Star } from './types';
 
-	export let speed: number;
+	export let speed: number = 10;
 	export let showFPS: boolean = false;
 	export let withPride: boolean = false;
 
@@ -44,10 +44,8 @@
 	$: $tick && update();
 </script>
 
-<div>
-	<Canvas height={canvasHeight} width={canvasWidth} {showFPS}>
-		{#each stars as star}
-			<StarLayer {...star} {speed} />
-		{/each}
-	</Canvas>
-</div>
+<Canvas height={canvasHeight} width={canvasWidth} {showFPS}>
+	{#each stars as star}
+		<StarLayer {...star} {speed} />
+	{/each}
+</Canvas>

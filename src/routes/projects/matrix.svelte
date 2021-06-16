@@ -1,3 +1,18 @@
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Matrix digital rain',
+		heading: 'Matrix digital rain',
+		description: 'Using canvas to recreate the iconic raining code, as seen in the Matrix films.',
+		og: {
+			image: '/preview/matrix.jpg',
+		},
+		isPublished: true,
+		published: new Date('2021-04-19T08:06:50Z'),
+	};
+</script>
+
 <script lang="ts">
 	import { Canvas, Layer } from '$lib/components/Canvas';
 	import type { Config } from '$lib/components/Canvas';
@@ -39,15 +54,7 @@
 	};
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="/preview/matrix.jpg" />
-</svelte:head>
-
-<Page
-	pageTitle="Matrix digital rain"
-	heading="Matrix digital rain"
-	description="Using canvas to recreate the iconic raining code, as seen in the Matrix films."
->
+<Page {meta}>
 	<div class="full wrapper">
 		<Canvas height={900} width={canvasWidth} {showFPS} alpha={false}>
 			<Layer draw={drawBackground} />

@@ -1,26 +1,28 @@
 <script lang="ts">
-	export let pageTitle: string | string[] = [];
-	export let heading: string;
-	export let description: string;
+	import type { Meta, PostMeta, OpenGraph } from '$lib/types';
 
-	const title = [
-		...(typeof pageTitle === 'string' ? [pageTitle] : pageTitle),
+	export let meta: Meta | PostMeta;
+
+	$: title = [
+		...(typeof meta.title === 'string' ? [meta.title] : meta.title ?? []),
 		'Mike Simmonds',
 	].join(' - ');
+
+	const defaultOg: OpenGraph = { description: meta.description, title, type: 'website' };
 </script>
 
 <svelte:head>
 	<title>{title}</title>
-	<meta name="description" content={description} />
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={description} />
-	<meta property="og:type" content="website" />
+	<meta name="description" content={meta.description} />
+	{#each Object.entries({ ...defaultOg, ...meta.og }) as [property, content]}
+		<meta property={`og:${property}`} {content} />
+	{/each}
 </svelte:head>
 
 <header>
 	<div class="inner">
-		<h1>{heading}</h1>
-		<p>{description}</p>
+		<h1>{meta.heading}</h1>
+		<p>{meta.description}</p>
 	</div>
 	<slot name="intro" />
 </header>
