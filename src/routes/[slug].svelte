@@ -11,7 +11,7 @@
 
 		if (projectExists) {
 			return {
-				status: 302,
+				status: 301,
 				redirect: url,
 			};
 		}
