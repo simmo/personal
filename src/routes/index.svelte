@@ -59,7 +59,6 @@
 					<a {href}>
 						<h3>{heading}</h3>
 						<p>{description}</p>
-						<p>{format(published, 'dd MMMM yyyy')}</p>
 					</a>
 				</article>
 			{/each}
