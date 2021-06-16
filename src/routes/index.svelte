@@ -33,7 +33,6 @@
 	import StackOverflow from '$lib/icons/StackOverflow.svelte';
 	import Twitter from '$lib/icons/Twitter.svelte';
 	import type { Post } from '$lib/types';
-	import format from 'date-fns/format';
 
 	export let projects: Post[];
 </script>
