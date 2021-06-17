@@ -27,6 +27,7 @@
 <script lang="ts">
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
+	import PostLink from '$lib/components/PostLink.svelte';
 	import type { Post } from '$lib/types';
 
 	export let projects: Post[];
@@ -48,13 +49,8 @@
 	<section>
 		<h2>Projects</h2>
 		<div class="projects">
-			{#each projects as { slug: href, heading, description, published }}
-				<article>
-					<a {href}>
-						<h3>{heading}</h3>
-						<p>{description}</p>
-					</a>
-				</article>
+			{#each projects as { slug: href, heading, description }}
+				<PostLink {href} {heading} {description} />
 			{/each}
 		</div>
 	</section>
