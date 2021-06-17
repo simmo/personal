@@ -54,4 +54,8 @@
 		row-gap: var(--space-xxs);
 		margin: 0;
 	}
+
+	div :global(:first-child) {
+		margin-top: 0;
+	}
 </style>
