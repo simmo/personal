@@ -37,7 +37,7 @@
 
 	.inner {
 		display: grid;
-		row-gap: var(--space-xs);
+		row-gap: var(--space-s);
 	}
 
 	h1 {
