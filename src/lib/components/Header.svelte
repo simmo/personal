@@ -5,9 +5,14 @@
 </script>
 
 <header class="grid full">
-	<div class="inner">
+	<div class="main inner">
 		<Logo size={30} />
-		<a href="/">mike.id</a>
+		<a href="/">Mike Simmonds</a>
+		<!-- <nav>
+		<ul>
+			<li><a href="/projects">Projects</a></li>
+		</ul>
+	</nav> -->
 		<div class="theme">
 			<label for="pref">Theme: </label><Select bind:value={$userPreference} id="pref">
 				<option value={null}>System</option>
@@ -34,7 +39,17 @@
 		display: grid;
 		gap: var(--space-xs);
 		grid-template-columns: auto auto 1fr auto;
-		grid-template-areas: 'icon link . theme';
+		grid-template-areas: 'icon link nav theme';
+	}
+
+	nav {
+		grid-area: nav;
+		padding: 0 var(--space-m);
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 0;
 	}
 
 	a {
