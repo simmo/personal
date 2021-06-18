@@ -26,7 +26,7 @@
 	<ul>
 		{#each socials as [icon, href, name]}
 			<li>
-				<Link {href}><svelte:component this={icon} /> {name}</Link>
+				<Link {href}><svelte:component this={icon} slot="icon" /> {name}</Link>
 			</li>
 		{/each}
 	</ul>
@@ -37,13 +37,21 @@
 		border-top: 1px solid var(--theme-background-secondary);
 		color: var(--theme-text-secondary);
 		display: grid;
+		gap: var(--space-s);
+		grid-template-areas: 'socials' 'copyright';
 		font-size: var(--text-xs);
 		padding-top: var(--space-m);
 		padding-bottom: max(var(--space-m), env(safe-area-inset-bottom));
 	}
 
+	p {
+		grid-area: copyright;
+	}
+
 	ul {
 		display: grid;
+		gap: var(--space-xxs) var(--space-l);
+		grid-area: socials;
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -51,12 +59,14 @@
 
 	@media screen and (min-width: 30rem) {
 		ul {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: auto auto;
+			justify-content: start;
 		}
 	}
 
 	@media screen and (min-width: 60rem) {
 		footer {
+			grid-template-areas: 'copyright socials';
 			grid-template-columns: 2fr 1fr;
 		}
 	}
