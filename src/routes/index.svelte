@@ -29,6 +29,7 @@
 	import Page from '$lib/components/Page.svelte';
 	import PostLink from '$lib/components/PostLink.svelte';
 	import type { Post } from '$lib/types';
+	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
 
 	export let projects: Post[];
 </script>
@@ -46,13 +47,13 @@
 		sites and products. My pronouns are <Link href="https://pronoun.is/he/him">he/him</Link>.
 	</p>
 
-	<section>
-		<h2>Projects</h2>
-		<div class="projects">
+	<section class="main">
+		<h2>Recent projects</h2>
+		<TwoColumnGrid>
 			{#each projects as { slug: href, heading, description }}
 				<PostLink {href} {heading} {description} />
 			{/each}
-		</div>
+		</TwoColumnGrid>
 	</section>
 </Page>
 
@@ -62,41 +63,10 @@
 		row-gap: var(--space-s);
 	}
 
-	.projects {
-		display: grid;
-		gap: var(--space-m);
-		grid-template-columns: var(--grid-two-cols);
-	}
-
-	article {
-		display: grid;
-	}
-
-	article > a {
-		background-color: var(--theme-background-secondary);
-		border-radius: var(--space-xxs);
-		color: inherit;
-		display: block;
-		padding: var(--space-m);
-	}
-
-	.socials {
-		justify-content: start;
-		display: grid;
-		row-gap: var(--space-xs);
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	.socials :global(a) {
-		align-items: center;
-		display: grid;
-		column-gap: var(--space-xs);
-		grid-template-columns: auto 1fr;
-	}
-
-	.socials :global(svg) {
+	h2 {
+		color: var(--color-blue);
 		font-size: var(--text-m);
+		font-weight: 500;
+		text-transform: uppercase;
 	}
 </style>

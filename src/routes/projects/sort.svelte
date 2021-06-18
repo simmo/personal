@@ -27,6 +27,7 @@
 	import quickSort from '$lib/projects/sort/algorithms/quickSort';
 	import selectionSort from '$lib/projects/sort/algorithms/selectionSort';
 	import shuffle from '$lib/projects/sort/utils/shuffle';
+	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
 
 	const enum Dataset {
 		Random = 'RANDOM',
@@ -92,13 +93,15 @@
 		</p>
 	</div>
 
-	<div class="main graphs">
-		<Graph {speed} name="Bubble" {items} sort={bubbleSort} />
-		<Graph {speed} name="Cocktail" {items} sort={cocktailSort} />
-		<Graph {speed} name="Insertion" {items} sort={insertionSort} />
-		<Graph {speed} name="Odd-Even" {items} sort={oddEvenSort} />
-		<Graph {speed} name="Quick" {items} sort={quickSort} />
-		<Graph {speed} name="Selection" {items} sort={selectionSort} />
+	<div class="main">
+		<TwoColumnGrid>
+			<Graph {speed} name="Bubble" {items} sort={bubbleSort} />
+			<Graph {speed} name="Cocktail" {items} sort={cocktailSort} />
+			<Graph {speed} name="Insertion" {items} sort={insertionSort} />
+			<Graph {speed} name="Odd-Even" {items} sort={oddEvenSort} />
+			<Graph {speed} name="Quick" {items} sort={quickSort} />
+			<Graph {speed} name="Selection" {items} sort={selectionSort} />
+		</TwoColumnGrid>
 	</div>
 </Page>
 
@@ -109,11 +112,5 @@
 		display: grid;
 		gap: var(--space-s);
 		padding: var(--space-s) 0;
-	}
-
-	.graphs {
-		display: grid;
-		gap: var(--space-m);
-		grid-template-columns: var(--grid-two-cols);
 	}
 </style>
