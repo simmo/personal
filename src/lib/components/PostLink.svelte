@@ -38,7 +38,7 @@
 	}
 
 	h3 {
-		font-size: var(--text-l);
+		font-size: var(--text-m);
 		font-weight: 500;
 		line-height: 1.4;
 		transition: color 0.2s;

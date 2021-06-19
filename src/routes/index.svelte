@@ -65,8 +65,7 @@
 
 	h2 {
 		color: var(--color-blue);
-		font-size: var(--text-m);
+		font-size: var(--text-l);
 		font-weight: 500;
-		text-transform: uppercase;
 	}
 </style>
