@@ -1,19 +1,28 @@
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Maze Generation',
+		heading: 'Maze Generation',
+		description: 'Exploring the use of a recursive backtracker algorithm to generate a Maze.',
+		og: {
+			image: '/preview/maze.jpg',
+		},
+		isPublished: true,
+		published: new Date('2021-05-02T18:00:00Z'),
+	};
+</script>
+
 <script lang="ts">
+	import Code from '$lib/components/Code.svelte';
+	import ColourSquare from '$lib/components/ColourSquare.svelte';
 	import Copy from '$lib/components/Copy.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import Maze from '$lib/projects/maze/Maze.svelte';
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/maze.jpg" />
-</svelte:head>
-
-<Page
-	pageTitle="Maze Generation"
-	heading="Maze Generation"
-	description="Exploring the use of a recursive backtracker algorithm to generate a Maze."
->
+<Page {meta}>
 	<p slot="intro">
 		I'm not sure why or if I'll ever need to create a maze as part of a project but it does make for
 		an interesting code challenge!
@@ -52,8 +61,11 @@
 		</blockquote>
 		<h2>Implementation</h2>
 		<p>
-			Note: The current cell is shown in green with the cells in the stack shown in grey. When the
-			algorithm is backtracking the cell is shown in purple.
+			Note: The current cell is shown in <ColourSquare value="--color-green">green</ColourSquare> with
+			the cells in the stack shown in <ColourSquare value="--theme-highlight">grey</ColourSquare>.
+			When the algorithm is backtracking, the cell is shown in <ColourSquare value="--color-pink"
+				>pink</ColourSquare
+			>.
 		</p>
 		<h3>Stack</h3>
 		<p>One important feature of this algorithm is the use of a stack.</p>
@@ -64,11 +76,11 @@
 			system.
 		</p>
 		<p>
-			In JavaScript/TypeScript, we can use an array for this structure. It helpfully has the methods <code
-				>push</code
+			In JavaScript/TypeScript, we can use an array for this structure. It helpfully has the methods <Code
+				>push</Code
 			>
 			and
-			<code>pop</code> that can be used exactly as needed.
+			<Code>pop</Code> that can be used exactly as needed.
 		</p>
 		<h3>The loop</h3>
 		<p>

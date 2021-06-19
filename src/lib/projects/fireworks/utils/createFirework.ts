@@ -6,7 +6,7 @@ import createPoint from './createPoint';
 export default function createFirework(x: number, y: number): FireworkParticle {
 	return {
 		...createParticle(x, y),
-		colour: [Math.round(random(0, 360)), '100%', '50%'],
+		colour: [Math.round(random(0, 360)), '100%', '70%'],
 		done: false,
 		isExploded: false,
 		payload: [],

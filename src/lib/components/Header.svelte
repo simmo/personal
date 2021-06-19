@@ -5,9 +5,16 @@
 </script>
 
 <header class="grid full">
-	<div class="inner">
-		<Logo size={30} />
-		<a href="/">mike.id</a>
+	<div class="main inner">
+		<div class="home">
+			<Logo size={30} />
+			<a class="name" href="/">Mike Simmonds</a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="/blog">Posts</a></li>
+			</ul>
+		</nav>
 		<div class="theme">
 			<label for="pref">Theme: </label><Select bind:value={$userPreference} id="pref">
 				<option value={null}>System</option>
@@ -28,18 +35,59 @@
 		z-index: 1;
 	}
 
+	.home {
+		align-content: center;
+		align-items: center;
+		display: grid;
+		gap: var(--space-xs);
+		grid-area: home;
+		grid-template-columns: auto 1fr;
+	}
+
 	.inner {
 		align-content: center;
 		align-items: center;
 		display: grid;
 		gap: var(--space-xs);
-		grid-template-columns: auto auto 1fr auto;
-		grid-template-areas: 'icon link . theme';
+		grid-template-columns: 1fr auto;
+		grid-template-areas: 'home home' 'nav theme';
 	}
 
-	a {
+	@media screen and (min-width: 30rem) {
+		.inner {
+			gap: var(--space-s);
+			grid-template-columns: auto 1fr auto;
+			grid-template-areas: 'home nav theme';
+		}
+
+		nav {
+			margin-left: var(--space-xs);
+		}
+	}
+
+	nav {
+		grid-area: nav;
+	}
+
+	nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	nav li {
+	}
+
+	nav a {
 		color: inherit;
-		grid-area: link;
+	}
+
+	nav a:hover {
+		color: var(--theme-accent);
+	}
+
+	.name {
+		color: inherit;
 		line-height: 1;
 		font-weight: bold;
 		text-transform: uppercase;

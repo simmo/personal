@@ -1,3 +1,18 @@
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Matrix digital rain',
+		heading: 'Matrix digital rain',
+		description: 'Using canvas to recreate the iconic raining code, as seen in the Matrix films.',
+		og: {
+			image: '/preview/matrix.jpg',
+		},
+		isPublished: true,
+		published: new Date('2021-04-19T08:06:50Z'),
+	};
+</script>
+
 <script lang="ts">
 	import { Canvas, Layer } from '$lib/components/Canvas';
 	import type { Config } from '$lib/components/Canvas';
@@ -8,6 +23,7 @@
 	import Stream from '$lib/projects/matrix/Stream.svelte';
 	import getCssVar from '$lib/utils/getCssVar';
 	import track from '$lib/utils/track';
+	import Code from '$lib/components/Code.svelte';
 
 	const canvasWidth = 1800;
 	const totalStreams = 50;
@@ -39,15 +55,7 @@
 	};
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/matrix.jpg" />
-</svelte:head>
-
-<Page
-	pageTitle="Matrix digital rain"
-	heading="Matrix digital rain"
-	description="Using canvas to recreate the iconic raining code, as seen in the Matrix films."
->
+<Page {meta}>
 	<div class="full wrapper">
 		<Canvas height={900} width={canvasWidth} {showFPS} alpha={false}>
 			<Layer draw={drawBackground} />
@@ -73,7 +81,7 @@
 				href="https://en.wikipedia.org/wiki/Katakana_(Unicode_block)">Katakana</Link
 			> characters mixed with some single digit numbers closely matched the characters used in the film.
 		</p>
-		<p>The Katakana characters start in unicode from <code>U+30a0</code> for 96 characters.</p>
+		<p>The Katakana characters start in unicode from <Code>U+30a0</Code> for 96 characters.</p>
 		<h2>Performance</h2>
 		<p>
 			On my MacBook Pro, the 50 columns of characters render at a steady 60fps. When I tried kicking

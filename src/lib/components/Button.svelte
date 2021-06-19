@@ -10,7 +10,7 @@
 <style>
 	button {
 		appearance: none;
-		background-color: var(--theme-accent);
+		background-color: var(--color-pink);
 		border-radius: var(--space-xxs);
 		border: 0;
 		box-shadow: 0 0 0 0 transparent;
@@ -18,7 +18,7 @@
 		display: inline-grid;
 		line-height: 1;
 		font: inherit;
-		font-weight: bold;
+		font-weight: 700;
 		margin: 0;
 		padding: var(--space-xxs) var(--space-s);
 		outline: none;
@@ -55,12 +55,12 @@
 	}
 
 	button:not(:disabled):active {
-		background-color: hsl(145, 63%, 49%);
+		background-color: var(--color-pink);
 	}
 
 	button.inverted:not(:disabled):hover,
 	button.inverted:not(:disabled):focus {
-		box-shadow: 0 0 0 2px var(--theme-accent);
+		box-shadow: 0 0 0 2px var(--color-pink);
 	}
 
 	button:disabled {

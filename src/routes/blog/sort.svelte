@@ -1,8 +1,23 @@
+<script lang="ts" context="module">
+	import type { PostMeta } from '$lib/types';
+
+	export const meta: PostMeta = {
+		title: 'Sorting Algorithms',
+		heading: 'Sorting Algorithms',
+		description: 'Using visualisation to explore different sorting algorithms.',
+		og: {
+			image: '/preview/sort.jpg',
+		},
+		isPublished: true,
+		published: new Date('2021-03-26T00:00:00Z'),
+	};
+</script>
+
 <script lang="ts">
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import Range from '$lib/components/Range.svelte';
-	import debounce from '$lib/utils/debounce';
+	import { throttle } from '$lib/utils/timing';
 	import track from '$lib/utils/track';
 	import Graph from '$lib/projects/sort/components/Graph.svelte';
 	import bubbleSort from '$lib/projects/sort/algorithms/bubbleSort';
@@ -12,6 +27,7 @@
 	import quickSort from '$lib/projects/sort/algorithms/quickSort';
 	import selectionSort from '$lib/projects/sort/algorithms/selectionSort';
 	import shuffle from '$lib/projects/sort/utils/shuffle';
+	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
 
 	const enum Dataset {
 		Random = 'RANDOM',
@@ -37,24 +53,16 @@
 	const slowest = 100;
 	let speed = 0;
 
-	const trackSpeed = debounce(() => {
+	const trackSpeed = throttle(() => {
 		track('change', {
-			category: 'app',
+			category: 'sort',
 			label: 'speed',
 			value: speed,
 		});
 	}, 100);
 </script>
 
-<svelte:head>
-	<meta property="og:image" content="https://mike.id/preview/sort.jpg" />
-</svelte:head>
-
-<Page
-	pageTitle="Sorting Algorithms"
-	heading="Sorting Algorithms"
-	description="Using visualisation to explore different sorting algorithms."
->
+<Page {meta}>
 	<p slot="intro">
 		This project is built with <Link href="https://svelte.dev">Svelte</Link> and
 		<Link href="https://www.typescriptlang.org">TypeScript</Link>. The sorting algorithms use nested
@@ -85,13 +93,15 @@
 		</p>
 	</div>
 
-	<div class="main graphs">
-		<Graph {speed} name="Bubble" {items} sort={bubbleSort} />
-		<Graph {speed} name="Cocktail" {items} sort={cocktailSort} />
-		<Graph {speed} name="Insertion" {items} sort={insertionSort} />
-		<Graph {speed} name="Odd-Even" {items} sort={oddEvenSort} />
-		<Graph {speed} name="Quick" {items} sort={quickSort} />
-		<Graph {speed} name="Selection" {items} sort={selectionSort} />
+	<div class="main">
+		<TwoColumnGrid>
+			<Graph {speed} name="Bubble" {items} sort={bubbleSort} />
+			<Graph {speed} name="Cocktail" {items} sort={cocktailSort} />
+			<Graph {speed} name="Insertion" {items} sort={insertionSort} />
+			<Graph {speed} name="Odd-Even" {items} sort={oddEvenSort} />
+			<Graph {speed} name="Quick" {items} sort={quickSort} />
+			<Graph {speed} name="Selection" {items} sort={selectionSort} />
+		</TwoColumnGrid>
 	</div>
 </Page>
 
@@ -102,11 +112,5 @@
 		display: grid;
 		gap: var(--space-s);
 		padding: var(--space-s) 0;
-	}
-
-	.graphs {
-		display: grid;
-		gap: var(--space-m);
-		grid-template-columns: var(--grid-two-cols);
 	}
 </style>
