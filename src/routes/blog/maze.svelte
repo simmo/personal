@@ -14,6 +14,7 @@
 </script>
 
 <script lang="ts">
+	import Code from '$lib/components/Code.svelte';
 	import ColourSquare from '$lib/components/ColourSquare.svelte';
 	import Copy from '$lib/components/Copy.svelte';
 	import Link from '$lib/components/Link.svelte';
@@ -75,11 +76,11 @@
 			system.
 		</p>
 		<p>
-			In JavaScript/TypeScript, we can use an array for this structure. It helpfully has the methods <code
-				>push</code
+			In JavaScript/TypeScript, we can use an array for this structure. It helpfully has the methods <Code
+				>push</Code
 			>
 			and
-			<code>pop</code> that can be used exactly as needed.
+			<Code>pop</Code> that can be used exactly as needed.
 		</p>
 		<h3>The loop</h3>
 		<p>
