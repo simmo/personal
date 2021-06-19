@@ -57,11 +57,11 @@
 
 			const colors = {
 				operation: getCssVar('--color-green'),
-				comparision: getCssVar('--color-yellow'),
+				comparision: getCssVar('--color-pink'),
 				sorted: getCssVar('--theme-text-primary'),
 				unsorted: getCssVar('--theme-text-secondary'),
-				pointer: getCssVar('--color-purple'),
-				pivot: getCssVar('--color-red'),
+				pointer: getCssVar('--color-blue'),
+				pivot: getCssVar('--color-orange'),
 				bar: getCssVar('--theme-highlight'),
 			};
 
@@ -304,6 +304,7 @@
 	}
 
 	h2 {
+		font-weight: 700;
 		margin: 0;
 	}
 </style>

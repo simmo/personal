@@ -8,38 +8,15 @@
 		row-gap: var(--space-s);
 	}
 
-	div :global(code) {
-		background-color: var(--theme-background-secondary);
-		border-radius: var(--space-xxs);
-		display: inline-block;
-		font-weight: 500;
-		padding: 0 var(--space-xs);
-	}
-
-	div :global(pre) {
-		background-color: var(--theme-background-secondary);
-		border-radius: var(--space-xxs);
-		font-weight: 500;
-		margin: 0;
-		overflow-x: auto;
-		padding: var(--space-s);
-		width: 100%;
-	}
-
-	div :global(pre code) {
-		all: unset;
-		display: block;
-		width: 100%;
-	}
-
 	div :global(h2) {
-		font-size: var(--text-m);
+		color: var(--color-blue);
+		font-size: var(--text-l);
 		margin-top: var(--space-s);
 		margin-bottom: calc(var(--space-xs) * -1);
 	}
 
 	div :global(h3) {
-		font-size: var(--text-s);
+		font-size: var(--text-m);
 		margin-bottom: calc(var(--space-s) * -1);
 	}
 
@@ -53,6 +30,7 @@
 		display: grid;
 		row-gap: var(--space-xxs);
 		margin: 0;
+		padding: 0 0 0 var(--space-m);
 	}
 
 	div :global(:first-child) {

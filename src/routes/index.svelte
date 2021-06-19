@@ -1,15 +1,16 @@
 <script lang="ts" context="module">
 	import type { Load } from '@sveltejs/kit';
+	import type { Post } from '$lib/types';
 
 	export const load: Load = async ({ page, fetch, session, context }) => {
-		const url = `/projects.json`;
+		const url = `/blog.json`;
 		const res = await fetch(url);
-		const projects = await res.json();
+		const posts: Post[] = await res.json();
 
 		if (res.ok) {
 			return {
 				props: {
-					projects: projects.map((project) => ({
+					posts: posts.map((project) => ({
 						...project,
 						published: new Date(project.published),
 					})),
@@ -28,10 +29,9 @@
 	import Link from '$lib/components/Link.svelte';
 	import Page from '$lib/components/Page.svelte';
 	import PostLink from '$lib/components/PostLink.svelte';
-	import type { Post } from '$lib/types';
 	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
 
-	export let projects: Post[];
+	export let posts: Post[];
 </script>
 
 <Page
@@ -48,9 +48,9 @@
 	</p>
 
 	<section class="main">
-		<h2>Recent projects</h2>
+		<h2>Recent posts</h2>
 		<TwoColumnGrid>
-			{#each projects as { slug: href, heading, description }}
+			{#each posts as { slug: href, heading, description }}
 				<PostLink {href} {heading} {description} />
 			{/each}
 		</TwoColumnGrid>

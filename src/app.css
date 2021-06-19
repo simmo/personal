@@ -1,14 +1,11 @@
 :root {
 	--color-black: #000;
-	--color-blue: #2980b9;
-	--color-green: #27ae60;
-	--color-green-light: #2ecc71;
-	--color-orange: #d35400;
-	--color-purple: #8e44ad;
-	--color-red: #c0392b;
-	--color-teal: #16a085;
-	--color-yellow: #f39c12;
-	--color-white: hsl(0, 0%, 100%);
+	--color-grey: #272822;
+	--color-pink: #f92672;
+	--color-blue: #28c6e4;
+	--color-green: #6aaf19;
+	--color-orange: #fd971f;
+	--color-white: #fff;
 
 	--grid-gutter: minmax(clamp(var(--space-s), 2vmax, var(--space-l)), 1fr);
 
@@ -19,14 +16,14 @@
 	--space-l: 2rem;
 	--space-xl: 3rem;
 
-	--text-l: 2.6rem;
-	--text-m: 1.4rem;
+	--text-xl: 2.6rem;
+	--text-l: 1.5rem;
+	--text-m: 1.3rem;
 	--text-s: 1rem;
 	--text-xs: 0.85rem;
 
-	--theme-accent: #27ae60;
-	--theme-accent-light: #2ecc71;
-	--theme-background-primary: hsl(0, 0%, 100%);
+	--theme-accent: var(--color-green);
+	--theme-background-primary: var(--color-white);
 	--theme-background-secondary: hsl(0, 0%, 95%);
 	--theme-text-primary: hsl(0, 0%, 13%);
 	--theme-text-secondary: hsl(0, 0%, 60%);
@@ -42,9 +39,12 @@
 }
 
 :root[dark] {
+	--color-blue: #66d9ef;
+	--color-green: #a6e22e;
+
 	--theme-background-primary: hsl(0, 0%, 8%);
 	--theme-background-secondary: hsl(240, 3%, 13%);
-	--theme-text-primary: hsl(0, 0%, 100%);
+	--theme-text-primary: var(--color-white);
 	--theme-text-secondary: hsl(0, 0%, 47%);
 	--theme-shadow: hsla(0, 0%, 5%, 50%);
 	--theme-highlight: hsla(0, 100%, 100%, 15%);
@@ -73,6 +73,16 @@ h3,
 h4,
 p {
 	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+	font-weight: 500;
 }
 
 .grid {
@@ -119,12 +129,15 @@ p {
 
 a {
 	color: var(--theme-accent);
+	font-weight: 500;
 	text-decoration: none;
+	transition: text-decoration 0.2s;
 }
 
 a:hover,
 a:focus {
 	text-decoration: underline;
+	text-underline-offset: 0.3em;
 }
 
 p a {
