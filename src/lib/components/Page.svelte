@@ -22,7 +22,7 @@
 <header>
 	<div class="inner">
 		<h1>{meta.heading}</h1>
-		<p>{meta.description}</p>
+		<p class="description">{meta.description}</p>
 	</div>
 	<slot name="intro" />
 </header>
@@ -37,16 +37,16 @@
 
 	.inner {
 		display: grid;
-		row-gap: var(--space-xs);
+		row-gap: var(--space-s);
 	}
 
 	h1 {
-		font-size: var(--text-l);
+		font-size: var(--text-xl);
+		font-weight: 700;
 		line-height: 1.2;
 	}
 
-	p {
+	.description {
 		font-size: var(--text-m);
-		line-height: 1.4;
 	}
 </style>

@@ -38,28 +38,16 @@
 			fill: var(--color-blue);
 		}
 
-		20% {
+		33% {
 			fill: var(--color-green);
 		}
 
-		40% {
+		66% {
 			fill: var(--color-orange);
 		}
 
-		50% {
-			fill: var(--color-purple);
-		}
-
-		60% {
-			fill: var(--color-red);
-		}
-
-		80% {
-			fill: var(--color-teal);
-		}
-
 		100% {
-			fill: var(--color-yellow);
+			fill: var(--color-pink);
 		}
 	}
 

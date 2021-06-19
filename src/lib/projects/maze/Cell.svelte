@@ -39,7 +39,7 @@
 		}
 
 		if (current) {
-			ctx.fillStyle = isBacktracking ? getCssVar('--color-purple') : getCssVar('--theme-accent');
+			ctx.fillStyle = isBacktracking ? getCssVar('--color-pink') : getCssVar('--color-green');
 			ctx.fillRect(x, y, size, size);
 		}
 

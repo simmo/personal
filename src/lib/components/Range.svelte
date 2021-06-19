@@ -21,6 +21,8 @@
 <style>
 	input[type='range'] {
 		appearance: none;
+		background: none;
+		border: 0;
 		border-radius: 500px;
 		margin: 0;
 		padding: 0;
@@ -84,13 +86,13 @@
 		width: var(--space-s);
 	}
 
-	input[type='range']::-webkit-slider-thumb:active {
-		background-color: var(--theme-accent-light);
+	/* input[type='range']::-webkit-slider-thumb:active {
+		background-color: var(--color-pink);
 	}
 
 	input[type='range']::-moz-range-thumb:active {
-		background-color: var(--theme-accent-light);
-	}
+		background-color: var(--color-pink);
+	} */
 
 	input[type='range']:focus::-webkit-slider-thumb,
 	input[type='range']::-webkit-slider-thumb:hover {

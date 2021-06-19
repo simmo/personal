@@ -23,6 +23,7 @@
 	import Stream from '$lib/projects/matrix/Stream.svelte';
 	import getCssVar from '$lib/utils/getCssVar';
 	import track from '$lib/utils/track';
+	import Code from '$lib/components/Code.svelte';
 
 	const canvasWidth = 1800;
 	const totalStreams = 50;
@@ -80,7 +81,7 @@
 				href="https://en.wikipedia.org/wiki/Katakana_(Unicode_block)">Katakana</Link
 			> characters mixed with some single digit numbers closely matched the characters used in the film.
 		</p>
-		<p>The Katakana characters start in unicode from <code>U+30a0</code> for 96 characters.</p>
+		<p>The Katakana characters start in unicode from <Code>U+30a0</Code> for 96 characters.</p>
 		<h2>Performance</h2>
 		<p>
 			On my MacBook Pro, the 50 columns of characters render at a steady 60fps. When I tried kicking
