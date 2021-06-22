@@ -39,13 +39,20 @@
 	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
 	import PostLink from '$lib/components/PostLink.svelte';
 	import { toSentenceCase } from '$lib/utils/toSentenceCase';
+	import { formatTitle } from '$lib/utils/formatTitle';
 
 	export let title: string;
 	export let posts: Post[];
+
+	title = toSentenceCase(title);
 </script>
 
+<svelte:head>
+	<title>{formatTitle(title)}</title>
+</svelte:head>
+
 <section class="main">
-	<h2>{toSentenceCase(title)}</h2>
+	<h2>{title}</h2>
 	<TwoColumnGrid>
 		{#each posts as { slug: href, heading, description }}
 			<PostLink {href} {heading} {description} />

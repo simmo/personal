@@ -1,12 +1,10 @@
 <script lang="ts">
 	import type { Meta, PostMeta, OpenGraph } from '$lib/types';
+	import { formatTitle } from '$lib/utils/formatTitle';
 
 	export let meta: Meta | PostMeta;
 
-	$: title = [
-		...(typeof meta.title === 'string' ? [meta.title] : meta.title ?? []),
-		'Mike Simmonds',
-	].join(' - ');
+	$: title = formatTitle(meta.title);
 
 	const defaultOg: OpenGraph = { description: meta.description, title, type: 'website' };
 </script>
