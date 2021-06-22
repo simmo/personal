@@ -2,6 +2,7 @@
 	import { Layer, tick } from '$lib/components/Canvas';
 	import type { Config } from '$lib/components/Canvas';
 	import { random } from '$lib/utils/maths';
+	import { blur } from '$lib/projects/matrix/config';
 
 	export let size: number;
 	export let speed: number = 1;
@@ -9,7 +10,6 @@
 	export let y: number;
 	export let first: boolean = false;
 	export let opacity: number = 1;
-	export let blur: boolean = false;
 
 	const generateCharacter = () => {
 		const charType = Math.round(random(1));
@@ -33,7 +33,7 @@
 		const rb = first ? 200 : 0;
 		const fillStyle = `rgba(${rb}, 255, ${rb}, ${opacity})`;
 
-		if (blur) {
+		if ($blur) {
 			ctx.shadowColor = fillStyle;
 			ctx.shadowBlur = 20;
 		}
