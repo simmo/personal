@@ -3,12 +3,12 @@
 	import type { DrawFn } from '$lib/components/Canvas';
 	import type { RGB } from './types';
 	import { mapToRange } from '$lib/utils/mapToRange';
+	import { speed } from '$lib/projects/starfield/config';
 
 	export let x: number;
 	export let y: number;
 	export let z: number;
 	export let colour: RGB;
-	export let speed: number;
 
 	let zOrigin: number = z;
 
@@ -28,7 +28,7 @@
 
 		const xOrigin = mapToRange(x / zOrigin, 0, 1, 0, width) + offsetX;
 		const yOrigin = mapToRange(y / zOrigin, 0, 1, 0, height) + offsetY;
-		const trailAlpha = mapToRange(speed, 5, 20, 0, 0.6);
+		const trailAlpha = mapToRange($speed, 5, 20, 0, 0.6);
 
 		ctx.beginPath();
 		ctx.moveTo(xOrigin, yOrigin);

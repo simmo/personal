@@ -3,10 +3,7 @@
 	import { random } from '$lib/utils/maths';
 	import StarLayer from './Star.svelte';
 	import type { RGB, Star } from './types';
-
-	export let speed: number = 10;
-	export let showFPS: boolean = false;
-	export let withPride: boolean = false;
+	import { showFPS, speed, withPride } from '$lib/projects/starfield/config';
 
 	const canvasWidth = 1800;
 	const canvasHeight = 900;
@@ -27,7 +24,7 @@
 			x: Math.round(random(-canvasWidth / 2, canvasWidth / 2)),
 			y: Math.round(random(-canvasHeight / 2, canvasHeight / 2)),
 			z,
-			colour: withPride ? colours[Math.round(random(colours.length - 1))] : colours[0],
+			colour: $withPride ? colours[Math.round(random(colours.length - 1))] : colours[0],
 		};
 	};
 
@@ -35,7 +32,7 @@
 
 	const update = () => {
 		stars = stars.map((star) => {
-			const nextZ = star.z - speed;
+			const nextZ = star.z - $speed;
 
 			return nextZ < 1 ? createStar() : { ...star, z: nextZ };
 		});
@@ -44,8 +41,8 @@
 	$: $tick && update();
 </script>
 
-<Canvas height={canvasHeight} width={canvasWidth} {showFPS}>
+<Canvas height={canvasHeight} width={canvasWidth} showFPS={$showFPS}>
 	{#each stars as star}
-		<StarLayer {...star} {speed} />
+		<StarLayer {...star} />
 	{/each}
 </Canvas>
