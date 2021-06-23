@@ -20,6 +20,6 @@
 		height: 100%;
 	}
 	main {
-		row-gap: var(--space-xl);
+		row-gap: var(--space-s);
 	}
 </style>

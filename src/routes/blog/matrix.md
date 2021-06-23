@@ -2,7 +2,9 @@
 title: Matrix digital rain
 heading: Matrix digital rain
 description: Using canvas to recreate the iconic raining code, as seen in the Matrix films.
-ogImage: /preview/matrix.jpg
+og: {
+	image: /preview/matrix.jpg
+}
 isPublished: true
 published: 2021-04-19T08:06:50Z
 ---

@@ -35,7 +35,7 @@
 </script>
 
 <Page
-	meta={{
+	{...{
 		heading: 'Hello, I’m Mike.',
 		description:
 			'A UK based, Lead frontend engineer living in Sussex, working in London and remote.',

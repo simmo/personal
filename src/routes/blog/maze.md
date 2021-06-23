@@ -2,7 +2,9 @@
 title: Maze Generation
 heading: Maze Generation
 description: Exploring the use of a recursive backtracker algorithm to generate a Maze.
-ogImage: /preview/maze.jpg
+og: {
+	image: /preview/maze.jpg
+}
 isPublished: true
 published: 2021-05-02T18:00:00Z
 ---

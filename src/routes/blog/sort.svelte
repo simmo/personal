@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
-	import type { PostMeta } from '$lib/types';
+	import type { PostMetadata } from '$lib/types';
 
-	export const meta: PostMeta = {
+	export const metadata: PostMetadata = {
 		title: 'Sorting Algorithms',
 		heading: 'Sorting Algorithms',
 		description: 'Using visualisation to explore different sorting algorithms.',
@@ -62,7 +62,7 @@
 	}, 100);
 </script>
 
-<Page {meta}>
+<Page meta={metadata}>
 	<p slot="intro">
 		This project is built with <Link href="https://svelte.dev">Svelte</Link> and
 		<Link href="https://www.typescriptlang.org">TypeScript</Link>. The sorting algorithms use nested

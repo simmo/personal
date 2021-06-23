@@ -2,7 +2,9 @@
 title: Starfield
 heading: Starfield
 description: Seen in countless films when spaceships enter 'warp'. The starfield was also made popular in Windows 3.1 as a screen saver!
-ogImage: /preview/starfield.jpg
+og: {
+	image: /preview/starfield.jpg
+}
 isPublished: true
 published: 2021-06-01T08:00:21Z
 ---

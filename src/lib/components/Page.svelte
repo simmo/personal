@@ -1,26 +1,28 @@
-<script lang="ts">
-	import type { Meta, PostMeta, OpenGraph } from '$lib/types';
+<script>
 	import { formatTitle } from '$lib/utils/formatTitle';
 
-	export let meta: Meta | PostMeta;
+	export let title;
+	export let description;
+	export let heading;
+	export let og = {};
 
-	$: title = formatTitle(meta.title);
+	$: formattedTitle = formatTitle(title);
 
-	const defaultOg: OpenGraph = { description: meta.description, title, type: 'website' };
+	const defaultOg = { description: description, title: formattedTitle, type: 'website' };
 </script>
 
 <svelte:head>
-	<title>{title}</title>
-	<meta name="description" content={meta.description} />
-	{#each Object.entries({ ...defaultOg, ...meta.og }) as [property, content]}
+	<title>{formattedTitle}</title>
+	<meta name="description" content={description} />
+	{#each Object.entries({ ...defaultOg, ...og }) as [property, content]}
 		<meta property={`og:${property}`} {content} />
 	{/each}
 </svelte:head>
 
 <header>
 	<div class="inner">
-		<h1>{meta.heading}</h1>
-		<p class="description">{meta.description}</p>
+		<h1>{heading}</h1>
+		<p class="description">{description}</p>
 	</div>
 	<slot name="intro" />
 </header>
