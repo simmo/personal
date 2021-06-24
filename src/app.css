@@ -91,9 +91,9 @@ strong {
 	grid-template-columns:
 		[full-start]
 		var(--grid-gutter)
-		[main-start content-start]
+		[main-start offset-start content-start]
 		minmax(0, 45rem)
-		[content-end main-end]
+		[content-end offset-end main-end]
 		var(--grid-gutter)
 		[full-end];
 }
@@ -104,11 +104,15 @@ strong {
 			[full-start]
 			var(--grid-gutter)
 			[main-start]
-			minmax(0, 7.5rem)
+			minmax(0, 6.5rem)
+			[offset-start]
+			minmax(0, var(--space-s))
 			[content-start]
 			minmax(0, 45rem)
 			[content-end]
-			minmax(0, 7.5rem)
+			minmax(0, var(--space-s))
+			[offset-end]
+			minmax(0, 6.5rem)
 			[main-end]
 			var(--grid-gutter)
 			[full-end];
@@ -118,6 +122,10 @@ strong {
 .grid > *,
 .grid > .content {
 	grid-column: content;
+}
+
+.grid > .offset {
+	grid-column: offset;
 }
 
 .grid > .main {
@@ -179,6 +187,7 @@ pre {
 	background-color: #101010;
 	border-radius: var(--space-xxs);
 	box-shadow: 0 0 var(--space-m) rgba(0, 0, 0, 0.3) inset;
+	grid-column: offset;
 	font-weight: 500;
 	margin: var(--space-s) 0;
 	overflow-x: auto;
