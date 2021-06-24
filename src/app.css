@@ -104,11 +104,11 @@ strong {
 			[full-start]
 			var(--grid-gutter)
 			[main-start offset-start]
-			minmax(0, var(--space-s))
+			minmax(0, var(--space-m))
 			[content-start]
 			minmax(0, 45rem)
 			[content-end]
-			minmax(0, var(--space-s))
+			minmax(0, var(--space-m))
 			[offset-end main-end]
 			var(--grid-gutter)
 			[full-end];
@@ -123,11 +123,11 @@ strong {
 			[main-start]
 			minmax(0, 6.5rem)
 			[offset-start]
-			minmax(0, var(--space-s))
+			minmax(0, var(--space-m))
 			[content-start]
 			minmax(0, 45rem)
 			[content-end]
-			minmax(0, var(--space-s))
+			minmax(0, var(--space-m))
 			[offset-end]
 			minmax(0, 6.5rem)
 			[main-end]
@@ -208,7 +208,7 @@ pre {
 	font-weight: 500;
 	margin: var(--space-s) 0;
 	overflow-x: auto;
-	padding: var(--space-s);
+	padding: var(--space-s) var(--space-m);
 	tab-size: 2;
 	width: 100%;
 }
