@@ -1,12 +1,18 @@
 <script lang="ts">
+	import { format } from 'date-fns';
+
 	export let href: string;
 	export let heading: string;
 	export let description: string;
+	export let published: Date;
 </script>
 
 <article>
 	<a {href}>
 		<h3>{heading}</h3>
+		{#if published}
+			<time datetime={format(published, 'yyyy-MM-dd')}>{format(published, 'd MMMM yyyy')}</time>
+		{/if}
 		<p class="description">{description}</p>
 		<p class="cta">View <span>&raquo;</span></p>
 	</a>
@@ -23,7 +29,7 @@
 		color: inherit;
 		display: grid;
 		gap: var(--space-xs);
-		grid-template-rows: auto 1fr auto;
+		grid-template-rows: auto auto 1fr auto;
 		font-weight: 300;
 		padding: var(--space-m);
 	}
@@ -38,10 +44,15 @@
 	}
 
 	h3 {
-		font-size: var(--text-l);
+		font-size: var(--text-m);
 		font-weight: 500;
 		line-height: 1.4;
 		transition: color 0.2s;
+	}
+
+	time {
+		color: var(--theme-text-secondary);
+		font-size: var(--text-xs);
 	}
 
 	.cta {
@@ -50,7 +61,7 @@
 	}
 
 	.description {
-		opacity: 0.7;
+		opacity: 0.8;
 	}
 
 	.cta span {

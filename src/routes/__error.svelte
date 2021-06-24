@@ -17,7 +17,7 @@
 	export let description: string;
 </script>
 
-<Page meta={{ heading, title: heading, description }}>
+<Page {...{ heading, title: heading, description }}>
 	<p slot="intro">
 		Sorry, something went wrong, try heading back to <Link href="/">the home page</Link>.
 	</p>

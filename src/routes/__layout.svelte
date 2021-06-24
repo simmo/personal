@@ -4,9 +4,9 @@
 	import '../app.css';
 </script>
 
-<div class="grid layout">
+<div class="layout">
 	<Header />
-	<main class="full grid">
+	<main class="grid">
 		<slot />
 	</main>
 	<Footer />
@@ -15,10 +15,12 @@
 <style>
 	.layout {
 		align-items: start;
-		row-gap: max(var(--space-xl), 5vh);
+		display: grid;
 		grid-template-rows: auto 1fr auto;
 		height: 100%;
+		row-gap: max(var(--space-xl), 5vh);
 	}
+
 	main {
 		row-gap: var(--space-xl);
 	}

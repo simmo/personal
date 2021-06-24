@@ -10,7 +10,10 @@ export function debounce<T extends () => unknown>(fn: T, timeout = 300): <A>(...
 	};
 }
 
-export function throttle<T extends () => unknown>(fn: T, limit: number): <A>(...args: A[]) => void {
+export function throttle<T extends (...args: any[]) => any>(
+	fn: T,
+	limit: number
+): (...args: Parameters<T>) => void {
 	let inThrottle: boolean;
 
 	return function (this: any, ...args) {
