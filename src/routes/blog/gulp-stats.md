@@ -6,7 +6,7 @@ isPublished: true
 published: 2015-01-28T09:37:08Z
 ---
 
-<div class="badges">
+<div class="badges" slot="intro">
 	<img alt="Latest version badge" src="https://img.shields.io/npm/v/gulp-stats?style=flat-square" />
 	<img
 		alt="Downloads count badge"

@@ -35,8 +35,7 @@ function random(a, b) {
 	const from = typeof b !== 'undefined' ? a : 0;
 	const to = typeof b !== 'undefined' ? b : a;
 
-    return from + Math.random() \* (to - from);
-
+	return from + Math.random() \* (to - from);
 }
 ```
 

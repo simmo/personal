@@ -98,7 +98,7 @@
 	}
 </script>
 
-<div class="wrapper">
+<div class="offset wrapper">
 	<Canvas height={canvasHeight} width={canvasWidth}>
 		{#each grid as row}
 			{#each row as { column, row, size, walls }}

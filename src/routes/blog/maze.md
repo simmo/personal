@@ -15,7 +15,9 @@ published: 2021-05-02T18:00:00Z
 	import Controls from '$lib/projects/maze/Controls.svelte';
 </script>
 
-I'm not sure why or if I'll ever need to create a maze as part of a project but it does make for an interesting code challenge!
+<p slot="intro">
+	I'm not sure why or if I'll ever need to create a maze as part of a project but it does make for an interesting code challenge!
+</p>
 
 <Maze />
 
