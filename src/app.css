@@ -98,6 +98,23 @@ strong {
 		[full-end];
 }
 
+@media screen and (min-width: 50rem) {
+	.grid {
+		grid-template-columns:
+			[full-start]
+			var(--grid-gutter)
+			[main-start offset-start]
+			minmax(0, var(--space-s))
+			[content-start]
+			minmax(0, 45rem)
+			[content-end]
+			minmax(0, var(--space-s))
+			[offset-end main-end]
+			var(--grid-gutter)
+			[full-end];
+	}
+}
+
 @media screen and (min-width: 60rem) {
 	.grid {
 		grid-template-columns:

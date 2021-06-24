@@ -50,13 +50,18 @@
 		transition: color 0.2s;
 	}
 
+	time {
+		color: var(--theme-text-secondary);
+		font-size: var(--text-xs);
+	}
+
 	.cta {
 		font-weight: 500;
 		margin-top: var(--space-m);
 	}
 
 	.description {
-		opacity: 0.7;
+		opacity: 0.8;
 	}
 
 	.cta span {

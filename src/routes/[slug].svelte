@@ -50,7 +50,7 @@
 	<title>{formatTitle(title)}</title>
 </svelte:head>
 
-<section class="main grid">
+<section class="full grid">
 	<h2>{title}</h2>
 	<div class="offset list">
 		{#each posts as { slug: href, heading, description, published }}
