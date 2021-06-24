@@ -1,12 +1,18 @@
 <script lang="ts">
+	import format from 'date-fns/format';
+
 	export let href: string;
 	export let heading: string;
 	export let description: string;
+	export let published: Date;
 </script>
 
 <article>
 	<a {href}>
 		<h3>{heading}</h3>
+		{#if published}
+			<time datetime={format(published, 'yyyy-MM-dd')}>{format(published, 'd MMMM yyyy')}</time>
+		{/if}
 		<p class="description">{description}</p>
 		<p class="cta">View <span>&raquo;</span></p>
 	</a>

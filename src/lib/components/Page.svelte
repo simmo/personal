@@ -1,10 +1,16 @@
 <script>
+	import format from 'date-fns/format';
 	import { formatTitle } from '$lib/utils/formatTitle';
 
 	export let title;
 	export let description;
 	export let heading;
+	export let published;
 	export let og = {};
+
+	if (published) {
+		published = new Date(published);
+	}
 
 	$: formattedTitle = formatTitle(title);
 
@@ -20,10 +26,13 @@
 </svelte:head>
 
 <header>
-	<div class="inner">
-		<h1>{heading}</h1>
-		<p class="description">{description}</p>
-	</div>
+	<h1>{heading}</h1>
+	<p class="description">{description}</p>
+	{#if published}
+		<time datetime={format(published, 'yyyy-MM-dd')}
+			>Published: {format(published, 'd MMMM yyyy')}</time
+		>
+	{/if}
 	<slot name="intro" />
 </header>
 
@@ -31,12 +40,9 @@
 
 <style>
 	header {
+		border-bottom: 1px solid var(--theme-background-secondary);
 		display: grid;
-		row-gap: var(--space-s);
-	}
-
-	.inner {
-		display: grid;
+		padding-bottom: var(--space-l);
 		row-gap: var(--space-s);
 	}
 

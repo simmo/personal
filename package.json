@@ -28,6 +28,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"date-fns": "^2.22.1",
 		"mdsvex": "^0.9.7",
 		"rehype-autolink-headings": "^5.1.0",
 		"rehype-slug": "^4.0.1",
