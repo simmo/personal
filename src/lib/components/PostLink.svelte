@@ -29,7 +29,7 @@
 		color: inherit;
 		display: grid;
 		gap: var(--space-xs);
-		grid-template-rows: auto 1fr auto;
+		grid-template-rows: auto auto 1fr auto;
 		font-weight: 300;
 		padding: var(--space-m);
 	}
