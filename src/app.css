@@ -46,7 +46,7 @@
 	--theme-background-primary: hsl(0, 0%, 8%);
 	--theme-background-secondary: hsl(240, 3%, 13%);
 	--theme-text-primary: var(--color-white);
-	--theme-text-secondary: hsl(0, 0%, 47%);
+	--theme-text-secondary: hsl(0, 0%, 60%);
 	--theme-shadow: hsla(0, 0%, 5%, 50%);
 	--theme-highlight: hsla(0, 100%, 100%, 15%);
 }
