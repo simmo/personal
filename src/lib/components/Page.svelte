@@ -1,5 +1,5 @@
 <script>
-	import format from 'date-fns/format';
+	import { format } from 'date-fns';
 	import { formatTitle } from '$lib/utils/formatTitle';
 
 	export let title = undefined;

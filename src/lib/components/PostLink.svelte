@@ -1,5 +1,5 @@
 <script lang="ts">
-	import format from 'date-fns/format';
+	import { format } from 'date-fns';
 
 	export let href: string;
 	export let heading: string;
