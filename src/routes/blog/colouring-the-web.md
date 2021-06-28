@@ -2,8 +2,9 @@
 title: Colouring the web
 heading: Colouring the web
 description: How do you define a colour for a machine?
+og: { image: /preview/colour-the-web.jpg }
 isPublished: true
-published: 2021-06-28T08:00:00Z
+published: 2021-06-28T08:30:00Z
 ---
 
 <script>
@@ -48,7 +49,7 @@ What are these letters and numbers?! How does `ba` mean 'red'?!
 
 Probably a post for another day, but briefly put, hexadecimal or base 16, uses 16 symbols to represent a number (`0-9` and `A-F`, where the latter represents `10-15`). We, humans, favour the simpler base 10 (`0-9`), decimal system, thank goodness.
 
-Lets use [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) in JavaScript to humanise the value:
+We'll use [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt) in JavaScript to humanise the value:
 
 ```js
 parseInt('ba', 16);
@@ -61,7 +62,7 @@ Here we are asking for a string with a value of `"ba"` to be parsed as an intege
 
 ### Achromatic
 
-You may notice that when all the digits are the same we get a shade of grey.
+You may notice that when all the colour components are the same, we get a shade of grey.
 
 ### Hex shorthand
 
@@ -131,7 +132,7 @@ For example, `rgba(186, 218, 85, 0.5)`.
 
 ## HSL (Hue, Saturation, Lightness)
 
-Compared to Hex and RGB, which focus on the mixing of the three primary colours, HSL is a little more complicated. It does, however, better align with how we perceive colour-making.
+Compared to Hex and RGB, which focus on the mixing of the three core colours, HSL is a little more complicated. It does, however, better align with how we perceive colour-making.
 
 **Hue** is a degree on the colour wheel from `0-360`. `0` = Red, `120` = Green and `240` = Blue.
 

@@ -5,7 +5,7 @@
 	export let title = undefined;
 	export let description;
 	export let heading;
-	export let published;
+	export let published = undefined;
 	export let og = {};
 
 	if (published) {
