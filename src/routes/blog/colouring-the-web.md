@@ -2,7 +2,7 @@
 title: Colouring the web
 heading: Colouring the web
 description: How do you define a colour for a machine?
-og: { image: /preview/colour-the-web.jpg }
+og: { image: /preview/colouring-the-web.jpg }
 isPublished: true
 published: 2021-06-28T08:30:00Z
 ---
