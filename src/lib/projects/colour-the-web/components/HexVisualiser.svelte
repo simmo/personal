@@ -20,20 +20,20 @@
 <InlineDemo title="HEX Visualiser" description="Use the sliders below to generate a HEX colour.">
 	<div class="controls">
 		<div>
-			<label for="red">Red</label>
-			<Range id="red" min={0} max={255} step={1} bind:value={red} />
+			<label for="hex_red">Red</label>
+			<Range id="hex_red" min={0} max={255} step={1} bind:value={red} />
 		</div>
 		<div>
-			<label for="green">Green</label>
-			<Range id="green" min={0} max={255} step={1} bind:value={green} />
+			<label for="hex_green">Green</label>
+			<Range id="hex_green" min={0} max={255} step={1} bind:value={green} />
 		</div>
 		<div>
-			<label for="blue">Blue</label>
-			<Range id="blue" min={0} max={255} step={1} bind:value={blue} />
+			<label for="hex_blue">Blue</label>
+			<Range id="hex_blue" min={0} max={255} step={1} bind:value={blue} />
 		</div>
 		<div>
-			<label for="alpha">Alpha</label>
-			<Range id="alpha" min={0} max={1} step={0.01} bind:value={alpha} />
+			<label for="hex_alpha">Alpha</label>
+			<Range id="hex_alpha" min={0} max={1} step={0.01} bind:value={alpha} />
 		</div>
 	</div>
 	<div class="tile"><ColourTile colour={hex} /></div>

@@ -6,6 +6,7 @@
 	export let description;
 	export let heading;
 	export let published = undefined;
+	export const isPublished = true;
 	export let og = {};
 
 	if (published) {
