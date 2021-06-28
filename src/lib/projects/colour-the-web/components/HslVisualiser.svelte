@@ -21,20 +21,20 @@
 >
 	<div class="controls">
 		<div>
-			<label for="hue">Hue</label>
-			<Range id="hue" min={0} max={360} step={1} bind:value={hue} />
+			<label for="hsl_hue">Hue</label>
+			<Range id="hsl_hue" min={0} max={360} step={1} bind:value={hue} />
 		</div>
 		<div>
-			<label for="saturation">Saturation</label>
-			<Range id="saturation" min={0} max={100} step={1} bind:value={saturation} />
+			<label for="hsl_saturation">Saturation</label>
+			<Range id="hsl_saturation" min={0} max={100} step={1} bind:value={saturation} />
 		</div>
 		<div>
-			<label for="lightness">Lightness</label>
-			<Range id="lightness" min={0} max={100} step={1} bind:value={lightness} />
+			<label for="hsl_lightness">Lightness</label>
+			<Range id="hsl_lightness" min={0} max={100} step={1} bind:value={lightness} />
 		</div>
 		<div>
-			<label for="alpha">Alpha</label>
-			<Range id="alpha" min={0} max={1} step={0.01} bind:value={alpha} />
+			<label for="hsl_alpha">Alpha</label>
+			<Range id="hsl_alpha" min={0} max={1} step={0.01} bind:value={alpha} />
 		</div>
 	</div>
 	<div class="tile"><ColourTile colour={hsl} /></div>
