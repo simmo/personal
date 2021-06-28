@@ -5,7 +5,7 @@
 	export let title = undefined;
 	export let description;
 	export let heading;
-	export let published;
+	export let published = undefined;
 	export let og = {};
 
 	if (published) {
@@ -51,7 +51,6 @@
 	h1 {
 		font-size: var(--text-xl);
 		font-weight: 700;
-		line-height: 1.2;
 	}
 
 	.description {
@@ -79,7 +78,6 @@
 
 	.body > :global(h3) {
 		font-size: var(--text-m);
-		margin-bottom: calc(var(--space-s) * -1);
 		margin-top: var(--space-s);
 	}
 

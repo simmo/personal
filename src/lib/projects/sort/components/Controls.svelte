@@ -25,4 +25,10 @@
 		gap: var(--space-s);
 		padding: var(--space-s) 0;
 	}
+
+	.inputs {
+		display: grid;
+		gap: var(--space-m);
+		grid-template-columns: 1fr 1fr;
+	}
 </style>

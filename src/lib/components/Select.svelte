@@ -30,7 +30,7 @@
 		cursor: pointer;
 		font: inherit;
 		grid-area: input;
-		line-height: 1.2;
+		line-height: inherit;
 		margin: 0;
 		padding: var(--space-xxs) var(--space-m) var(--space-xxs) var(--space-xs);
 		transition-duration: 0.3s;

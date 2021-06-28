@@ -8,9 +8,7 @@ import autoLinkHeadings from 'rehype-autolink-headings';
 
 function processUrl(url, node) {
 	if (node.tagName === 'a') {
-		node.properties.class = 'text-link';
-
-		if (!url.href.startsWith('/')) {
+		if (url.href.startsWith('http')) {
 			// Open external links in new tab
 			node.properties.target = '_blank';
 			// Fix a security concern with offsite links

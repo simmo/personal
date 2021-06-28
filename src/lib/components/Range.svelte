@@ -26,6 +26,7 @@
 		border-radius: 500px;
 		margin: 0;
 		padding: 0;
+		width: 100%;
 	}
 
 	input[type='range']:focus {
