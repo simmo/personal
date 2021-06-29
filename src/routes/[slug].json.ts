@@ -23,5 +23,8 @@ export const get: RequestHandler = async ({ params }) => {
 
 	return {
 		body: publishedPosts,
+		headers: {
+			'cache-control': 's-maxage=60, stale-while-revalidate',
+		},
 	};
 };
