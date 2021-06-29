@@ -1,5 +1,5 @@
 <script>
-	import { format } from 'date-fns';
+	import { format, formatISO } from 'date-fns';
 	import { formatTitle } from '$lib/utils/formatTitle';
 
 	export let title = undefined;
@@ -9,19 +9,24 @@
 	export const isPublished = true;
 	export let og = {};
 
+	title = formatTitle(title);
+	// @ts-ignore
+	og = { description, title, type: 'website', ...og };
+
 	if (published) {
 		published = new Date(published);
+
+		og.type = 'article';
+		og['article:published_time'] = formatISO(published);
+		og['article:author'] = 'Mike Simmonds';
 	}
 
-	$: formattedTitle = formatTitle(title);
-
-	const defaultOg = { description: description, title: formattedTitle, type: 'website' };
 </script>
 
 <svelte:head>
-	<title>{formattedTitle}</title>
+	<title>{title}</title>
 	<meta name="description" content={description} />
-	{#each Object.entries({ ...defaultOg, ...og }) as [property, content]}
+	{#each Object.entries(og) as [property, content]}
 		<meta property={`og:${property}`} {content} />
 	{/each}
 </svelte:head>
@@ -30,9 +35,9 @@
 	<h1>{heading}</h1>
 	<p class="description">{description}</p>
 	{#if published}
-		<time datetime={format(published, 'yyyy-MM-dd')}
-			>Published: {format(published, 'd MMMM yyyy')}</time
-		>
+		<time datetime={formatISO(published)}>
+			Published: {format(published, 'd MMMM yyyy')}
+		</time>
 	{/if}
 	<slot name="intro" />
 </header>
