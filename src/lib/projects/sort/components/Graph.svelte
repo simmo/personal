@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
+	import { dataset, items, speed } from '$lib/projects/sort/config';
 	import Button from '$lib/components/Button.svelte';
 	import type { Sorter } from '$lib/projects/sort/types';
 	import track from '$lib/utils/track';
@@ -11,10 +11,8 @@
 	import { isDarkMode } from '$lib/store/darkMode';
 	import getCssVar from '$lib/utils/getCssVar';
 
-	export let items: number[];
 	export let name: string;
 	export let sort: Sorter;
-	export let speed: number = 0;
 
 	const enum State {
 		Idle = 'IDLE',
@@ -23,6 +21,7 @@
 		Done = 'DONE',
 	}
 
+	let initialItems = $items;
 	let sortedItems: number[];
 	let intervalId: ReturnType<typeof setTimeout>;
 
@@ -127,7 +126,7 @@
 		}
 
 		if (state === State.Running) {
-			intervalId = setTimeout(update, speed);
+			intervalId = setTimeout(update, $speed);
 		}
 	}
 
@@ -142,7 +141,7 @@
 		operations = [];
 		pivots = [];
 
-		sortedItems = [...items];
+		sortedItems = [...initialItems];
 
 		sorter = sort(sortedItems, {
 			onComparison: (...indicies) => {

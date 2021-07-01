@@ -21,19 +21,21 @@
 	];
 </script>
 
-<footer class="main">
-	<p>&copy; {now.getFullYear()} Mike Simmonds</p>
-	<ul>
-		{#each socials as [icon, href, name]}
-			<li>
-				<Link {href}><svelte:component this={icon} slot="icon" /> {name}</Link>
-			</li>
-		{/each}
-	</ul>
+<footer class="grid">
+	<div class="main inner">
+		<p>&copy; {now.getFullYear()} Mike Simmonds</p>
+		<ul>
+			{#each socials as [icon, href, name]}
+				<li>
+					<Link {href}><svelte:component this={icon} slot="icon" /> {name}</Link>
+				</li>
+			{/each}
+		</ul>
+	</div>
 </footer>
 
 <style>
-	footer {
+	.inner {
 		border-top: 1px solid var(--theme-background-secondary);
 		color: var(--theme-text-secondary);
 		display: grid;
@@ -65,7 +67,7 @@
 	}
 
 	@media screen and (min-width: 60rem) {
-		footer {
+		.inner {
 			grid-template-areas: 'copyright socials';
 			grid-template-columns: 2fr 1fr;
 		}

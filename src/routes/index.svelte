@@ -35,11 +35,8 @@
 </script>
 
 <Page
-	meta={{
-		heading: 'Hello, I’m Mike.',
-		description:
-			'A UK based, Lead frontend engineer living in Sussex, working in London and remote.',
-	}}
+	heading="Hello, I’m Mike."
+	description="A UK based, Lead frontend engineer living in Sussex, working in London and remote."
 >
 	<p slot="intro">
 		Currently working at <Link href="https://zonedigital.com">Zone/Cognizant</Link>. I’ve spent over
@@ -47,13 +44,15 @@
 		sites and products. My pronouns are <Link href="https://pronoun.is/he/him">he/him</Link>.
 	</p>
 
-	<section class="main">
+	<section class="full grid">
 		<h2>Recent posts</h2>
-		<TwoColumnGrid>
-			{#each posts as { slug: href, heading, description }}
-				<PostLink {href} {heading} {description} />
-			{/each}
-		</TwoColumnGrid>
+		<div class="offset">
+			<TwoColumnGrid>
+				{#each posts as { slug: href, heading, description, published }}
+					<PostLink {href} {heading} {description} {published} />
+				{/each}
+			</TwoColumnGrid>
+		</div>
 	</section>
 </Page>
 
@@ -65,8 +64,7 @@
 
 	h2 {
 		color: var(--color-blue);
-		font-size: var(--text-m);
+		font-size: var(--text-l);
 		font-weight: 500;
-		text-transform: uppercase;
 	}
 </style>

@@ -2,7 +2,7 @@ import type { Post } from '$lib/types';
 import { slugFromPath } from '$lib/utils/slugFromPath';
 import type { RequestHandler } from '@sveltejs/kit';
 
-const files = import.meta.glob('./*/*.svelte');
+const files = import.meta.glob('./*/*.md');
 
 export const get: RequestHandler = async ({ params }) => {
 	const filesMatchingSlug = Object.entries(files).filter(([path]) =>
@@ -11,9 +11,9 @@ export const get: RequestHandler = async ({ params }) => {
 
 	const promises: Promise<null | Post>[] = filesMatchingSlug.map(async ([path, resolver]) => {
 		const slug = slugFromPath(path);
-		const { meta } = await resolver();
+		const { metadata } = await resolver();
 
-		return meta && slug ? { slug, ...meta } : null;
+		return metadata && slug ? { slug, ...metadata, published: new Date(metadata.published) } : null;
 	});
 
 	const posts = await Promise.all(promises);
@@ -23,5 +23,8 @@ export const get: RequestHandler = async ({ params }) => {
 
 	return {
 		body: publishedPosts,
+		headers: {
+			'cache-control': 's-maxage=60, stale-while-revalidate',
+		},
 	};
 };
