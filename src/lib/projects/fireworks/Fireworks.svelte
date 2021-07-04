@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Canvas, tick, Layer } from '$lib/components/Canvas';
-	import type { DrawFn } from '$lib/components/Canvas';
+	import { Canvas, tick } from '$lib/components/Canvas';
 	import { random } from '$lib/utils/maths';
 	import Firework from './Firework.svelte';
 	import type { FireworkParticle } from './types';
@@ -14,76 +13,77 @@
 
 	let fireworks: FireworkParticle[] = [];
 
-	const drawBackground: DrawFn = ({ ctx }) => {
-		ctx.fillStyle = 'rgba(0,0,0,0.1)';
-		ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-	};
+	$: inFlight = fireworks.length;
 
-	const update = () => {
-		fireworks = fireworks.filter((firework) => !firework.done);
+	$: particles = fireworks.reduce(
+		(sum, firework) => sum + firework.payload.filter((sparkle) => sparkle.alpha > 0).length,
+		0
+	);
 
-		const nextTick = fireworks.map((firework) => {
-			if (!firework.isExploded) {
-				firework.acceleration.add(gravity);
-				firework.velocity.add(firework.acceleration);
-				firework.position.add(firework.velocity);
-				firework.acceleration.set(0);
+	$: $tick &&
+		(() => {
+			const newFireWork =
+				random(0, 50) < 2
+					? [
+							createFirework(
+								Math.round(random(canvasWidth * 0.3, canvasWidth * 0.7)),
+								canvasHeight + random(0, 20)
+							),
+					  ]
+					: [];
 
-				if (firework.velocity.y > Math.round(random(-3, 3))) {
-					firework.payload = Array.from({ length: 100 }, () => ({
-						...createSparkle(firework.position.x, firework.position.y),
-						velocity: createPoint(Math.round(random(-5, 5)), Math.round(random(-5, 5))),
-					}));
-					firework.isExploded = true;
-				}
-			} else {
-				firework.done = !firework.payload.some((sparkle) => sparkle.alpha > 0);
-				firework.payload = firework.payload.map((sparkle) => {
-					sparkle.acceleration.add(gravity);
-					sparkle.velocity.add(sparkle.acceleration);
-					sparkle.position.add(sparkle.velocity);
-					sparkle.acceleration.set(0);
-					sparkle.alpha -= 0.02;
+			fireworks = fireworks
+				.filter((firework) => !firework.done)
+				.map((firework) => {
+					if (!firework.isExploded) {
+						firework.acceleration.add(gravity);
+						firework.velocity.add(firework.acceleration);
+						firework.position.add(firework.velocity);
+						firework.acceleration.set(0);
 
-					return sparkle;
-				});
-			}
+						if (firework.velocity.y > random(-3, 3)) {
+							firework.payload = Array.from({ length: Math.round(random(20, 200)) }, () => ({
+								...createSparkle(firework.position.x, firework.position.y),
+								velocity: createPoint(random(-5, 5), random(-5, 5)),
+							}));
+							firework.isExploded = true;
+						}
+					} else {
+						firework.done = !firework.payload.some((sparkle) => sparkle.alpha > 0);
 
-			return { ...firework };
-		});
+						if (!firework.done) {
+							firework.payload = firework.payload.map((sparkle) => {
+								sparkle.acceleration.add(gravity);
+								sparkle.velocity.add(sparkle.acceleration);
+								sparkle.position.add(sparkle.velocity);
+								sparkle.acceleration.set(0);
+								sparkle.alpha -= 0.015;
 
-		const randomiser = random(0, 100);
+								return sparkle;
+							});
+						}
+					}
 
-		if (randomiser < 2) {
-			nextTick.push(
-				createFirework(
-					Math.round(random(canvasWidth * 0.1, canvasWidth * 0.9)),
-					canvasHeight + Math.round(random(0, 20))
-				)
-			);
-		}
-
-		fireworks = nextTick;
-	};
-
-	$: $tick && update();
+					return firework;
+				})
+				.concat(newFireWork);
+		})();
 </script>
 
 <div class="wrapper full">
-	<Canvas autoClear={false} height={canvasHeight} width={canvasWidth}>
-		<Layer draw={drawBackground} />
+	<Canvas autoClear={true} height={canvasHeight} width={canvasWidth}>
 		{#each fireworks as { colour, position, isExploded, payload }}
 			<Firework {colour} {position} {isExploded} {payload} />
 		{/each}
 	</Canvas>
 </div>
 <div>
-	<p>In flight: {fireworks.length}</p>
+	<p>🚀 In flight: {inFlight}</p>
+	<p>✨ Particles: {particles}</p>
 </div>
 
 <style>
 	.wrapper {
 		background-color: var(--color-black);
-		background-image: linear-gradient(var(--color-black), rgb(0, 0, 20));
 	}
 </style>

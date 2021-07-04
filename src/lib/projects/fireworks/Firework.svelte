@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Layer } from '$lib/components/Canvas';
 	import type { DrawFn } from '$lib/components/Canvas';
-	import getCssVar from '$lib/utils/getCssVar';
-	import type { HSL, Point, Particle, Sparkle } from './types';
+	import type { HSL, Point, Sparkle } from './types';
 	import { random } from '$lib/utils/maths';
 
 	export let colour: HSL;
@@ -21,8 +20,20 @@
 		if (!!payload.length) {
 			payload.forEach((particle) => {
 				ctx.beginPath();
-				ctx.arc(particle.position.x, particle.position.y, 1, 0, 2 * Math.PI);
-				ctx.fillStyle = `hsla(${[...colour, random(0, 1) <= 0.6 ? particle.alpha : 0].join(',')})`;
+				ctx.arc(
+					particle.position.x,
+					particle.position.y,
+					Math.round(random(1, 1.5)),
+					0,
+					2 * Math.PI
+				);
+				ctx.fillStyle = `hsla(${[
+					colour[0],
+					colour[1],
+					`${random(0.5, 1) * 100}%`,
+					// random(0, 1) <= 0.6 ? particle.alpha : 0,
+					particle.alpha,
+				].join(',')})`;
 				ctx.fill();
 			});
 		}

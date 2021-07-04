@@ -10,6 +10,6 @@ export default function createFirework(x: number, y: number): FireworkParticle {
 		done: false,
 		isExploded: false,
 		payload: [],
-		velocity: createPoint(0, random(-18, -10)),
+		velocity: createPoint(0, random(-18, -14)),
 	};
 }
