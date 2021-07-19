@@ -4,7 +4,7 @@ heading: The art of doing nothing
 description: Sometimes, to be at our best, we need to step back, give our brains a rest and do nothing at all.
 og: { image: /preview/mindfulness.jpg }
 isPublished: true
-published: 2021-07-16T22:00:00Z
+published: 2021-07-19T09:00:00Z
 ---
 
 <script>
