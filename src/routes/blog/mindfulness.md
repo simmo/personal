@@ -16,7 +16,7 @@ published: 2021-07-19T09:00:00Z
 
 I overthink. A lot. I find it so easy to get lost in a thought, a process or sequence. What if this? What if that? Have I done enough? Have I done too much? Can dogs look upwards? Did I lock the door?
 
-It can be anything from a conversation that has happened to a conversation that may or may not happen or working out every permutation when trying to come up with a solution to a problem.
+It can be anything from a conversation that has happened to a conversation that might happen or working out every permutation when trying to come up with a solution to a problem.
 
 It is both a blessing and a curse. On one hand, it can help me understand a problem or dig into the finer points of an issue. It may mean my solutions appear solid, well thought out or I'm prepared for edge cases or failure. So, what's the negative?
 
@@ -68,6 +68,6 @@ The Apple Watch breathe app is simple but great. It gets you to focus on your br
 
 ---
 
-This certainly isn't a one-size fits all solution, give it a go and adjust until you find something that works for you.
+This certainly isn't a one size fits all solution, give it a go and adjust until you find something that works for you.
 
-Just remember, don't underestimate the art of doing nothing!
+Just remember, don't underestimate how effective the art of doing nothing can be.
