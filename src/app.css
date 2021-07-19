@@ -107,6 +107,11 @@ h6 {
 		[full-end];
 }
 
+::selection {
+	color: var(--color-white);
+	background-color: var(--color-pink);
+}
+
 @media screen and (min-width: 50rem) {
 	.grid {
 		grid-template-columns:

@@ -20,7 +20,6 @@
 		og['article:published_time'] = formatISO(published);
 		og['article:author'] = 'Mike Simmonds';
 	}
-
 </script>
 
 <svelte:head>
@@ -87,6 +86,12 @@
 		margin-top: var(--space-s);
 	}
 
+	.body > :global(h4) {
+		font-size: var(--text-s);
+		margin-bottom: calc(var(--space-xs) * -1);
+		margin-top: var(--space-xs);
+	}
+
 	.body > :global(blockquote) {
 		border-left: var(--space-xxs) solid var(--theme-highlight);
 		margin: 0;
@@ -106,5 +111,14 @@
 
 	.body > :global(pre) {
 		grid-column: offset;
+	}
+
+	.body > :global(hr) {
+		border: 0;
+		border-top: 1px solid var(--theme-highlight);
+		height: 1px;
+		margin: var(--space-l) auto;
+		position: relative;
+		width: 20vw;
 	}
 </style>
