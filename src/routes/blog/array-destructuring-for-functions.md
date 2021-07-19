@@ -1,7 +1,7 @@
 ---
 title: Array destructuring for function arguments
 heading: Array destructuring for function arguments
-description: Using a dot mesh to create some nice effects.
+description: Maybe not an everyday solution but certainly an interesting way to solve an edge case problem.
 isPublished: true
 published: 2021-06-01
 ---
