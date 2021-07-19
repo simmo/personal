@@ -34,17 +34,17 @@ You'd hope that would be the end of it, but even then, like a newborn baby, my b
 
 Now, these tips may not work for you - your experience may vary.
 
-### Stop
+### ✋ Stop
 
 Now, I mean this, just stop, whatever you're working on or thinking about, stop, do nothing. If you're trying to sleep, sit up. If you're at your desk/workspace, get up, move away.
 
-### Focus
+### 📝 Focus
 
 Next, we need to get it all out. Whatever is in your head, big, small or random, write it down. Some thoughts will naturally group or cluster, some may not. It doesn't need to be perfect. Just let it flow out.
 
 For me, the most effective notes I can make are to-do lists. I use [Things](https://culturedcode.com/things/) and organise thoughts/items into lists, sublists, projects and project groups. You can also add reminders or repeating items. I like to automate as much as possible and keep things organised. But that's just me, find what works for you.
 
-### Reset
+### 💆 Reset
 
 Now we have cleaner minds, time to reset.
 
@@ -55,6 +55,8 @@ I find mindfulness can help. Mindfulness is about connecting to the present mome
 There are many different ways to be mindful. You don't need to hum or chant. Just be present. The two techniques I use are walking and breathing, depending on the time of day (or the state of the UK weather).
 
 #### Walking
+
+<Image alt="A person walking down a long highway" caption="Walking to clear your mind" src="/walk.jpg" source="https://unsplash.com/photos/ioyEITUD2G8" />
 
 Get up, get out! Even a 5 minutes walk can do it. As you walk, turn your senses up to max. Detect your surroundings with more than just your sight. Feel and hear the sounds as you step, what are you walking on? Hear the grass crinkle or gravel crunch underfoot. What can you smell? Can you feel the direction of the sun as it hits your skin, can you feel it change as you move. This might seem a little crazy, but the point of the walk is not to get from A to B, it is about being aware and present in that journey.
 
