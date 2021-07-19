@@ -20,7 +20,7 @@ It can be anything from a conversation that has happened to a conversation that 
 
 It is both a blessing and a curse. On one hand, it can help me understand a problem or dig into the finer points of an issue. It may mean my solutions appear solid, well thought out or I'm prepared for edge cases or failure. So, what's the negative?
 
-<Image alt="Animation of character awake on a bed" caption="Very awake" src="/sleep.gif" source="https://gihphy.com" />
+<Image alt="Animation of character awake on a bed" caption="Very awake" src="/sleep.gif" source="https://giphy.com/gifs/monday-bed-midnight-xUOrwihszfWZgSIHJK" />
 
 Well, when everyone else is getting ready to fall into a blissful slumber, my brain kicks in. 100 miles an hour, rapid-fire thoughts, every direction, simultaneously.
 
