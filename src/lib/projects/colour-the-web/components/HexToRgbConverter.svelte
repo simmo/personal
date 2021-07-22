@@ -1,7 +1,7 @@
 <script lang="ts">
 	import InlineDemo from '$lib/components/InlineDemo.svelte';
-	import type { Hex } from '../types';
-	import { hexToRgb } from '../utils/hexToRgb';
+	import type { Hex } from '$lib/utils/colours';
+	import { hexToRgb } from '$lib/utils/colours';
 
 	export let value: Hex;
 

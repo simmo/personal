@@ -2,7 +2,7 @@
 	import ColourTile from '$lib/components/ColourTile.svelte';
 	import InlineDemo from '$lib/components/InlineDemo.svelte';
 	import Range from '$lib/components/Range.svelte';
-	import { hexToRgb } from '../utils/hexToRgb';
+	import { hexToRgb } from '$lib/utils/colours';
 
 	export let value: string;
 
