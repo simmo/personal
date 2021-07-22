@@ -32,6 +32,7 @@
 		align-content: center;
 		display: grid;
 		justify-content: center;
+		padding: var(--space-xs);
 	}
 
 	.info {
