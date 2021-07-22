@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let colour: string;
+	import type { Hex, HSL, RGB } from '$lib/utils/colours';
+
+	export let colour: Hex | HSL | RGB;
 	export let compact: boolean = false;
 </script>
 
@@ -30,6 +32,7 @@
 		align-content: center;
 		display: grid;
 		justify-content: center;
+		padding: var(--space-xs);
 	}
 
 	.info {
