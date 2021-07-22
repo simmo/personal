@@ -9,7 +9,7 @@
 	import type { SvelteComponent } from 'svelte';
 	import Link from './Link.svelte';
 
-	const now = new Date();
+	const currentYear = new Date().getFullYear();
 
 	const socials: [icon: typeof SvelteComponent, url: string, name: string][] = [
 		[LinkedIn, 'http://lnkd.in/2T4KbK', 'LinkedIn'],
@@ -23,7 +23,7 @@
 
 <footer class="grid">
 	<div class="main inner">
-		<p>&copy; {now.getFullYear()} Mike Simmonds</p>
+		<p>&copy; {currentYear} Mike Simmonds</p>
 		<ul>
 			{#each socials as [icon, href, name]}
 				<li>
