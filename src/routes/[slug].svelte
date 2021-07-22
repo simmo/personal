@@ -62,7 +62,7 @@
 <style>
 	section {
 		display: grid;
-		row-gap: var(--space-s);
+		row-gap: var(--space-l);
 	}
 
 	h2 {
