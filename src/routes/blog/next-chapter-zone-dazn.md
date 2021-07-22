@@ -28,7 +28,7 @@ When I think back to the baby-faced youngster that walked in the door as a senio
 
 7 years later, as a slightly grey-haired, lead front-end developer, I can, hand on my heart, say I have given it my all. Of course, I've been paid for my time, but I have taken away so much more; friends for life, skills and a whole new version of myself. I would not change a thing.
 
-Some of my highlights have been; creating prototypes for BBC iPlayer, creating a ticket-buying platform for South West Trains, re-platforming Greene King pubs and bringing online purchasing and configuration to the stairlift industry across 6 global markets, all during a pandemic with Stannah.
+Some of my highlights have been; creating prototypes for BBC iPlayer, creating a ticket-buying platform for South West Trains, re-platforming Greene King pubs, creating a data-heavy DNA analysis tool for Genomics England and bringing online purchasing and configuration to the stairlift industry across 6 global markets, all during a pandemic with Stannah.
 
 To all you Zoners, past and present, thank you.
 
