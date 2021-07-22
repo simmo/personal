@@ -17,7 +17,7 @@ published: 2021-06-28T08:30:00Z
   import ColourSquare from '$lib/components/ColourSquare.svelte';
 </script>
 
-When building stuff of the web, it's likely you'll need to inject a little bit of colour into your project at some point.
+When building stuff for the web, it's likely you'll need to inject a little bit of colour into your project at some point.
 
 But, how do we describe a colour to a machine?
 

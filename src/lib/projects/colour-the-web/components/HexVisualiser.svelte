@@ -2,8 +2,8 @@
 	import ColourTile from '$lib/components/ColourTile.svelte';
 	import InlineDemo from '$lib/components/InlineDemo.svelte';
 	import Range from '$lib/components/Range.svelte';
-	import { rgbToHex } from '../utils/rgbToHex';
-	import { hexToRgb } from '../utils/hexToRgb';
+	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
+	import { hexToRgb, rgbToHex } from '$lib/utils/colours';
 
 	export let value: string;
 
@@ -18,25 +18,27 @@
 </script>
 
 <InlineDemo title="HEX Visualiser" description="Use the sliders below to generate a HEX colour.">
-	<div class="controls">
-		<div>
-			<label for="hex_red">Red</label>
-			<Range id="hex_red" min={0} max={255} step={1} bind:value={red} />
+	<TwoColumnGrid>
+		<div class="controls">
+			<div>
+				<label for="hex_red">Red</label>
+				<Range id="hex_red" min={0} max={255} step={1} bind:value={red} />
+			</div>
+			<div>
+				<label for="hex_green">Green</label>
+				<Range id="hex_green" min={0} max={255} step={1} bind:value={green} />
+			</div>
+			<div>
+				<label for="hex_blue">Blue</label>
+				<Range id="hex_blue" min={0} max={255} step={1} bind:value={blue} />
+			</div>
+			<div>
+				<label for="hex_alpha">Alpha</label>
+				<Range id="hex_alpha" min={0} max={1} step={0.01} bind:value={alpha} />
+			</div>
 		</div>
-		<div>
-			<label for="hex_green">Green</label>
-			<Range id="hex_green" min={0} max={255} step={1} bind:value={green} />
-		</div>
-		<div>
-			<label for="hex_blue">Blue</label>
-			<Range id="hex_blue" min={0} max={255} step={1} bind:value={blue} />
-		</div>
-		<div>
-			<label for="hex_alpha">Alpha</label>
-			<Range id="hex_alpha" min={0} max={1} step={0.01} bind:value={alpha} />
-		</div>
-	</div>
-	<div class="tile"><ColourTile colour={hex} /></div>
+		<div class="tile"><ColourTile colour={hex} /></div>
+	</TwoColumnGrid>
 </InlineDemo>
 
 <style>
