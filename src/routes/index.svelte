@@ -30,11 +30,12 @@
 	import Page from '$lib/components/Page.svelte';
 	import PostLink from '$lib/components/PostLink.svelte';
 	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
-	import { differenceInCalendarYears } from 'date-fns';
+	import { differenceInCalendarYears, isToday } from 'date-fns';
 
 	export let posts: Post[];
 
 	const years = differenceInCalendarYears(new Date(), new Date('2009-03-01'));
+	const startedDazn = !isToday(new Date('2021-07-26'));
 </script>
 
 <Page
@@ -42,7 +43,10 @@
 	description="A UK based, front-end software engineer living in Sussex, working in London and remote."
 >
 	<p slot="intro">
-		Currently working at <Link href="https://zonedigital.com">Zone/Cognizant</Link>. I’ve spent over {years}
+		{#if startedDazn}Currently{:else}Soon to be{/if} working at <Link href="https://dazn.com"
+			>DAZN</Link
+		>, previously at
+		<Link href="https://zonedigital.com">Zone/Cognizant</Link>. I’ve spent over {years}
 		years working across the tech, marketing and publishing sectors to deliver high-end web apps, sites
 		and products. My pronouns are <Link href="https://pronoun.is/he/him">he/him</Link>.
 	</p>

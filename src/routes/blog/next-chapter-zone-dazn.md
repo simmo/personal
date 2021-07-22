@@ -4,7 +4,7 @@ heading: Moving on
 description: After nearly 7 years at Zone/Cognizant it's time for the next step on my career path.
 og: { image: /preview/moving-on.jpg }
 isPublished: true
-published: 2021-07-26T08:00:00Z
+published: 2021-07-22T20:00:00Z
 ---
 
 <script>
