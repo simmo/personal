@@ -11,8 +11,8 @@
 	export const isPublished = true;
 	export let og = {};
 
-	let readingTime;
 	let body;
+	let meta = [];
 
 	title = formatTitle(title);
 	// @ts-ignore
@@ -20,6 +20,8 @@
 
 	if (published) {
 		published = new Date(published);
+
+		meta = [...meta, ['Published', published]];
 
 		og.type = 'article';
 		og['article:published_time'] = formatISO(published);
@@ -29,7 +31,9 @@
 	onMount(() => {
 		if (!body) return;
 
-		readingTime = calcReadingTime(body.innerText);
+		if (published) {
+			meta = [...meta, ['Reading time', calcReadingTime(body.innerText)]];
+		}
 	});
 </script>
 
@@ -44,20 +48,20 @@
 <header class="head">
 	<h1 class="title">{heading}</h1>
 	<p class="description">{description}</p>
-	<ul class="meta">
-		{#if published}
-			<li>
-				<strong>Published:</strong>
-				<time datetime={formatISO(published)}>{format(published, 'd MMMM yyyy')}</time>
-			</li>
-		{/if}
-		{#if readingTime}
-			<li>
-				<strong>Reading time:</strong>
-				{readingTime}
-			</li>
-		{/if}
-	</ul>
+	{#if meta.length}
+		<ul class="meta">
+			{#each meta as [key, value]}
+				<li>
+					<strong>{key}:</strong>
+					{#if value instanceof Date}
+						<time datetime={formatISO(value)}>{format(value, 'd MMMM yyyy')}</time>
+					{:else}
+						{value}
+					{/if}
+				</li>
+			{/each}
+		</ul>
+	{/if}
 	<slot name="intro" />
 </header>
 
