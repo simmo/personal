@@ -1,17 +1,17 @@
-export type Metadata = {
+export interface Page {
 	description: string;
 	heading: string;
+	slug: string;
 	title?: string | string[];
-	og?: OpenGraph;
-};
+	og?: {
+		description?: string;
+		image?: string;
+		title?: string;
+		type?: string;
+	};
+}
 
-export type PostMetadata = Metadata & {
+export interface Post extends Page {
 	isPublished: boolean;
 	published: Date;
-};
-
-export type Page = Metadata & { slug: string };
-
-export type Post = PostMetadata & { slug: string };
-
-export type OpenGraph = Partial<Record<'description' | 'image' | 'title' | 'type', string>>;
+}

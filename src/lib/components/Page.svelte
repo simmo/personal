@@ -1,3 +1,22 @@
+<script context="module">
+	// import type { Load } from '@sveltejs/kit';
+
+	export const load = async ({ page, fetch }) => {
+		const url = `./${page.params.slug}.json`;
+		const res = await fetch(url);
+		const stats = await res.json();
+
+		if (res.ok) {
+			return { props: { stats } };
+		}
+
+		return {
+			status: 404,
+			error: new Error(`Not found: ${page.path}`),
+		};
+	};
+</script>
+
 <script>
 	import { format, formatISO } from 'date-fns';
 	import { formatTitle } from '$lib/utils/formatTitle';
@@ -10,6 +29,7 @@
 	export let published = undefined;
 	export const isPublished = true;
 	export let og = {};
+	export let stats = {};
 
 	let body;
 	let meta = [];
@@ -26,6 +46,10 @@
 		og.type = 'article';
 		og['article:published_time'] = formatISO(published);
 		og['article:author'] = 'Mike Simmonds';
+	}
+
+	if (stats.views) {
+		meta = [...meta, ['Views', stats.views]];
 	}
 
 	onMount(() => {
