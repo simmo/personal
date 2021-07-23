@@ -1,6 +1,8 @@
 <script>
 	import { format, formatISO } from 'date-fns';
 	import { formatTitle } from '$lib/utils/formatTitle';
+	import { onMount } from 'svelte';
+	import calcReadingTime from '$lib/utils/calcReadingTime';
 
 	export let title = undefined;
 	export let description;
@@ -9,6 +11,9 @@
 	export const isPublished = true;
 	export let og = {};
 
+	let body;
+	let meta = [];
+
 	title = formatTitle(title);
 	// @ts-ignore
 	og = { description, title, type: 'website', ...og };
@@ -16,11 +21,20 @@
 	if (published) {
 		published = new Date(published);
 
+		meta = [...meta, ['Published', published]];
+
 		og.type = 'article';
 		og['article:published_time'] = formatISO(published);
 		og['article:author'] = 'Mike Simmonds';
 	}
 
+	onMount(() => {
+		if (!body) return;
+
+		if (published) {
+			meta = [...meta, ['Reading time', calcReadingTime(body.innerText)]];
+		}
+	});
 </script>
 
 <svelte:head>
@@ -31,36 +45,57 @@
 	{/each}
 </svelte:head>
 
-<header>
-	<h1>{heading}</h1>
+<header class="head">
+	<h1 class="title">{heading}</h1>
 	<p class="description">{description}</p>
-	{#if published}
-		<time datetime={formatISO(published)}>
-			Published: {format(published, 'd MMMM yyyy')}
-		</time>
+	{#if meta.length}
+		<ul class="meta">
+			{#each meta as [key, value]}
+				<li>
+					<strong>{key}:</strong>
+					{#if value instanceof Date}
+						<time datetime={formatISO(value)}>{format(value, 'd MMMM yyyy')}</time>
+					{:else}
+						{value}
+					{/if}
+				</li>
+			{/each}
+		</ul>
 	{/if}
 	<slot name="intro" />
 </header>
 
-<div class="full grid body">
+<div class="full grid body" bind:this={body}>
 	<slot />
 </div>
 
 <style>
-	header {
+	.head {
 		border-bottom: 1px solid var(--theme-background-secondary);
 		display: grid;
 		padding-bottom: var(--space-l);
 		row-gap: var(--space-s);
 	}
 
-	h1 {
+	.title {
 		font-size: var(--text-xl);
 		font-weight: 700;
 	}
 
 	.description {
 		font-size: var(--text-m);
+	}
+
+	.meta {
+		align-content: start;
+		justify-content: start;
+		display: grid;
+		gap: var(--space-xxs);
+		grid-template-columns: repeat(auto-fit, 15rem);
+		font-size: var(--text-xs);
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 
 	.body {
@@ -87,6 +122,12 @@
 		margin-top: var(--space-s);
 	}
 
+	.body > :global(h4) {
+		font-size: var(--text-s);
+		margin-bottom: calc(var(--space-xs) * -1);
+		margin-top: var(--space-xs);
+	}
+
 	.body > :global(blockquote) {
 		border-left: var(--space-xxs) solid var(--theme-highlight);
 		margin: 0;
@@ -106,5 +147,14 @@
 
 	.body > :global(pre) {
 		grid-column: offset;
+	}
+
+	.body > :global(hr) {
+		border: 0;
+		border-top: 1px solid var(--theme-highlight);
+		height: 1px;
+		margin: var(--space-l) auto;
+		position: relative;
+		width: 20vw;
 	}
 </style>
