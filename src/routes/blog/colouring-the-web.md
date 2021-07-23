@@ -189,3 +189,5 @@ a {
 ## Next up
 
 In my next post, we'll take a look at programmatically manipulating colours and how we might interpolate between them.
+
+_Edit: You can [read the all about colour interpolation in the next post](/blog/colour-interpolation)._
