@@ -13,25 +13,18 @@
 		if (!isExploded) {
 			ctx.beginPath();
 			ctx.fillStyle = '#fff';
-			ctx.arc(position.x, position.y, 1, 0, 2 * Math.PI);
+			ctx.arc(position.x, position.y, 2, 0, 2 * Math.PI);
 			ctx.fill();
 		}
 
 		if (!!payload.length) {
 			payload.forEach((particle) => {
 				ctx.beginPath();
-				ctx.arc(
-					particle.position.x,
-					particle.position.y,
-					Math.round(random(1, 1.5)),
-					0,
-					2 * Math.PI
-				);
+				ctx.arc(particle.position.x, particle.position.y, Math.round(random(1, 2)), 0, 2 * Math.PI);
 				ctx.fillStyle = `hsla(${[
 					colour[0],
 					colour[1],
-					`${random(0.5, 1) * 100}%`,
-					// random(0, 1) <= 0.6 ? particle.alpha : 0,
+					`${random(0, 1) * 100}%`,
 					particle.alpha,
 				].join(',')})`;
 				ctx.fill();

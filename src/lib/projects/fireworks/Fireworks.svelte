@@ -42,9 +42,9 @@
 						firework.acceleration.set(0);
 
 						if (firework.velocity.y > random(-3, 3)) {
-							firework.payload = Array.from({ length: Math.round(random(20, 200)) }, () => ({
+							firework.payload = Array.from({ length: 200 }, () => ({
 								...createSparkle(firework.position.x, firework.position.y),
-								velocity: createPoint(random(-5, 5), random(-5, 5)),
+								velocity: createPoint(random(-10, 10), random(-10, 10)),
 							}));
 							firework.isExploded = true;
 						}
