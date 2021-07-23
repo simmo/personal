@@ -59,6 +59,11 @@ I'm ready and cannot wait to get stuck in!
     padding: var(--space-xl);
   }
 
+  .wrap :global(> svg) {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
   .zone {
     background-color: #2c2b39;
   }
