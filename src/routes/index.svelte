@@ -2,7 +2,7 @@
 	import type { Load } from '@sveltejs/kit';
 	import type { Post } from '$lib/types';
 
-	export const load: Load = async ({ page, fetch, session, context }) => {
+	export const load: Load = async ({ fetch }) => {
 		const url = `/blog.json`;
 		const res = await fetch(url);
 		const posts: Post[] = await res.json();
@@ -30,7 +30,7 @@
 	import Page from '$lib/components/Page.svelte';
 	import PostLink from '$lib/components/PostLink.svelte';
 	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
-	import { differenceInCalendarYears, isToday } from 'date-fns';
+	import { differenceInCalendarYears } from 'date-fns';
 
 	export let posts: Post[];
 
@@ -42,7 +42,9 @@
 	description="A UK based, front-end software engineer living in Sussex, working in London and remote."
 >
 	<p slot="intro">
-		Currently working at <Link href="https://zonedigital.com">Zone/Cognizant</Link>. I’ve spent over {years}
+		Currently working at <Link href="https://dazn.com">DAZN</Link>, previously <Link
+			href="https://zonedigital.com">Zone/Cognizant</Link
+		>. I’ve spent over {years}
 		years working across the tech, marketing and publishing sectors to deliver high-end web apps, sites
 		and products. My pronouns are <Link href="https://pronoun.is/he/him">he/him</Link>.
 	</p>

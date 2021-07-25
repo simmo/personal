@@ -1,6 +1,5 @@
 <script lang="ts">
 	import CodeSandbox from '$lib/icons/CodeSandbox.svelte';
-
 	import GitHub from '$lib/icons/GitHub.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
 	import Npm from '$lib/icons/Npm.svelte';
