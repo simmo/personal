@@ -12,7 +12,8 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="/blog">Posts</a></li>
+				<li><a href="/blog">Blog</a></li>
+				<li><a href="/user-manual">User Manual</a></li>
 			</ul>
 		</nav>
 		<div class="theme">
@@ -59,10 +60,6 @@
 			grid-template-columns: auto 1fr auto;
 			grid-template-areas: 'home nav theme';
 		}
-
-		nav {
-			margin-left: var(--space-xs);
-		}
 	}
 
 	nav {
@@ -70,6 +67,11 @@
 	}
 
 	nav ul {
+		align-items: center;
+		display: grid;
+		gap: var(--space-m);
+		grid-auto-flow: column;
+		justify-content: center;
 		list-style: none;
 		padding: 0;
 		margin: 0;
