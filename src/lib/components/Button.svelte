@@ -18,11 +18,10 @@
 		display: inline-grid;
 		line-height: 1;
 		font: inherit;
-		font-weight: 700;
+		font-weight: 600;
 		margin: 0;
 		padding: var(--space-xxs) var(--space-s);
 		outline: none;
-		text-transform: uppercase;
 	}
 
 	.inner {

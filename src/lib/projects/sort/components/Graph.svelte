@@ -287,6 +287,10 @@
 		font-size: var(--text-xs);
 	}
 
+	strong {
+		font-variant-numeric: tabular-nums;
+	}
+
 	.details {
 		display: grid;
 		gap: var(--space-xxs) var(--space-l);
@@ -303,7 +307,7 @@
 	}
 
 	h2 {
-		font-weight: 700;
+		font-weight: 600;
 		margin: 0;
 	}
 </style>
