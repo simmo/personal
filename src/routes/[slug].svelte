@@ -67,7 +67,7 @@
 
 	h2 {
 		font-size: var(--text-xl);
-		font-weight: 700;
+		font-weight: 600;
 	}
 
 	.list {
