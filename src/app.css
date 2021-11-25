@@ -3,7 +3,7 @@
 	src: local('Wotfard'), url(/fonts/wotfard/wotfard-semibold-webfont.woff2) format('woff2');
 	font-weight: 600;
 	font-style: normal;
-	font-display: fallback;
+	font-display: swap;
 }
 
 @font-face {
@@ -11,7 +11,7 @@
 	src: local('Wotfard'), url(/fonts/wotfard/wotfard-medium-webfont.woff2) format('woff2');
 	font-weight: 500;
 	font-style: normal;
-	font-display: fallback;
+	font-display: swap;
 }
 
 @font-face {
@@ -19,7 +19,7 @@
 	src: local('Wotfard'), url(/fonts/wotfard/wotfard-light-webfont.woff2) format('woff2');
 	font-weight: 400;
 	font-style: normal;
-	font-display: fallback;
+	font-display: swap;
 }
 
 :root {
