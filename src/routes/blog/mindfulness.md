@@ -20,7 +20,7 @@ It can be anything from a conversation that has happened to a conversation that 
 
 It is both a blessing and a curse. On one hand, it can help me understand a problem or dig into the finer points of an issue. It may mean my solutions appear solid, well thought out or I'm prepared for edge cases or failure. So, what's the negative?
 
-<Image alt="Animation of character awake on a bed" caption="Very awake" src="/sleep.gif" source="https://giphy.com/gifs/monday-bed-midnight-xUOrwihszfWZgSIHJK" />
+<Image alt="Animation of character awake on a bed" caption="Very awake" src="/images/sleep.gif" source="https://giphy.com/gifs/monday-bed-midnight-xUOrwihszfWZgSIHJK" />
 
 Well, when everyone else is getting ready to fall into a blissful slumber, my brain kicks in. 100 miles an hour, rapid-fire thoughts, every direction, simultaneously.
 
@@ -56,7 +56,7 @@ There are many different ways to be mindful. You don't need to hum or chant. Jus
 
 #### Walking
 
-<Image alt="A person walking down a long highway" caption="Walking to clear your mind" src="/walk.jpg" source="https://unsplash.com/photos/ioyEITUD2G8" />
+<Image alt="A person walking down a long highway" caption="Walking to clear your mind" src="/images/walk.jpg" source="https://unsplash.com/photos/ioyEITUD2G8" />
 
 Get up, get out! Even a 5 minutes walk can do it. As you walk, turn your senses up to max. Detect your surroundings with more than just your sight. Feel and hear the sounds as you step, what are you walking on? Hear the grass crinkle or gravel crunch underfoot. What can you smell? Can you feel the direction of the sun as it hits your skin, can you feel it change as you move. This might seem a little crazy, but the point of the walk is not to get from A to B, it is about being aware and present in that journey.
 

@@ -91,8 +91,7 @@
 	.name {
 		color: inherit;
 		line-height: 1;
-		font-weight: bold;
-		text-transform: uppercase;
+		font-weight: 600;
 	}
 
 	.theme {
