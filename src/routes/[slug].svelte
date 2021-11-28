@@ -16,7 +16,7 @@
 		const res = await fetch(url);
 		const posts: Post[] = await res.json();
 
-		if (res.ok) {
+		if (res.ok && posts.length) {
 			return {
 				props: {
 					title: page.params.slug,
@@ -67,7 +67,7 @@
 
 	h2 {
 		font-size: var(--text-xl);
-		font-weight: 700;
+		font-weight: 600;
 	}
 
 	.list {
