@@ -3,5 +3,6 @@
 		"editor.formatOnSave": true
 	},
 	"editor.formatOnSave": true,
-	"cSpell.words": ["DAZN"]
+	"cSpell.words": ["DAZN"],
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
