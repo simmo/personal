@@ -1,8 +1,7 @@
 <script lang="ts">
 	import InlineDemo from '$lib/components/InlineDemo.svelte';
 	import TwoColumnGrid from '$lib/components/TwoColumnGrid.svelte';
-	import type { Hex } from '$lib/utils/colours';
-	import { hexToRgb } from '$lib/utils/colours';
+	import { hexToRgb, type Hex } from '$lib/utils/colours';
 
 	export let value: Hex;
 

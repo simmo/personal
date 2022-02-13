@@ -30,7 +30,7 @@
 	"type": "module",
 	"dependencies": {
 		"date-fns": "^2.26.0",
-		"mdsvex": "^0.9.7",
+		"mdsvex": "^0.10.5",
 		"rehype-autolink-headings": "^6.1.0",
 		"rehype-slug": "^5.0.0",
 		"rehype-urls": "^1.1.1"

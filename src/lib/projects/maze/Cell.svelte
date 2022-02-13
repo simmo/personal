@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Layer } from '$lib/components/Canvas';
-	import type { DrawFn } from '$lib/components/Canvas';
+	import { type DrawFn, Layer } from '$lib/components/Canvas';
 	import type { Walls } from './types';
 	import getCssVar from '$lib/utils/getCssVar';
 

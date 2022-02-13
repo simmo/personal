@@ -4,7 +4,6 @@
 	import type { Item } from '$lib/projects/maze/types';
 	import { random } from '$lib/utils/maths';
 	import { state, State } from '$lib/projects/maze/config';
-	import { onMount } from 'svelte';
 
 	export let cellSize = 20;
 	export let canvasHeight = 500;

@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { Canvas, Layer } from '$lib/components/Canvas';
-	import type { DrawFn } from '$lib/components/Canvas';
-	import type { Config } from '$lib/components/Canvas';
+	import { Canvas, type Config, type DrawFn, Layer } from '$lib/components/Canvas';
 	import Stream from '$lib/projects/matrix/Stream.svelte';
 	import getCssVar from '$lib/utils/getCssVar';
 	import { showFPS } from '$lib/projects/matrix/config';

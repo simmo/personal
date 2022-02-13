@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { dataset, items, speed } from '$lib/projects/sort/config';
+	import { items, speed } from '$lib/projects/sort/config';
 	import Button from '$lib/components/Button.svelte';
 	import type { Sorter } from '$lib/projects/sort/types';
 	import track from '$lib/utils/track';
