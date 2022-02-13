@@ -35,7 +35,6 @@ const config = {
 	],
 	kit: {
 		adapter: vercel(),
-		target: '#svelte',
 		vite: {
 			css: {
 				postcss: {

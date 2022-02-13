@@ -4,22 +4,21 @@
 
 	const oldUrls: string[] = ['gulp-stats', 'matrix', 'maze', 'sort', 'starfield'];
 
-	export const load: Load = async ({ page, fetch }) => {
-		if (oldUrls.includes(page.params.slug)) {
+	export const load: Load = async ({ params, url, fetch }) => {
+		if (oldUrls.includes(params.slug)) {
 			return {
 				status: 301,
-				redirect: `/blog/${page.params.slug}`,
+				redirect: `/blog/${params.slug}`,
 			};
 		}
 
-		const url = `/${page.params.slug}.json`;
-		const res = await fetch(url);
+		const res = await fetch(`/${params.slug}.json`);
 		const posts: Post[] = await res.json();
 
 		if (res.ok && posts.length) {
 			return {
 				props: {
-					title: page.params.slug,
+					title: params.slug,
 					posts: posts.map((project) => ({
 						...project,
 						published: new Date(project.published),
@@ -30,7 +29,7 @@
 
 		return {
 			status: 404,
-			error: new Error(`Not found: ${page.path}`),
+			error: new Error(`Not found: ${url}`),
 		};
 	};
 </script>
