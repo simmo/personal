@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { mapToRange } from '$lib/utils/mapToRange';
 
-	import type { DrawFn } from './Canvas';
-	import { Canvas, Layer, tick } from './Canvas';
+	import { Canvas, type DrawFn, Layer, tick } from './Canvas';
 	import InlineDemo from './InlineDemo.svelte';
 
 	const canvasWidth = 1800;

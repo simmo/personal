@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Layer, tick } from '$lib/components/Canvas';
-	import type { Config } from '$lib/components/Canvas';
+	import { type Config, Layer, tick } from '$lib/components/Canvas';
 	import { random } from '$lib/utils/maths';
 	import { blur } from '$lib/projects/matrix/config';
 

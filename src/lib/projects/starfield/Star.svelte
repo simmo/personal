@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { Layer } from '$lib/components/Canvas';
-	import type { DrawFn } from '$lib/components/Canvas';
+	import { type DrawFn, Layer } from '$lib/components/Canvas';
 	import type { RGB } from './types';
 	import { mapToRange } from '$lib/utils/mapToRange';
 	import { speed } from '$lib/projects/starfield/config';
