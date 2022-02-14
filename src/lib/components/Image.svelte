@@ -3,6 +3,7 @@
 	export let caption: string | undefined = undefined;
 	export let source: string | undefined = undefined;
 	export let src: string;
+	export let loading: 'lazy' | 'eager' = 'lazy';
 </script>
 
 {#if source || caption}
@@ -16,7 +17,7 @@
 		</figcaption>
 	</figure>
 {:else}
-	<img {alt} class="offset" {src} />
+	<img {alt} class="offset" {loading} {src} />
 {/if}
 
 <style>
@@ -33,7 +34,7 @@
 	}
 
 	img {
-		border-radius: var(--space-xxs);
+		border-radius: var(--space-xs);
 		display: block;
 		width: 100%;
 	}

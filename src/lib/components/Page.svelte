@@ -99,7 +99,7 @@
 	}
 
 	.body {
-		row-gap: var(--space-s);
+		row-gap: var(--space-m);
 	}
 
 	.body > :global(h2) {
@@ -130,8 +130,15 @@
 
 	.body > :global(blockquote) {
 		border-left: var(--space-xxs) solid var(--theme-highlight);
+		font-size: 1.2rem;
 		margin: 0;
 		padding-left: var(--space-s);
+	}
+
+	@media screen and (min-width: 30rem) {
+		.body > :global(blockquote) {
+			margin: 0 var(--space-l);
+		}
 	}
 
 	.body > :global(ol) {
