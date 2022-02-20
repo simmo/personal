@@ -114,7 +114,7 @@
 	.body > :global(h4 a),
 	.body > :global(h5 a),
 	.body > :global(h6 a) {
-		color: inherit;
+		background: none;
 	}
 
 	.body > :global(h3) {
