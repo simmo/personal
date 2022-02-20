@@ -4,14 +4,14 @@ heading: Taking the hard path
 description: Is it time to get out of your comfort zone?
 og: { image: /preview/taking-the-hard-path.jpg }
 isPublished: true
-published: 2022-02-14T22:00:00Z
+published: 2022-02-20T23:00:00Z
 ---
 
 <script>
   import Image from '$lib/components/Image.svelte';
 </script>
 
-<Image alt="Coffee cup with the word 'Begin' printed on it" src="/images/begin.jpg" />
+<Image alt="A partially broken wooden bridge" caption="A challenging path" src="/images/wooden-path.jpg" source="https://unsplash.com/@tama66" />
 
 It only seems like yesterday I was [writing about my choice to leave Zone and join DAZN](/blog/next-chapter-zone-dazn).
 
