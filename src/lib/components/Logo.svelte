@@ -2,34 +2,43 @@
 	export let size: number;
 </script>
 
-<svg height={size} width={size} viewBox="0 0 310 357">
-	<g
-		class="base"
-		fill="none"
-		fill-rule="evenodd"
-		stroke="#000"
-		stroke-linejoin="round"
-		stroke-width="30"
-	>
-		<polygon
-			class="leaf"
-			points="230 221.551858 155.001 178.241 155.001 91.62 230 48.31 230 134.93 305 178.240929"
-		/>
-		<polygon
-			class="leaf"
-			points="5 178.240929 80 134.93 80 48.31 155 91.62 154.999 178.241 80 221.551858"
-		/>
-		<polygon
-			class="leaf"
-			points="154.999 264.861 80 308.171858 80.001 221.55 155 178.24 230 221.55 230 308.171858"
-		/>
-		<polygon class="diamond" points="80 48.3109291 155 5 230 48.3109291 155 91.6218582" />
-		<polygon class="diamond" points="5.001 91.62 80 48.31 79.999 134.931 5 178.241858" />
-		<polygon class="diamond" points="230 48.31 305 91.62 305 178.241858 230 134.931858" />
-		<polygon class="diamond" points="230.001 221.55 305 178.24 304.999 264.861 230 308.171858" />
-		<polygon class="diamond" points="80 308.170929 155 264.86 230 308.170929 155 351.481858" />
-		<polygon class="diamond" points="5 264.861858 5 178.24 80 221.55 80 308.171858" />
-	</g>
+<svg width={size} height={size} viewBox="0 0 401 401">
+	<path
+		class="base leaf bottom right"
+		d="M205 203.129L275.017 162.705L340.023 200.228L272.508 239.207C270.962 240.1 270.009 241.751 270.008 243.537L270.001 321.486L204.992 283.961L205 203.129Z"
+	/>
+	<path
+		class="base leaf top"
+		d="M202.508 117.964L270.023 78.9842L270.016 154.044L199.999 194.467L129.992 154.058L129.999 78.9959L197.509 117.964C199.056 118.857 200.961 118.857 202.508 117.964Z"
+	/>
+	<path
+		class="base leaf bottom left"
+		d="M59.9775 200.254L124.994 162.718L195.001 203.127L194.993 283.96L129.977 321.498L129.984 243.551C129.984 241.764 129.031 240.113 127.484 239.22L59.9775 200.254Z"
+	/>
+	<path
+		class="base diamond top right"
+		d="M280.015 154.044L280.022 78.9828L345.031 116.507L345.023 191.569L280.015 154.044Z"
+	/>
+	<path
+		class="base diamond top"
+		d="M135 70.3371L200.017 32.8008L265.023 70.324L200.007 107.86L135 70.3371Z"
+	/>
+	<path
+		class="base diamond bottom right"
+		d="M280 321.485L280.006 246.425L345.023 208.888L345.016 283.947L280 321.485Z"
+	/>
+	<path
+		class="base diamond bottom"
+		d="M134.977 330.158L199.994 292.622L265 330.145L199.984 367.681L134.977 330.158Z"
+	/>
+	<path
+		class="base diamond bottom left"
+		d="M54.9692 283.974L54.9765 208.913L119.985 246.437L119.978 321.499L54.9692 283.974Z"
+	/>
+	<path
+		class="base diamond top left"
+		d="M54.9773 191.594L54.9838 116.534L120 78.9973L119.993 154.057L54.9773 191.594Z"
+	/>
 </svg>
 
 <style>
@@ -51,16 +60,43 @@
 		}
 	}
 
+	@keyframes move {
+		0% {
+			transform: translate(0, 0);
+		}
+
+		100% {
+			transform: translate(var(--x, 0), var(--y, 0));
+		}
+	}
+
 	.base {
-		animation: colours 15s infinite linear alternate;
-		stroke: var(--theme-background-primary);
+		animation: colours 15s infinite linear alternate, move 2s infinite ease-in-out alternate;
 	}
 
 	.leaf {
+		--distance: 2%;
 		opacity: 1;
 	}
 
 	.diamond {
-		opacity: 0.3;
+		--distance: 6%;
+		opacity: 0.4;
+	}
+
+	.top {
+		--y: calc(var(--distance) * -1);
+	}
+
+	.bottom {
+		--y: var(--distance);
+	}
+
+	.right {
+		--x: var(--distance);
+	}
+
+	.left {
+		--x: calc(var(--distance) * -1);
 	}
 </style>
