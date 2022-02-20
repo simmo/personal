@@ -39,4 +39,19 @@
 	main {
 		row-gap: var(--space-xl);
 	}
+
+	main :global(a) {
+		background: linear-gradient(to right, var(--theme-accent), var(--theme-accent)),
+			linear-gradient(to right, var(--color-pink), var(--color-pink));
+		background-size: 100% 3px, 0 3px;
+		background-position: 100% 100%, 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size 400ms;
+	}
+
+	main :global(a):hover,
+	main :global(a):focus {
+		background-size: 0 3px, 100% 3px;
+		color: inherit;
+	}
 </style>
