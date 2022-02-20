@@ -11,7 +11,7 @@ published: 2022-02-20T23:00:00Z
   import Image from '$lib/components/Image.svelte';
 </script>
 
-<Image alt="A partially broken wooden bridge" caption="A challenging path" src="/images/wooden-path.jpg" source="https://unsplash.com/@tama66" />
+<Image alt="A partially broken wooden bridge" aspectRatio="16 / 9" caption="A challenging path" src="/images/wooden-path.jpg" source="https://unsplash.com/@tama66" />
 
 It only seems like yesterday I was [writing about my choice to leave Zone and join DAZN](/blog/next-chapter-zone-dazn).
 
@@ -27,7 +27,7 @@ It reminds me of President Kennedy's speech at Rice University's stadium in Hous
 
 > **We choose** to go to the Moon in this decade and do the other things, **not because they are easy**, but **because they are hard**; because **that goal will serve** to organize and measure **the best of our energies and skills**, because that challenge is one that we are **willing to accept**, one we are **unwilling to postpone**, and one **we intend to win**, and the others, too.
 
-<Image alt="President Kennedy" caption="President Kennedy delivering his &quot;We choose to go to the moon&quot; speech" src="/images/kennedy.jpg" />
+<Image alt="President Kennedy" aspectRatio="16 / 9" caption="President Kennedy delivering his &quot;We choose to go to the moon&quot; speech" src="/images/kennedy.jpg" />
 
 We often just do what's easy - that's not a bad thing. Nobody wants to fail, and that fear of failure can be a genuine hurdle to jump over. So it's only natural to seek comfort and stability in what you know rather than what you don't.
 
@@ -41,4 +41,4 @@ For this reason, I am so glad this job and the new experiences it brings has cha
 
 So, 7 months down, I cannot wait to see how the next year turns out.
 
-<Image alt="Me on the moon" caption="Next stop, the moon!" src="/images/moon.jpg" />
+<Image alt="Me on the moon" aspectRatio="16 / 9" caption="Next stop, the moon!" src="/images/moon.jpg" />
