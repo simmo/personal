@@ -6,8 +6,7 @@
 		"build": "svelte-kit build",
 		"start": "svelte-kit start",
 		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
-		"format": "prettier --write .",
-		"bundlewatch": "bundlewatch"
+		"format": "prettier --write ."
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "next",
@@ -15,7 +14,6 @@
 		"@typescript-eslint/eslint-plugin": "^5.4.0",
 		"@typescript-eslint/parser": "^5.4.0",
 		"autoprefixer": "^10.4.0",
-		"bundlewatch": "^0.3.3",
 		"eslint": "^8.3.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",

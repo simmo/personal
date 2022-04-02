@@ -24,13 +24,13 @@
 	}
 
 	a {
+		background: none;
 		background-color: var(--theme-background-secondary);
 		border-radius: var(--space-xxs);
-		color: inherit;
 		display: grid;
 		gap: var(--space-xs);
 		grid-template-rows: auto auto 1fr auto;
-		font-weight: 300;
+		font-weight: unset;
 		padding: var(--space-m);
 	}
 

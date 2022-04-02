@@ -80,14 +80,6 @@
 	nav li {
 	}
 
-	nav a {
-		color: inherit;
-	}
-
-	nav a:hover {
-		color: var(--theme-accent);
-	}
-
 	.name {
 		color: inherit;
 		line-height: 1;

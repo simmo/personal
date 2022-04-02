@@ -1,13 +1,15 @@
 <script lang="ts">
 	export let alt: string;
+	export let aspectRatio: string;
 	export let caption: string | undefined = undefined;
 	export let source: string | undefined = undefined;
 	export let src: string;
+	export let loading: 'lazy' | 'eager' = 'lazy';
 </script>
 
 {#if source || caption}
 	<figure class="full grid">
-		<img {alt} class="offset" {src} />
+		<img {alt} class="offset" {src} style={`aspect-ratio: ${aspectRatio}`} />
 		<figcaption>
 			{#if caption}{caption}{/if}
 			{#if source}
@@ -16,7 +18,7 @@
 		</figcaption>
 	</figure>
 {:else}
-	<img {alt} class="offset" {src} />
+	<img {alt} class="offset" {loading} {src} />
 {/if}
 
 <style>
@@ -33,6 +35,7 @@
 	}
 
 	img {
+		background-color: var(--theme-background-secondary);
 		border-radius: var(--space-xxs);
 		display: block;
 		width: 100%;

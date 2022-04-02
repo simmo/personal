@@ -60,7 +60,6 @@
 	font-size: 18px;
 	font-weight: 400;
 	line-height: 1.65;
-	scroll-behavior: smooth;
 }
 
 :root[dark] {
@@ -81,7 +80,7 @@
 
 html,
 body {
-	height: 100%;
+	min-height: 100%;
 }
 
 body {
@@ -192,20 +191,19 @@ h6 {
 }
 
 a {
-	color: var(--theme-accent);
+	color: inherit;
 	font-weight: 500;
 	text-decoration: none;
-	transition: text-decoration 0.2s;
+}
+
+a {
+	font-weight: 500;
+	transition: color 0.4s;
 }
 
 a:hover,
 a:focus {
-	text-decoration: underline;
-	text-underline-offset: 0.3em;
-}
-
-p a {
-	font-weight: 500;
+	color: var(--theme-accent);
 }
 
 small {
